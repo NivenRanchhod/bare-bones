@@ -22,6 +22,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("js");
 
   eleventyConfig.addPlugin(syntaxHighlight);
+
+  return {
+    pathPrefix: "/bare-bones/"
+  }
 };
 
 function extractExcerpt(article) {
