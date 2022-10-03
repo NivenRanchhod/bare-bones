@@ -1,0 +1,40 @@
+---
+layout: base-layout.njk
+---
+<article class="main-article">
+  <h1 class="stagger">{{ title }}</h1>
+  
+  <p class="date stagger"><i class="fa-solid fa-calendar-days"></i> <time datetime="{{ date | postDate }}">{{ date | postDate }}</time></p>
+  
+  {{ content | safe }}
+</article>
+
+{% include 'newsletter.njk' %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bare-bones.dev/blog/uber-email-receipt-vs-outlook/"
+  },
+  "headline": "{{ title }}",
+  "description": "{{ description }}",
+  "image": "https://bare-bones.dev/images/bare-bones.png",
+  "author": {
+    "@type": "Person",
+    "name": "Niven Ranchhod",
+    "url": "https://bare-bones.dev"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bare Bones",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://bare-bones.dev/images/bare-bones.png"
+    }
+  },
+  "datePublished": "{{ page.date }}"
+}
+</script>

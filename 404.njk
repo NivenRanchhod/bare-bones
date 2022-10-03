@@ -1,0 +1,97 @@
+---
+layout: base-layout.njk
+permalink: /404.html
+
+title: Oops! Not Found
+---
+<div class="not-found">
+    <section class="intro">
+        <img class="stagger icon" src="/images/bare-bones-404.png" alt="" />
+
+        <h1 class="stagger">Oopsie, you made a <span class="highlight">poopsie!</span></h1>
+
+        <h2 class="stagger">Unfortunately that page doesn't exist on my website... Or maybe it does and I've forgotten where I left it 🤔</h2>
+        <br>
+        <br>
+        <p class="stagger"><strong>Why don't you hang out and take a look around.</strong><br>
+        To get you started, below is some of my recent work...</p>
+    </section>
+    
+    <section class="written" id="written">
+        <h2 class="scroll-transition"><span class="highlight">Written... </span></h2>
+
+        <div class="row">
+            <p class="scroll-transition">A few of my latest write-ups from across the internet.</p>
+
+            <a class="arrow-link scroll-transition" href="/blog">View all posts <i class="fa-solid fa-arrow-right-long"></i></a>
+        </div>
+
+        <div class="cards">
+            {% for post in collections.post | reverse %}
+            {% if loop.index0 < 5 %}
+                <article class="card scroll-transition">
+                <a href="{{ post.url | url }}">
+                    <div class="row">
+                    {%- if source != '' -%}
+                        <i class="fa-brands fa-{{ post.data.source }}"></i>
+                    {%- endif -%}
+
+                    <time datetime="{{ post.date | postDate }}">{{ post.date | postDate }}</time>
+                    </div>
+
+                    <div class="title-container">
+                    <h3 id="post-title">{{ post.data.title }}</h3>
+                    </div>
+
+                    <div class="excerpt-container">{{ post.data.description }}</div>
+
+                    <span class="arrow-link" aria-labelledby="post-title">Read post <i class="fa-solid fa-arrow-right-long"></i></span>
+                </a>
+                </article>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="coded" id="coded">
+        <h2 class="scroll-transition"><span class="highlight">Coded... </span></h2>
+
+        <div class="row">
+            <p class="scroll-transition">My latest experiments, tutorials and other attempts to look smart.</p>
+
+            <a class="arrow-link scroll-transition" href="/blog">View all code examples <i class="fa-solid fa-arrow-right-long"></i></a>
+        </div>
+
+        <div class="cards">
+            {% for post in collections.code | reverse %}
+            {% if loop.index0 < 5 %}
+                <article class="card scroll-transition">
+                <a href="
+                {% if post.data.permalink == false %}
+                    {{ post.data.eleventyNavigation.url }}
+                {% else %}
+                    {{ post.url | url }}
+                {% endif %}
+                " target="_blank">
+                    <div class="row">
+                    {%- if source === codepen -%}
+                        <i class="fa-brands fa-codepen"></i>
+                    {%- endif -%}
+
+                    <time datetime="{{ post.date | postDate }}">{{ post.date | postDate }}</time>
+                    </div>
+
+                    <div class="title-container">
+                    <h3 id="post-title">{{ post.data.title }}</h3>
+                    </div>
+
+                    <div class="excerpt-container">{{ post.data.description }}</div>
+
+                    <span class="arrow-link" aria-labelledby="post-title">Read post <i class="fa-solid fa-arrow-right-long"></i></span>
+                </a>
+                </article>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+</div>

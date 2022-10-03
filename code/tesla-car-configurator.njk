@@ -1,0 +1,1276 @@
+---
+title: Tesla Car Configurator - Interactive Email Experiment
+description: The code behind my interactive Tesla Car Configurator email experiment.
+date: 2021-05-13
+tags: code
+---
+
+<!doctype html>
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<!--
+
+//  Another Bare Bones email experiment
+//
+//   ________  ________  ________  _______           ________  ________  ________   _______   ________      
+//  |\   __  \|\   __  \|\   __  \|\  ___ \         |\   __  \|\   __  \|\   ___  \|\  ___ \ |\   ____\     
+//  \ \  \|\ /\ \  \|\  \ \  \|\  \ \   __/|        \ \  \|\ /\ \  \|\  \ \  \\ \  \ \   __/|\ \  \___|_    
+//   \ \   __  \ \   __  \ \   _  _\ \  \_|/__       \ \   __  \ \  \\\  \ \  \\ \  \ \  \_|/_\ \_____  \   
+//    \ \  \|\  \ \  \ \  \ \  \\  \\ \  \_|\ \       \ \  \|\  \ \  \\\  \ \  \\ \  \ \  \_|\ \|____|\  \  
+//     \ \_______\ \__\ \__\ \__\\ _\\ \_______\       \ \_______\ \_______\ \__\\ \__\ \_______\____\_\  \ 
+//      \|_______|\|__|\|__|\|__|\|__|\|_______|        \|_______|\|_______|\|__| \|__|\|_______|\_________\
+//                                                                                              \|_________|
+//
+//                                                                                          Code tutorials <
+//                                                                                        Design teardowns <
+//                                                        Semi-intelligible ramblings on email development <
+//                                                                                          >> Bare-Bones.dev
+//                                                                                                          
+
+-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+    <!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]-->
+    
+    <!--[if (gte mso 9)|(IE)]>
+    <style type="text/css">
+    table {
+        border-collapse:collapse !important;
+        mso-table-lspace:0pt!important;
+        mso-table-rspace:0pt!important;
+    }
+    h1,h2,h3,h4,h5,h6,p,a,span,td,strong,li {
+        font-family:Arial,Helvetica,Verdana,sans-serif !important;
+    }
+    </style>
+    <![endif]-->
+    
+    
+	<style id="montserrat-font" type="text/css">
+		/* cyrillic-ext */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:400;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTUSjIg1_i6t8kCHKm459WRhyzbi.woff2) format('woff2');
+		  unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+		}
+		/* cyrillic */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:400;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTUSjIg1_i6t8kCHKm459W1hyzbi.woff2) format('woff2');
+		  unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+		}
+		/* vietnamese */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:400;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTUSjIg1_i6t8kCHKm459WZhyzbi.woff2) format('woff2');
+		  unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+		}
+		/* latin-ext */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:400;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTUSjIg1_i6t8kCHKm459Wdhyzbi.woff2) format('woff2');
+		  unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+		}
+		/* latin */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight: 400;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format('woff2');
+		  unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+		/* cyrillic-ext */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:600;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_ZpC3gTD_u50.woff2) format('woff2');
+		  unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+		}
+		/* cyrillic */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:600;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_ZpC3g3D_u50.woff2) format('woff2');
+		  unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+		}
+		/* vietnamese */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:600;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_ZpC3gbD_u50.woff2) format('woff2');
+		  unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+		}
+		/* latin-ext */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:600;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_ZpC3gfD_u50.woff2) format('woff2');
+		  unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+		}
+		/* latin */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:600;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_ZpC3gnD_g.woff2) format('woff2');
+		  unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+		/* cyrillic-ext */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:600;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_bZF3gTD_u50.woff2) format('woff2');
+		  unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+		}
+		/* cyrillic */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:600;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_bZF3g3D_u50.woff2) format('woff2');
+		  unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+		}
+		/* vietnamese */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:600;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_bZF3gbD_u50.woff2) format('woff2');
+		  unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+		}
+		/* latin-ext */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:600;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_bZF3gfD_u50.woff2) format('woff2');
+		  unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+		}
+		/* latin */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:600;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_bZF3gnD_g.woff2) format('woff2');
+		  unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+		/* cyrillic-ext */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:700;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_dJE3gTD_u50.woff2) format('woff2');
+		  unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+		}
+		/* cyrillic */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:700;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_dJE3g3D_u50.woff2) format('woff2');
+		  unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+		}
+		/* vietnamese */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:700;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_dJE3gbD_u50.woff2) format('woff2');
+		  unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+		}
+		/* latin-ext */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:700;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_dJE3gfD_u50.woff2) format('woff2');
+		  unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+		}
+		/* latin */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:700;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_dJE3gnD_g.woff2) format('woff2');
+		  unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+		/* cyrillic-ext */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:900;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_epG3gTD_u50.woff2) format('woff2');
+		  unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+		}
+		/* cyrillic */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:900;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_epG3g3D_u50.woff2) format('woff2');
+		  unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+		}
+		/* vietnamese */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:900;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_epG3gbD_u50.woff2) format('woff2');
+		  unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+		}
+		/* latin-ext */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:900;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_epG3gfD_u50.woff2) format('woff2');
+		  unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+		}
+		/* latin */
+		@font-face {
+		  font-family:'Montserrat';
+		  font-style:normal;
+		  font-weight:900;
+		  src:url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_epG3gnD_g.woff2) format('woff2');
+		  unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+	</style>
+	  
+	<!-- RESETS  -->
+	<style type="text/css">
+        body, table, td, a { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+	    table, td{ mso-table-lspace:0pt; mso-table-rspace:0pt; }
+	    img{ -ms-interpolation-mode:bicubic; }
+        
+        img { border:0; height:auto; line-height:100%; outline:none; text-decoration:none; }
+        table, table td { border-collapse:collapse!important; }
+        body { height:100%!important; margin:0!important; padding:0!important; width:100%!important; }
+    
+        a[x-apple-data-detectors=true]{ color:inherit !important;text-decoration:none !important; font-size:inherit!important; font-family:inherit!important; font-weight:inherit!important; line-height:inherit!important; }
+        u + #body a { color:inherit; text-decoration:none; font-size:inherit; font-family:inherit; font-weight:inherit; line-height:inherit; }
+        #MessageViewBody { color:inherit; text-decoration:none; font-size:inherit; font-family:inherit; font-weight:inherit; line-height:inherit; }
+		
+		.button { transition:0.2s all linear; }
+		.button:hover { color:#fff!important; background:#171a20!important; }
+		
+		label { cursor:pointer; }
+		@-webkit-keyframes bounce-up { 
+			0%, 20%, 50%, 80%, 100% { -webkit-transform:translateY(0); }
+			40% { -webkit-transform:translateY(-5px); }
+			60% { -webkit-transform:translateY(-3px); }
+		}
+		@keyframes bounce-up { 
+			0%, 20%, 50%, 80%, 100% { transform:translateY(0); }
+			40% { transform:translateY(-5px); }
+			60% { transform:translateY(-3px); }
+		}
+		
+		@-webkit-keyframes bounce-down { 
+			0%, 20%, 50%, 80%, 100% { -webkit-transform:translateY(0); }
+			40% { -webkit-transform:translateY(5px); }
+			60% { -webkit-transform:translateY(3px); }
+		}
+		@keyframes bounce-down { 
+			0%, 20%, 50%, 80%, 100% { transform:translateY(0); }
+			40% { transform:translateY(5px); }
+			60% { transform:translateY(3px); }
+		}
+		
+		@-webkit-keyframes fade-in-title { 
+			from { -webkit-transform:translateY(20px); transform:translateY(20px); opacity:0; } 
+			to { -webkit-transform:translateY(0); transform:translateY(0); opacity:1; } 
+		}
+		@keyframes fade-in-title { 
+			from { -webkit-transform:translateY(20px); transform:translateY(20px); opacity:0; } 
+			to { -webkit-transform:translateY(0); transform:translateY(0); opacity:1; } 
+		}
+		
+		@-webkit-keyframes fade-in-subtitle { 
+			from { -webkit-transform:translateY(30px); transform:translateY(30px); opacity:0; } 
+			to { -webkit-transform:translateY(0); transform:translateY(0); opacity:1; } 
+		}
+		@keyframes fade-in-subtitle { 
+			from { -webkit-transform:translateY(30px); transform:translateY(30px); opacity:0; } 
+			to { -webkit-transform:translateY(0); transform:translateY(0); opacity:1; } 
+		}
+		
+		/* TECH */
+		.tech-check:checked ~ .fallback, #MessageViewBody .tech-check:checked ~ .tech { display:none!important; width:0!important; height:0!important; max-height:0!important; line-height:0!important; opacity:0!important; overflow:hidden!important; font-size:0!important; }
+		.tech-check:checked ~ .tech, #MessageViewBody .tech-check:checked ~ .fallback { display:block!important; width:100%!important; height:auto!important; max-height:none!important; line-height:100%!important; opacity:1!important; overflow:hidden!important; font-size:inherit!important; max-width:none!important; visibility:visible!important; }
+		
+		.& .tech-check:checked ~ .& .tech { display:none!important; width:0!important; height:0!important; max-height:0!important; line-height:0!important; opacity:0!important; overflow:hidden!important; font-size:0!important; }
+		.& .tech-check:checked ~ .& .fallback { display:block!important; width:100%!important; height:auto!important; max-height:none!important; line-height:100%!important; opacity:1!important; overflow:hidden!important; font-size:inherit!important; max-width:none!important; visibility:visible!important; }
+	</style>
+	
+	<!-- MQs -->
+	<style type="text/css">
+		@media only screen and (max-width:940px) {
+			.title { font-size:19vw!important; line-height:1!important; }
+		}
+		
+		@media only screen and (max-width:900px) {
+			.device-width { width:100%!important; padding:0; min-width:100%!important; }
+			.device-width-padding { width:90%!important; padding:0; min-width:90%!important; }
+			
+			.logo-padding { padding:35px 0!important; }
+		}
+		
+		@media only screen and (max-width:800px) {
+			.title-wrapper { top:-10px!important; }
+			.showroom-options { width:100%!important; }
+			.calc-wheels { width:150px!important; }
+		}
+		
+		@media only screen and (max-width:600px) {
+			.showroom-angles { padding-top:25px!important; }
+			.title { font-size:18vw!important; }
+			.angle-padding { padding-top:40px!important; }
+		}
+		
+		@media only screen and (max-width:480px) {
+			.showroom-angles { padding-top:25px!important; }
+			.title-wrapper { top:0!important; }
+			.title { font-size:17vw!important; }
+		}
+		
+		@media only screen and (max-width:450px) {
+			.model-block { width:50%!important; margin:0!important; }
+		}
+		
+		@media only screen and (max-width:390px) {
+			.ml0 { margin-left:0!important; }
+		}
+		
+		@media only screen and (max-width:360px) {
+			.range-calc-bg img { width:280px!important; }
+			.showroom-angles { padding-top:20px!important; }
+			.showroom-option { width:100%!important; }
+			.wheelsWrapper { width:222px!important; }
+			.car-body .car-wheels { bottom:4px!important; }
+			.wheelsPadding > .wheels, .wheelsPadding > .wheels .wheel { width:42px!important; }
+		}
+	</style>
+	
+	<!-- DARKMODE -->
+	<style type="text/css">
+		[data-ogsc] .go-dark-bg, [data-ogsc] #footerContainer, [data-ogsc] .ql-container { background-color:#1e1e1e!important; }
+		[data-ogsb] .go-dark-bg, [data-ogsb] #footerContainer, [data-ogsb] .ql-container { background-color:#1e1e1e!important; }
+		
+		@media (prefers-color-scheme:dark) {
+			.go-light { color:#ffffff!important; }
+			#footerContainer p, #footerContainer p strong, #footerContainer p span, #footerContainer p a { color:#ffffff!important; }
+			.ql-container p, .ql-container p strong, .ql-container p span, .ql-container p a { color:#ffffff!important; }
+			.go-dark { color:#1a1a1a!important; }
+			.go-dark-bg, #footerContainer, .ql-container { background:#1e1e1e!important; }
+			
+			.border-dark { border-color:#000!important; }
+			.settings-box { box-shadow:0 10px 30px 0 rgba(255,255,255,0.25); }
+			.button { border-color:#fff!important; background:#1e1e1e!important; color:#fff!important; }
+			.button:hover { color:#1e1e1e!important; background:#fff!important; }
+			.settings-box { box-shadow: 0 3px 30px 0 rgba(255,255,255,0.15)!important; }
+		}
+	</style><!---->
+	
+	<link href="/experiment-assets/tesla-configurator/tesla-range-calc-styles.css" rel="stylesheet" type="text/css">
+	<title>TESLA - Interactive Configurator & Range Calculator</title>
+</head>
+<body id="body" class="go-dark-bg" style="margin:0; padding:0; background-color:#FFFFFF;">
+<div role="article" aria-roledescription="email" aria-label="TESLA - Interactive Configurator & Range Calculator" lang="en">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation">
+    <tr>
+        <td align="center">
+            <div class="preheader" style="font-size:1px; display:none!important; line-height:1px; mso-hide:all">&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj; &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj; &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj; &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj; &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj; &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj; &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj; &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</div>
+
+			<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="showroom device-width" style="width:100%; max-width:940px;">
+				<tr>
+					<td style="padding:0 20px 0 20px;">
+						<table role="presentation" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+							<tr>
+								<td align="left" class="logo-padding border-dark" style="padding:35px 50px;">
+									<table border="0" cellpadding="0" cellspacing="0" role="presentation">
+										<tr>
+											<td>
+												<a href="https://www.tesla.com/models" style="text-decoration:none; color:#000000;" target="_blank"><img class="on-load" alt="TESLA" border="0" src="/experiment-assets/tesla-configurator/tesla-logo-black.png" width="90" style="width:90px; max-width:100%; display:block; font-family:'Montserrat', Helvetica, Arial, sans-serif; color:#000000; font-size:18px; line-height:23px; text-align:center; font-weight:700; letter-spacing:7px;" /></a>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+			
+						<!--[if !mso]><!-- -->
+						<form action="#" style="margin:0 !important">
+						<input class="tech-check" name="tech-check" type="radio" style="display:none!important" checked />
+						<!--<![endif]-->
+
+							<!-- CAROUSEL -->
+							<div class="tech" style="display:none; max-height:0; overflow:hidden;">
+							<!--[if !mso]><!-- -->
+								<!-- ANGLES -->
+								<input name="angle" type="radio" id="front" style="display:none;" checked />
+								<input name="angle" type="radio" id="side" style="display:none;" />
+								<input name="angle" type="radio" id="rear" style="display:none;" />
+
+								<!-- COLOURS -->
+								<input name="colour" type="radio" id="white" checked style="display:none;" />
+								<input name="colour" type="radio" id="black" style="display:none;" />
+								<input name="colour" type="radio" id="silver" style="display:none;" />
+								<input name="colour" type="radio" id="blue" style="display:none;" />
+								<input name="colour" type="radio" id="red" style="display:none;" />
+
+								<!-- SPEED -->
+								<input name="speed" type="radio" id="speed-top" style="display:none;" disabled />
+								<input name="speed" type="radio" id="speed-70-up" style="display:none;" />
+								<input name="speed" type="radio" id="speed-65-up" style="display:none;" />
+								<input name="speed" type="radio" id="speed-60-up" style="display:none;" />
+								<input name="speed" type="radio" id="speed-55-up" style="display:none;" checked />
+								<input name="speed" type="radio" id="speed-50-up" style="display:none;" />
+								<input name="speed" type="radio" id="speed-65-down" style="display:none;" />
+								<input name="speed" type="radio" id="speed-60-down" style="display:none;" />
+								<input name="speed" type="radio" id="speed-55-down" style="display:none;" />
+								<input name="speed" type="radio" id="speed-50-down" style="display:none;" />
+								<input name="speed" type="radio" id="speed-45-down" style="display:none;" />
+								<input name="speed" type="radio" id="speed-bottom" style="display:none;" disabled />
+
+								<!-- TEMP -->
+								<input name="temp" type="radio" id="temp-top" style="display:none;" disabled />
+								<input name="temp" type="radio" id="temp-40-up" style="display:none;" />
+								<input name="temp" type="radio" id="temp-30-up" style="display:none;" />
+								<input name="temp" type="radio" id="temp-20-up" style="display:none;" checked />
+								<input name="temp" type="radio" id="temp-10-up" style="display:none;" />
+								<input name="temp" type="radio" id="temp-0-up" style="display:none;" />
+								<input name="temp" type="radio" id="temp-30-down" style="display:none;" />
+								<input name="temp" type="radio" id="temp-20-down" style="display:none;" />
+								<input name="temp" type="radio" id="temp-10-down" style="display:none;" />
+								<input name="temp" type="radio" id="temp-0-down" style="display:none;" />
+								<input name="temp" type="radio" id="temp--10-down" style="display:none;" />
+								<input name="temp" type="radio" id="temp-bottom" style="display:none;" disabled />
+
+								<!-- TEMP CONTROL -->
+								<input name="temp-control" type="checkbox" id="temp-control" style="display:none;" checked />
+
+								<!-- WHEELS -->
+								<input name="wheel" type="radio" id="wheel-19" checked style="display:none;" />
+								<input name="wheel" type="radio" id="wheel-21" style="display:none;" />
+
+								<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="showroom" style="width:100%; ">
+									<tr>
+										<td>
+											<table role="presentation" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+												<tr>
+													<td align="center" style="padding-bottom:15px; border-bottom:1px solid #dfdfdf;">
+														<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+															<tr>
+																<td>
+																	<div class="showroom-angles on-load">
+																		<div class="title-wrapper on-load" style="width:100%;">
+																			<table role="presentation" border="0" cellpadding="0" cellspacing="0" style="font-family:'Montserrat', Helvetica, Arial, sans-serif; color:#eeeeee; text-transform:uppercase; text-align:center; width:100%;">
+																				<tr>
+																					<td>
+																						<h2 class="title on-load" style="margin:0; font-size:180px; line-height:180px; font-weight:900;">Model S</h2>
+																					</td>
+																				</tr>
+																			</table>
+																		</div>
+																		<!-- WHITE PREVIEW --->
+																	<div class="showroom-angle white-19">
+																	  <div class="front-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/white-front-19.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	  <div class="side-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/white-side-19.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	  <div class="rear-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/white-rear-19.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	</div>
+																	<div class="showroom-angle white-21">
+																	  <div class="front-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/white-front-21.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	  <div class="side-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/white-side-21.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	  <div class="rear-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/white-rear-21.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	</div>
+																	<!-- /WHITE PREVIEW --->
+																	<!-- BLACK PREVIEW --->
+																	<div class="showroom-angle black-19">
+																	  <div class="front-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/black-front-19.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	  <div class="side-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/black-side-19.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	  <div class="rear-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/black-rear-19.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	</div>
+																	<div class="showroom-angle black-21">
+																	  <div class="front-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/black-front-21.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	  <div class="side-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/black-side-21.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	  <div class="rear-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/black-rear-21.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	</div>
+																	<!-- /BLACK PREVIEW --->
+																	<!-- SILVER PREVIEW --->
+																	<div class="showroom-angle silver-19">
+																	  <div class="front-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/silver-front-19.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	  <div class="side-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/silver-side-19.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	  <div class="rear-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/silver-rear-19.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	</div>
+																	<div class="showroom-angle silver-21">
+																	  <div class="front-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/silver-front-21.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	  <div class="side-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/silver-side-21.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	  <div class="rear-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/silver-rear-21.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	</div>
+																	<!-- /SILVER PREVIEW --->
+																	<!-- BLUE PREVIEW --->
+																	<div class="showroom-angle blue-19">
+																	  <div class="front-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/blue-front-19.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	  <div class="side-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/blue-side-19.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	  <div class="rear-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/blue-rear-19.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	</div>
+																	<div class="showroom-angle blue-21">
+																	  <div class="front-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/blue-front-21.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	  <div class="side-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/blue-side-21.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	  <div class="rear-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/blue-rear-21.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	</div>
+																	<!-- /BLUE PREVIEW --->
+																	<!-- RED PREVIEW --->
+																	<div class="showroom-angle red-19">
+																	  <div class="front-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/red-front-19.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	  <div class="side-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/red-side-19.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	  <div class="rear-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/red-rear-19.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	</div>
+																	<div class="showroom-angle red-21">
+																	  <div class="front-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/red-front-21.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	  <div class="side-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/red-side-21.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	  <div class="rear-wrapper">
+																		<img class="device-width angle" alt="" border="0" src="/experiment-assets/tesla-configurator/red-rear-21.png" width="900" style="width:900px; max-width:100%; display:block;">
+																	  </div>
+																	</div>
+																	<!-- /RED PREVIEW --->
+																  </div>
+																</td>
+															</tr>
+															<tr>
+																<td class="angle-padding" style="padding-top:20px;">
+																	<table align="right" role="presentation" cellspacing="0" cellpadding="0" border="0">
+																		<tr>
+																			<td align="center">
+																				<div class="on-load">
+																				  <!-- WHITE THUMBNAILS --->
+																				  <div class="showroom-angle white-19">
+																					<div class="front-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="front" class="view front" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/white-front-19.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																					<div class="side-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="side" class="view side" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/white-side-19.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																					<div class="rear-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="rear" class="view rear" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/white-rear-19.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																				  </div>
+																				  <div class="showroom-angle white-21">
+																					<div class="front-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="front" class="view front" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/white-front-21.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																					<div class="side-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="side" class="view side" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/white-side-21.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																					<div class="rear-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="rear" class="view rear" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/white-rear-21.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																				  </div>
+																				  <!-- /WHITE THUMBNAILS --->
+																				  <!-- BLACK THUMBNAILS --->
+																				  <div class="showroom-angle black-19">
+																					<div class="front-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="front" class="view front" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/black-front-19.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																					<div class="side-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="side" class="view side" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/black-side-19.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																					<div class="rear-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="rear" class="view rear" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/black-rear-19.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																				  </div>
+																				  <div class="showroom-angle black-21">
+																					<div class="front-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="front" class="view front" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/black-front-21.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																					<div class="side-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="front" class="view front" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/black-side-21.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																					<div class="rear-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="front" class="view front" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/black-rear-21.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																				  </div>
+																				  <!-- /BLACK THUMBNAILS --->
+																				  <!-- SILVER THUMBNAILS --->
+																				  <div class="showroom-angle silver-19">
+																					<div class="front-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="front" class="view front" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/silver-front-19.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																					<div class="side-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="side" class="view side" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/silver-side-19.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																					<div class="rear-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="rear" class="view rear" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/silver-rear-19.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																				  </div>
+																				  <div class="showroom-angle silver-21">
+																					<div class="front-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="front" class="view front" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/silver-front-21.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																					<div class="side-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="side" class="view side" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/silver-side-21.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																					<div class="rear-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="rear" class="view rear" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/silver-rear-21.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																				  </div>
+																				  <!-- /SILVER THUMBNAILS --->
+																				  <!-- BLUE THUMBNAILS --->
+																				  <div class="showroom-angle blue-19">
+																					<div class="front-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="front" class="view front" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/blue-front-19.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																					<div class="side-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="side" class="view side" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/blue-side-19.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																					<div class="rear-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="rear" class="view rear" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/blue-rear-19.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																				  </div>
+																				  <div class="showroom-angle blue-21">
+																					<div class="front-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="front" class="view front" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/blue-front-21.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																					<div class="side-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="side" class="view side" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/blue-side-21.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																					<div class="rear-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="rear" class="view rear" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/blue-rear-21.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																				  </div>
+																				  <!-- /BLUE THUMBNAILS --->
+																				  <!-- RED THUMBNAILS --->
+																				  <div class="showroom-angle red-19">
+																					<div class="front-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="front" class="view front" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/red-front-19.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																					<div class="side-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="side" class="view side" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/red-side-19.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																					<div class="rear-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="rear" class="view rear" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/red-rear-19.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																				  </div>
+																				  <div class="showroom-angle red-21">
+																					<div class="front-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="front" class="view front" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/red-front-21.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																					<div class="side-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="side" class="view side" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/red-side-21.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																					<div class="rear-thumb-wrapper" style="display:inline-block;padding:0 5px 10px 0;">
+																					  <label for="rear" class="view rear" style="opacity:0.2;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/red-rear-21.png" width="100" style="width:100px; max-width:100%; display:block;"></label>
+																					</div>
+																				  </div>
+																				  <!-- /RED THUMBNAILS --->
+																				</div>
+																			</td>
+																		</tr>
+																	</table>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+
+											<table role="presentation" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+												<tr>
+													<td align="center" style="padding:30px 0 0 0; font-size:0;">
+														<div class="showroom-options on-load" style="display:inline-block; width:60%;">
+															<table border="0" cellpadding="0" cellspacing="0" class="showroom-option" style="width:305px;">
+																<tr>
+																	<td style="font-family:'Montserrat', Helvetica, Arial, sans-serif; color:#222222; text-align:left;">
+																		<h4 class="subtitle go-light" style="margin:0; font-size:20px; line-height:25px; font-weight:600;">Select Colour</h4>
+																	</td>
+																</tr>
+																<tr>
+																	<td style="padding:10px 0 40px 0;">
+																		<table align="left" role="presentation" cellspacing="0" cellpadding="0" border="0">
+																			<tr>
+																				<td align="left">
+																					<div class="colour-swatch white" style="display:inline-block; padding:0 5px 10px 0;">
+																						<label for="white" class="colour" style="display:block; padding:4px; border-radius:100%; border:2px solid transparent;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/swatch-white.png" width="45" style="width:45px; max-width:100%; display:block; box-shadow:0px 1px 1px #868686; border-radius:100%;" /></label>
+																					</div>
+																					<div class="colour-swatch black" style="display:inline-block; padding:0 5px 10px 0;">
+																						<label for="black" class="colour" style="display:block; padding:4px; border-radius:100%; border:2px solid transparent;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/swatch-black.png" width="45" style="width:45px; max-width:100%; display:block; box-shadow:0px 1px 1px #868686; border-radius:100%;" /></label>
+																					</div>
+																					<div class="colour-swatch silver" style="display:inline-block; padding:0 5px 10px 0;">
+																						<label for="silver" class="colour" style="display:block; padding:4px; border-radius:100%; border:2px solid transparent;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/swatch-silver.png" width="45" style="width:45px; max-width:100%; display:block; box-shadow:0px 1px 1px #868686; border-radius:100%;" /></label>
+																					</div>
+																					<div class="colour-swatch blue" style="display:inline-block; padding:0 5px 10px 0;">
+																						<label for="blue" class="colour" style="display:block; padding:4px; border-radius:100%; border:2px solid transparent;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/swatch-blue.png" width="45" style="width:45px; max-width:100%; display:block; box-shadow:0px 1px 1px #868686; border-radius:100%;" /></label>
+																					</div>
+																					<div class="colour-swatch red" style="display:inline-block; padding:0 0 10px 0;">
+																						<label for="red" class="colour" style="display:block; padding:4px; border-radius:100%; border:2px solid transparent;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/swatch-red.png" width="45" style="width:45px; max-width:100%; display:block; box-shadow:0px 1px 1px #868686; border-radius:100%;" /></label>
+																					</div>
+																					<div class="colour-name go-light" style="display:block;"></div>
+																				</td>
+																			</tr>
+																		</table>
+																	</td>
+																</tr>
+															</table>
+														</div>
+
+														<div class="showroom-options on-load" style="display:inline-block; width:40%;">
+															<table border="0" cellpadding="0" cellspacing="0" class="showroom-option" style="width:305px;">
+																<tr>
+																	<td style="font-family:'Montserrat', Helvetica, Arial, sans-serif; color:#222222; text-align:left;">
+																		<h4 class="subtitle go-light" style="margin:0; font-size:20px; line-height:25px; font-weight:600;">Select Wheels <img alt="" border="0" src="/experiment-assets/tesla-configurator/bolt.png" style="width:8px; display:inline-block; margin-bottom:5px;" /></h4>
+																	</td>
+																</tr>
+																<tr>
+																	<td style="padding:10px 0 40px 0;">
+																		<table align="left" role="presentation" cellspacing="0" cellpadding="0" border="0">
+																			<tr>
+																				<td align="left">
+																					<div class="wheels wheel-19" style="display:inline-block; padding:0 5px 10px 0;">
+																						<label for="wheel-19" class="colour" style="display:block; padding:4px; border-radius:100%; border:2px solid transparent;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/wheel-option-19.png" width="45" style="width:45px; max-width:100%; display:block; box-shadow:0px 1px 1px #868686; border-radius:100%;" /></label>
+																					</div>
+																					<div class="wheels wheel-21" style="display:inline-block; padding:0 5px 10px 0;">
+																						<label for="wheel-21" class="colour" style="display:block; padding:4px; border-radius:100%; border:2px solid transparent;"><img alt="" border="0" src="/experiment-assets/tesla-configurator/wheel-option-21.png" width="45" style="width:45px; max-width:100%; display:block; box-shadow:0px 1px 1px #868686; border-radius:100%;" /></label>
+																					</div>
+																					<div class="wheel-name go-light" style="display:block;"></div>
+																				</td>
+																			</tr>
+																		</table>
+																	</td>
+																</tr>
+															</table>
+														</div>
+													</td>
+												</tr>
+											</table>
+
+											<table role="presentation" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+												<tr>
+													<td align="center">
+														<div class="on-load car-body">
+															<!-- WHITE --->
+															<div class="range-calc-bg range-calc-white-19">
+																<img alt="" border="0" src="/experiment-assets/tesla-configurator/white-19-bg.png" style="width:320px; display:block;" />
+															</div>
+															<div class="range-calc-bg range-calc-white-21">
+																<img alt="" border="0" src="/experiment-assets/tesla-configurator/white-21-bg.png" style="width:320px; display:block;" />
+															</div>
+															<!-- /WHITE --->
+
+															<!-- BLACK --->
+															<div class="range-calc-bg range-calc-black-19">
+																<img alt="" border="0" src="/experiment-assets/tesla-configurator/black-19-bg.png" style="width:320px; display:block;" />
+															</div>
+															<div class="range-calc-bg range-calc-black-21">
+																<img alt="" border="0" src="/experiment-assets/tesla-configurator/black-21-bg.png" style="width:320px; display:block;" />
+															</div>
+															<!-- /BLACK --->
+
+															<!-- SILVER --->
+															<div class="range-calc-bg range-calc-silver-19">
+																<img alt="" border="0" src="/experiment-assets/tesla-configurator/silver-19-bg.png" style="width:320px; display:block;" />
+															</div>
+															<div class="range-calc-bg range-calc-silver-21">
+																<img alt="" border="0" src="/experiment-assets/tesla-configurator/silver-21-bg.png" style="width:320px; display:block;" />
+															</div>
+															<!-- /SILVER --->
+
+															<!-- SILVER --->
+															<div class="range-calc-bg range-calc-blue-19">
+																<img alt="" border="0" src="/experiment-assets/tesla-configurator/blue-19-bg.png" style="width:320px; display:block;" />
+															</div>
+															<div class="range-calc-bg range-calc-blue-21">
+																<img alt="" border="0" src="/experiment-assets/tesla-configurator/blue-21-bg.png" style="width:320px; display:block;" />
+															</div>
+															<!-- /SILVER --->
+
+															<!-- RED --->
+															<div class="range-calc-bg range-calc-red-19">
+																<img alt="" border="0" src="/experiment-assets/tesla-configurator/red-19-bg.png" style="width:320px; display:block;" />
+															</div>
+															<div class="range-calc-bg range-calc-red-21">
+																<img alt="" border="0" src="/experiment-assets/tesla-configurator/red-21-bg.png" style="width:320px; display:block;" />
+															</div>
+															<!-- /RED --->
+
+															<div class="on-load car-wheels">
+																<table role="presentation" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+																	<tr>
+																		<td align="center">
+																			<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="wheelsWrapper" style="width:253px;">
+																				<tr>
+																					<td class="wheelsPadding">
+																						<table align="left" border="0" cellpadding="0" cellspacing="0" class="wheels" style="width:49px;">
+																							<tr>
+																								<td class="wheel1Padding" align="left">
+																									<div class="wheel-19-wrapper on-load">
+																										<img class="wheel wheel-19" alt="" border="0" src="/experiment-assets/tesla-configurator/wheel-19.png" style="display:block; width:49px;" />
+																									</div>
+																									<div class="wheel-21-wrapper on-load" style="display:none;">
+																										<img class="wheel wheel-21" alt="" border="0" src="/experiment-assets/tesla-configurator/wheel-21.png" style="display:block; width:49px;" />
+																									</div>
+																								</td>
+																							</tr>
+																						</table>
+
+																						<table align="right" border="0" cellpadding="0" cellspacing="0" class="wheels" style="width:49px;">
+																							<tr>
+																								<td align="right" class="wheel2Padding" style="padding-right:7px;">
+																									<div class="wheel-19-wrapper on-load">
+																										<img class="wheel wheel-19" alt="" border="0" src="/experiment-assets/tesla-configurator/wheel-19.png" style="display:block; width:49px;" />
+																									</div>
+																									<div class="wheel-21-wrapper on-load" style="display:none;">
+																										<img class="wheel wheel-21" alt="" border="0" src="/experiment-assets/tesla-configurator/wheel-21.png" style="display:block; width:49px;" />
+																									</div>
+																								</td>
+																							</tr>
+																						</table>
+																					</td>
+																				</tr>
+																			</table>
+																		</td>
+																	</tr>
+																</table>
+															</div>
+														</div>
+													</td>
+												</tr>
+											</table>
+
+											<table role="presentation" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+												<tr>
+													<td align="center" style="padding:15px 0 25px 0;">
+														<table role="presentation" border="0" cellpadding="0" cellspacing="0" style="font-family:'Montserrat', Helvetica, Arial, sans-serif; color:#222222; font-size:30px; line-height:35px; text-align:center; font-weight:600;">
+															<tr>
+																<td style="padding-right:10px">
+																	<img class="subtitle" alt="" border="0" src="/experiment-assets/tesla-configurator/bolt.png" style="width:15px; display:block;" />
+																</td>
+																<td>
+																	<h4 class="subtitle go-light" style="margin:0; font-size:25px; line-height:30px; font-weight:600;">Range Calculator</h4>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+
+											<table role="presentation" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+												<tr>
+													<td align="center">
+														<div class="on-load car-models">
+															<table align="center" border="0" cellpadding="0" cellspacing="0" class="models">
+																<tr>
+																	<td style="display:inline-block; text-align:center; font-size:0; vertical-align:top;">
+																		<div class="long-range model-block" style="display:inline-block; vertical-align:top; text-align:center;">
+																			<table align="center" border="0" cellpadding="0" cellspacing="0" style="font-family:'Montserrat', Helvetica, Arial, sans-serif; color:#000000; font-size:15px; line-height:20px; text-align:left; font-weight:400;">
+																				<tr>
+																					<td align="center">
+																						<h6 class="go-light" style="margin:0; font-size:12px; line-height:16px; font-weight:600; text-transform:uppercase;">Long Range</h6>
+																					</td>
+																				</tr>
+																				<tr>
+																					<td align="center" style="padding-bottom:25px;">
+																						<table border="0" cellpadding="0" cellspacing="0" style="font-family:'Montserrat', Helvetica, Arial, sans-serif; color:#000000; font-size:32px; line-height:37px; text-align:center; font-weight:600;">
+																							<tr>
+																								<td class="model-long-range go-light">
+																									<!--334-->
+																								</td>
+																								<td class="go-light" valign="top" style="font-size:14px; line-height:28px; padding-left:5px; font-weight:600;">MI</td>
+																							</tr>
+																						</table>
+																					</td>
+																				</tr>
+																			</table>
+																		</div>
+
+																		<div class="plaid model-block" style="display:inline-block; vertical-align:top;">
+																			<table align="center" border="0" cellpadding="0" cellspacing="0" style="font-family:'Montserrat', Helvetica, Arial, sans-serif; color:#000000; font-size:15px; line-height:20px; text-align:left; font-weight:400;">
+																				<tr>
+																					<td align="center">
+																						<h6 class="go-light" style="margin:0; font-size:12px; line-height:16px; font-weight:600; text-transform:uppercase;">Plaid</h6>
+																					</td>
+																				</tr>
+																				<tr>
+																					<td align="center" style="padding-bottom:25px;">
+																						<table border="0" cellpadding="0" cellspacing="0" style="font-family:'Montserrat', Helvetica, Arial, sans-serif; color:#000000; font-size:32px; line-height:37px; text-align:center; font-weight:600;">
+																							<tr>
+																								<td class="model-plaid go-light">
+																									<!--424-->
+																								</td>
+																								<td class="go-light" valign="top" style="font-size:14px; line-height:28px; padding-left:5px; font-weight:600;">MI</td>
+																							</tr>
+																						</table>
+																					</td>
+																				</tr>
+																			</table>
+																		</div>
+
+																		<div class="plaid-plus model-block" style="display:inline-block; vertical-align:top;">
+																			<table align="center" border="0" cellpadding="0" cellspacing="0" style="font-family:'Montserrat', Helvetica, Arial, sans-serif; color:#000000; font-size:15px; line-height:20px; text-align:left; font-weight:400;">
+																				<tr>
+																					<td align="center">
+																						<h6 class="go-light" style="margin:0; font-size:12px; line-height:16px; font-weight:600; text-transform:uppercase;">Plaid+</h6>
+																					</td>
+																				</tr>
+																				<tr>
+																					<td align="center" style="padding-bottom:25px;">
+																						<table border="0" cellpadding="0" cellspacing="0" style="font-family:'Montserrat', Helvetica, Arial, sans-serif; color:#000000; font-size:32px; line-height:37px; text-align:center; font-weight:600;">
+																							<tr>
+																								<td class="model-plaid-plus go-light">
+																									<!--409-->
+																								</td>
+																								<td class="go-light" valign="top" style="font-size:14px; line-height:28px; padding-left:5px; font-weight:600;">MI</td>
+																							</tr>
+																						</table>
+																					</td>
+																				</tr>
+																			</table>
+																		</div>
+																	</td>
+																</tr>
+															</table>
+														</div>
+													</td>
+												</tr>
+											</table>
+
+											<table role="presentation" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+												<tr>
+													<td align="center" valign="top" style="font-size:0;">
+														<div class="showroom-options on-load" style="display:inline-block; width:60%; text-align:center; font-size:0; vertical-align:top;">
+															<div class="block" style="display:inline-block; vertical-align:top; text-align:left; font-size:0;">
+																<div class="speed-outer settings-box go-dark-bg" style="display:inline-block; width:71px; vertical-align:top;">
+																	<table align="center" border="0" cellpadding="0" cellspacing="0" class="speed">
+																		<tr>
+																			<td align="center">
+																				<table border="0" cellpadding="0" cellspacing="0" class="speedInner" style="font-family:'Montserrat', Helvetica, Arial, sans-serif; color:#000000; font-size:15px; line-height:20px; text-align:left; font-weight:400;">
+																					<tr>
+																						<td class="controlTitle">
+																							<h5 class="go-light" style="margin:0; font-size:17px; line-height:17px; font-weight:600;">Speed <img alt="" border="0" src="/experiment-assets/tesla-configurator/bolt.png" style="width:8px; display:inline-block; margin-bottom:5px;" /></h5>
+																						</td>
+																					</tr>
+																					<tr>
+																						<td align="left" style="padding:10px 0 0 0;">
+																							<table border="0" cellpadding="0" cellspacing="0" class="speedValue">
+																								<tr>
+																									<td align="left">
+																										<table border="0" cellpadding="0" cellspacing="0" class="speedValueInner">
+																											<tr>
+																												<td>
+																													<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+																														<tr>
+																															<td align="left">
+																																<label for="speed-top" class="speed-up speed-top" style="opacity:0.2; height:0;"></label>
+																																<label for="speed-70-up" class="speed-up speed-70-up" style="opacity:0.2; height:0;"></label>
+																																<label for="speed-65-up" class="speed-up speed-65-up" style="opacity:0.2; height:0;"></label>
+																																<label for="speed-60-up" class="speed-up speed-60-up" style="opacity:0.2; height:0;"></label>
+																																<label for="speed-55-up" class="speed-up speed-55-up" style="opacity:0.2; height:0;"></label>
+																																<label for="speed-50-up" class="speed-up speed-50-up" style="opacity:0.2; height:0;"></label>
+
+																																<table border="0" cellpadding="0" cellspacing="0">
+																																	<tr>
+																																		<td align="left" style="padding:5px 0;">
+																																			<table border="0" cellpadding="0" cellspacing="0" class="controlValue" style="font-family:'Montserrat', Helvetica, Arial, sans-serif; color:#000000; text-align:left; font-weight:400; width:100%;">
+																																				<tr>
+																																					<td valign="top" class="speed-counter go-light" style="font-size:25px; line-height:30px; text-align:center; font-weight:600; width:35px;">
+
+																																					</td>
+																																					<td valign="bottom">
+																																						<span class="go-light" style="font-size:12px; line-height:22px;">MPH</span>
+																																					</td>
+																																				</tr>
+																																			</table>
+																																		</td>
+																																	</tr>
+																																</table>
+
+																																<label for="speed-65-down" class="speed-down speed-65-down" style="opacity:0.2; height:0;"></label>
+																																<label for="speed-60-down" class="speed-down speed-60-down" style="opacity:0.2; height:0;"></label>
+																																<label for="speed-55-down" class="speed-down speed-55-down" style="opacity:0.2; height:0;"></label>
+																																<label for="speed-50-down" class="speed-down speed-50-down" style="opacity:0.2; height:0;"></label>
+																																<label for="speed-45-down" class="speed-down speed-45-down" style="opacity:0.2; height:0;"></label>
+																																<label for="speed-bottom" class="speed-down speed-bottom" style="opacity:0.2; height:0;"></label>
+																															</td>
+																														</tr>
+																													</table>
+																												</td>
+																											</tr>
+																										</table>
+																									</td>
+																								</tr>
+																							</table>
+																						</td>
+																					</tr>
+																				</table>
+																			</td>
+																		</tr>
+																	</table>
+																</div>
+
+																<div class="temperature-outer settings-box go-dark-bg" style="display:inline-block; width:71px; vertical-align:top;">
+																	<table align="center" border="0" cellpadding="0" cellspacing="0" class="temperature">
+																		<tr>
+																			<td align="center" class="temperatureInner">
+																				<table border="0" cellpadding="0" cellspacing="0" class="temperatureInner" style="font-family:'Montserrat', Helvetica, Arial, sans-serif; color:#000000; font-size:15px; line-height:20px; text-align:left; font-weight:400;">
+																					<tr>
+																						<td class="controlTitle">
+																							<h5 class="go-light" style="margin:0; font-size:17px; line-height:18px; font-weight:600;"><span style="font-size:9px; line-height:9px; text-transform:uppercase;">Outside</span> <br>
+																								Temp <img alt="" border="0" src="/experiment-assets/tesla-configurator/bolt.png" style="width:8px; display:inline-block; margin-bottom:5px;" /></h5>
+																						</td>
+																					</tr>
+																					<tr>
+																						<td align="left" style="padding:10px 0 0 0;">
+																							<table border="0" cellpadding="0" cellspacing="0" class="temperatureValue">
+																								<tr>
+																									<td align="center">
+																										<table border="0" cellpadding="0" cellspacing="0" class="temperatureValueInner">
+																											<tr>
+																												<td>
+																													<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+																														<tr>
+																															<td align="left">
+																																<label for="temp-top" class="temp-up temp-top" style="opacity:0.2; height:0;"></label>
+																																<label for="temp-40-up" class="temp-up temp-40-up" style="opacity:0.2; height:0;"></label>
+																																<label for="temp-30-up" class="temp-up temp-30-up" style="opacity:0.2; height:0;"></label>
+																																<label for="temp-20-up" class="temp-up temp-20-up" style="opacity:0.2; height:0;"></label>
+																																<label for="temp-10-up" class="temp-up temp-10-up" style="opacity:0.2; height:0;"></label>
+																																<label for="temp-0-up" class="temp-up temp-0-up" style="opacity:0.2; height:0;"></label>
+
+																																<table border="0" cellpadding="0" cellspacing="0">
+																																	<tr>
+																																		<td align="left" style="padding:5px 0;">
+																																			<table align="right" border="0" cellpadding="0" cellspacing="0" style="font-family:'Montserrat', Helvetica, Arial, sans-serif; color:#000000; text-align:left; font-weight:400;">
+																																				<tr>
+																																					<td valign="top" class="temp-counter go-light" style="font-size:25px; line-height:30px; text-align:center; font-weight:600; width:35px;">
+
+																																					</td>
+																																					<td class="go-light" valign="top" style="font-size:15px; line-height:22px;">
+																																						°
+																																					</td>
+																																				</tr>
+																																			</table>
+																																		</td>
+																																	</tr>
+																																</table>
+
+																																<label for="temp-30-down" class="temp-down temp-30-down" style="opacity:0.2; height:0;"></label>
+																																<label for="temp-20-down" class="temp-down temp-20-down" style="opacity:0.2; height:0;"></label>
+																																<label for="temp-10-down" class="temp-down temp-10-down" style="opacity:0.2; height:0;"></label>
+																																<label for="temp-0-down" class="temp-down temp-0-down" style="opacity:0.2; height:0;"></label>
+																																<label for="temp--10-down" class="temp-down temp--10-down" style="opacity:0.2; height:0;"></label>
+																																<label for="temp-bottom" class="temp-down temp-bottom" style="opacity:0.2; height:0;"></label>
+																															</td>
+																														</tr>
+																													</table>
+
+																												</td>
+																											</tr>
+																										</table>
+																									</td>
+																								</tr>
+																							</table>
+																						</td>
+																					</tr>
+																				</table>
+																			</td>
+																		</tr>
+																	</table>
+																</div>
+															</div>
+
+															<div class="block ml0" style="display:inline-block; margin:20px 0 0 30px;">
+																<div class="ac-outer settings-box" style="display:inline-block;">
+																	<table align="left" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+																		<tr>
+																			<td align="right">
+																				<label for="temp-control" class="temp-control-btn">
+																					<img class="ac-bolt" alt="" border="0" src="/experiment-assets/tesla-configurator/bolt.png" style="width:8px; display:block;" />
+																					<table border="0" cellpadding="0" cellspacing="0" style="font-family:'Montserrat', Helvetica, Arial, sans-serif; color:#000000; font-size:15px; line-height:20px; text-align:left; font-weight:400;">
+																						<tr>
+																							<td class="temp-control-bg" height="100" width="100" valign="top">
+																								<table role="presentation" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+																									<tr>
+																										<td align="center" style="padding-top:25px;">
+																											<table border="0" cellpadding="0" cellspacing="0" style="font-family:'Montserrat', Helvetica, Arial, sans-serif; color:#666666; font-size:10px; line-height:15px; text-align:center; font-weight:400; width:81px;">
+																												<tr>
+																													<td class="temp-control-label">
+
+																													</td>
+																												</tr>
+																												<tr>
+																													<td align="center" style="padding-top:5px;">
+																														<div class="ac-off-wrapper" style="display:none;">
+																															<img alt="" border="0" src="/experiment-assets/tesla-configurator/ac-off.png" style="display:block;" width="22" height="22" />
+																														</div>
+																														<div class="ac-on-wrapper" style="display:none;">
+																															<img alt="" border="0" src="/experiment-assets/tesla-configurator/ac-on.png" style="display:block;" width="22" height="22" />
+																														</div>
+																														<div class="heat-off-wrapper" style="display:none;">
+																															<img alt="" border="0" src="/experiment-assets/tesla-configurator/heat.png" style="display:block;" width="22" height="22" />
+																														</div>
+																														<div class="heat-on-wrapper" style="display:none;">
+																															<img alt="" border="0" src="/experiment-assets/tesla-configurator/heat-on.png" style="display:block;" width="22" height="22" />
+																														</div>
+																													</td>
+																												</tr>
+																											</table>
+																										</td>
+																									</tr>
+																								</table>
+																							</td>
+																						</tr>
+																					</table>
+																				</label>
+																			</td>
+																		</tr>
+																	</table>
+																</div>
+															</div>
+														</div>
+													</td>
+												</tr>
+											</table>
+
+											<table role="presentation" border="0" cellpadding="0" cellspacing="0" style="font-family:'Montserrat', Helvetica, Arial, sans-serif; font-size:14px; line-height:19px; text-align:center; font-weight:600; width:100%;">
+												<tr>
+													<td style="padding:60px 0;">
+														<a class="button" href="https://www.tesla.com/en_gb/models/design" style="background:#fff; border:3px solid #171a20; text-decoration:none; padding:8px 40px; color:#171a20; border-radius:100px; display:inline-block; mso-padding-alt:0;text-underline-color:#fff"><!--[if mso]><i style="letter-spacing:25px;mso-font-width:-100%;mso-text-raise:30pt">&nbsp;</i><![endif]--><span style="mso-text-raise:15pt;">ORDER NOW</span><!--[if mso]><i style="letter-spacing:25px;mso-font-width:-100%">&nbsp;</i><![endif]--></a>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							<!--<![endif]-->
+							</div>
+							<!-- /CAROUSEL -->
+
+							<!-- FALLBACK -->
+							<div class="fallback" style="font-family:Arial, Helvetica, sans-serif; font-size:20px; line-height:25px; color:#ff0000; text-align:center; padding:20px 0;">
+								<p style="margin:0 0 20px 0;">Interactive forms not supported...</p>
+								
+								<img alt="" border="0" src="/experiment-assets/tesla-configurator/fallback.jpg" width="600" style="width:600px; max-width:100%; display:inline-block;" />
+							</div>
+							<!-- /FALLBACK -->
+
+						<!--[if !mso]><!-- -->
+						</form>
+						<!--<![endif]-->
+					</td>
+				</tr>
+			</table>
+
+			<table align="center" role="presentation" border="0" cellpadding="0" cellspacing="0" style="font-family:'Montserrat', Helvetica, Arial, sans-serif; font-size:12px; line-height:22px; color:#333; text-align:center; font-weight:600;">
+				<tr>
+					<td valign="middle" style="padding:20px 20px;">
+						<div style="margin:5px 0 3px 0;">
+							<div style="display:inline-block;width:20px;vertical-align:middle;">
+								<img alt="" border="0" src="/experiment-assets/tesla-configurator/read.png" width="20" style="width:20px; display:block;">
+							</div>
+							<div style="display:inline-block;vertical-align:top;margin-left:5px;">
+								<p class="go-light" style="margin:3px 0 0 0;">Read my write up on the <a href="https://nivenranchhod.medium.com/tesla-configurator-battery-range-calculator-interactive-html-email-experiment-c222145021ff" style="text-decoration:underline;color:#eb1c24;">story behind this email.</a></p>
+							</div>
+						</div>
+						<div style="margin:5px 0 3px 0;">
+							<div style="display:inline-block;width:20px;vertical-align:middle;">
+								<img alt="" border="0" src="/experiment-assets/tesla-configurator/warning.png" width="20" style="width:20px; display:block;">
+							</div>
+							<div style="display:inline-block;vertical-align:top;margin-left:5px;">
+								<p class="go-light" style="margin:1px 0 0 0;">This project was in no way affiliated with Tesla.</p>
+							</div>
+						</div>
+						<div>
+							<p class="go-light" style="margin:10px 0;font-size:10px;line-height:20px;">Icons made by <a class="go-light" href="https://www.freepik.com" style="text-decoration:underline;color:#333;">Freepik</a> &amp; <a class="go-light" href="https://www.flaticon.com/authors/fjstudio" style="text-decoration:underline;color:#333;">fjstudio</a> from <a class="go-light" href="https://www.flaticon.com/" style="text-decoration:underline;color:#333;">www.flaticon.com</a></p>
+						</div>
+					</td>
+				</tr>
+			</table>
+        </td>
+    </tr>
+</table>
+</div>
+</body>
+</html>

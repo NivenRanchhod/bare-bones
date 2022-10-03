@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Niven Ranchhod">
+  <meta name="description" content="{{ description }}">
+  
+  <title>{{ title }}</title>
+    
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+  <!-- Open graph -->
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ desc or title }}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="{{ cover }}"/>
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- Twitter -->
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@NivenRanchhod">
+  <meta name="twitter:description" content="{{ desc or title }}">
+  <meta name="twitter:image" content="{{ cover }}">
+  <meta name="twitter:creator" content="@NivenRanchhod">
+
+  <link rel="stylesheet" href="/css/styles.css">
+  {# <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet"> #}
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=montserrat:500,700,800" rel="stylesheet" />
+  <meta name="theme-color" content="#8e2de2">
+
+  <script src="https://kit.fontawesome.com/bfabfb8392.js" crossorigin="anonymous" defer></script>
+	<script src="/js/scripts.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  {# <section class="alert">
+      <p><i>!</i>This site is currently in development</p>
+  </section> #}
+  <header>
+    <div class="logo stagger">
+      <a class="stagger" href="/">
+        <img class="stagger" src="/images/bare-bones.svg" alt="Bare Bones" />
+      </a>
+    </div>
+
+    <button class="mobile-nav-toggle stagger" aria-controls="main-navigation" aria-expanded="false">
+      <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <span class="sr-only">Menu</span>
+    </button>
+
+    <nav class="nav">
+      <ul id="main-navigation" class="main-navigation" data-visible="false">
+          <li class="stagger"><a data-display="Written" href="{% if page.url != '/' %}/blog
+          {% else %}#written{% endif %}"><i class="fa-solid fa-feather-pointed"></i> <span>Written</span></a></li>
+          <li class="stagger"><a data-display="Coded" href="{% if page.url != '/' %}/code{% else %}#coded{% endif %}"><i class="fa-solid fa-code-fork"></i> <span>Coded</span></a></li>
+          <li class="stagger"><a data-display="About" href="{% if page.url != '/' %}/#about
+          {% else %}#about{% endif %}"><i class="fa-solid fa-robot"></i> <span>About</span></a></li>
+          <li class="stagger"><a data-display="Newsletter" href="#newsletter"><i class="fa-solid fa-inbox"></i> <span>Newsletter</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+  <footer>
+    <div class="socials">
+      <div class="logo">
+        <a href="/">
+          <img class="scroll-transition" src="/images/bare-bones-skull-only.svg" alt="Bare Bones" />
+        </a>
+      </div>
+
+      <div class="icons">
+        <a class="scroll-transition" href="https://twitter.com/NivenRanchhod" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+        <a class="scroll-transition" href="https://codepen.io/NivenRanchhod" target="_blank"><i class="fa-brands fa-codepen"></i></a>
+        <a class="scroll-transition" href="https://medium.com/@nivenranchhod" target="_blank"><i class="fa-brands fa-medium"></i></a>
+        <a class="scroll-transition" href="https://dev.to/nivenranchhod" target="_blank"><i class="fa-brands fa-dev"></i></a>
+        <a class="scroll-transition" href="https://barebones.hashnode.dev/" target="_blank"><i class="fa-brands fa-hashnode"></i></a>
+        <a class="scroll-transition" href="https://www.linkedin.com/in/nivenranchhod/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a class="scroll-transition" href="mailto:hello@bare-bones.dev" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+
+    <div class="sign-off">
+      <p class="scroll-transition">Built with humility & Haggis, <span class="no-wrap">in Scotland</span>.</p>
+      
+      <p class="scroll-transition"><span class="no-wrap">&copy; <a class="underline" href="https://twitter.com/NivenRanchhod" target="_blank">Niven Ranchhod</a> <span class="year"></span></span></p>
+    </div>
+  </footer>
+  
+
+  <script>
+      const scrollelements = gsap.utils.toArray('.scroll-transition');
+
+      scrollelements.forEach(box => {
+        gsap.from(box, {
+          scrollTrigger: {
+            trigger: box,
+            start:"top bottom"
+          },
+          y:50,
+          opacity:0,
+          duration:.8,
+          stagger:0.8
+        })
+      });
+
+      gsap.from('.stagger',{
+          opacity:0,
+          y:-5,
+          stagger:.1,
+          duration:.3
+      });
+      
+      gsap.from('.wave', {
+        scrollTrigger: {
+          start: 'top bottom',
+          end: 'bottom top',
+          toggleClass: 'waving'
+        }
+      });
+
+      const wave = gsap.utils.toArray('.wave');
+      wave.forEach((btn) => {
+        gsap.from(btn, {
+          scrollTrigger: {
+            start: 'top bottom',
+            end: 'bottom top',
+            trigger: btn,
+            toggleClass: 'waving'
+          }
+        });
+      });
+  </script>
+
+  <script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>
+</body>
+</html>
