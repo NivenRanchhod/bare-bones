@@ -3,9 +3,11 @@
   "version": "1.1.0",
   "description": "An example blog site using Eleventy that covers fundamental functionality",
   "scripts": {
-    "watch:eleventy": "npx @11ty/eleventy --serve",
-    "watch:sass": "npx sass sass:_site/css --watch",
-    "start": "npm run watch:eleventy & npm run watch:sass",
+    "watch:sass": "sass --watch _src/sass:_site/css",
+    "build:sass": "sass _src/sass:_site/css",
+    "watch:eleventy": "eleventy --serve",
+    "build:eleventy": "eleventy",
+    "start": "npm-run-all build:sass --parallel watch:*",
     "build": "npm-run-all build:*"
   },
   "repository": {
