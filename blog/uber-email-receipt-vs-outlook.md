@@ -27,7 +27,7 @@ I jumped at the chance to try and figure out what the issue actually was as well
 
 Let's just say, I was impressed but for all the wrong reasons 😔
 
-<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="{{ '/images/crossbones.svg' | url }}" alt="" /></div>
 
 ## 👷🏾‍♂️ Let's get technical
 
@@ -45,7 +45,7 @@ I cannot emphasise enough, how helpful these extra editor tools were to debuggin
 Thanks Parcel 👍🏾
 
 
-<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="{{ '/images/crossbones.svg' | url }}" alt="" /></div>
 
 ### Container
 
@@ -83,7 +83,7 @@ I mean, that is huge!
 The email originally weighed in at 172kb. It's now sitting at 139kb, after this removal.
 
 
-<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="{{ '/images/crossbones.svg' | url }}" alt="" /></div>
 
 ### Header
 
@@ -104,7 +104,7 @@ Four extra tables doesn't seem like a lot, but removing these resulted in a 5kb 
 The amends to the header meant we were sitting at 134kb.
 
 
-<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="{{ '/images/crossbones.svg' | url }}" alt="" /></div>
 
 ### 🏃🏾‍♀️ And on and on...
 
@@ -145,7 +145,7 @@ Other issues I found:
 
 ![](https://giphy.com/gifs/computer-disgusted-hammer-12bVDtXPOzYwda)
 
-<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="{{ '/images/crossbones.svg' | url }}" alt="" /></div>
 
 ### 🦾 Accessibility
 
@@ -161,7 +161,7 @@ These are the basics for email accessibility, especially alt attributes on image
 
 Not a good look.
 
-<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="{{ '/images/crossbones.svg' | url }}" alt="" /></div>
 
 ## Conclusion
 Outlook crashing or being crippled by HTML absolutely shouldn't be happening!

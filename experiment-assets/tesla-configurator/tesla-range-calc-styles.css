@@ -1666,8 +1666,8 @@
 #speed-70-up:checked ~ #temp-40-up:checked ~ #temp-control:checked ~ #wheel-21:checked ~ .showroom .model-plaid-plus:after { content:'271'; }
 
 /* CONFIGURATOR - RANGE CALCULATOR - SPEED */
-.speed-up, .temp-up { background-image:url('images/up.png'); background-repeat:no-repeat; background-position:0; width:22px; height:16px; display:block; margin-left:5px; }
-.speed-down, .temp-down { background-image:url('images/down.png'); background-repeat:no-repeat; background-position:0; width:22px; height:16px; display:block; margin-left:5px; }
+.speed-up, .temp-up { background-image:url('up.png'); background-repeat:no-repeat; background-position:0; width:22px; height:16px; display:block; margin-left:5px; }
+.speed-down, .temp-down { background-image:url('down.png'); background-repeat:no-repeat; background-position:0; width:22px; height:16px; display:block; margin-left:5px; }
 .speed-up:hover, .temp-up:hover { -webkit-animation:bounce-up 1.5s infinite; animation:bounce-up 1.5s infinite; }
 .speed-down:hover, .temp-down:hover { -webkit-animation:bounce-down 1.5s infinite; animation:bounce-down 1.5s infinite; }
 .speed-top:hover, .temp-top:hover, .speed-bottom:hover, .temp-bottom:hover { -webkit-animation:none!important; animation:none!important; }
@@ -1828,16 +1828,16 @@
 #temp-0-down:checked ~ #temp-control:checked ~ .showroom .heat-on-wrapper, 
 #temp--10-down:checked ~ #temp-control:checked ~ .showroom .heat-on-wrapper { display:block!important; } 
 
-.temp-control-bg { background-image:url('images/temp-control-off.png'); background-repeat:no-repeat; background-position:0; background-size:100px 100px; }
+.temp-control-bg { background-image:url('temp-control-off.png'); background-repeat:no-repeat; background-position:0; background-size:100px 100px; }
 #temp-20-up:checked ~ #temp-control:checked ~ .showroom .temp-control-bg, 
 #temp-30-up:checked ~ #temp-control:checked ~ .showroom .temp-control-bg,
 #temp-40-up:checked ~ #temp-control:checked ~ .showroom .temp-control-bg,
 #temp-20-down:checked ~ #temp-control:checked ~ .showroom .temp-control-bg, 
-#temp-30-down:checked ~ #temp-control:checked ~ .showroom .temp-control-bg { background-image:url('images/temp-control-ac.png')!important; }
+#temp-30-down:checked ~ #temp-control:checked ~ .showroom .temp-control-bg { background-image:url('temp-control-ac.png')!important; }
 #temp-10-up:checked ~ #temp-control:checked ~ .showroom .temp-control-bg, 
 #temp-0-up:checked ~ #temp-control:checked ~ .showroom .temp-control-bg, 
 #temp-10-down:checked ~ #temp-control:checked ~ .showroom .temp-control-bg, 
 #temp-0-down:checked ~ #temp-control:checked ~ .showroom .temp-control-bg, 
-#temp--10-down:checked ~ #temp-control:checked ~ .showroom .temp-control-bg { background-image:url('images/temp-control-heat.png')!important; }
+#temp--10-down:checked ~ #temp-control:checked ~ .showroom .temp-control-bg { background-image:url('temp-control-heat.png')!important; }
 
 

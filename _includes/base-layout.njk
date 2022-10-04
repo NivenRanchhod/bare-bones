@@ -8,12 +8,12 @@
   
   <title>{{ title }}</title>
     
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" href="{{ '/favicon.ico' | url }}">
+  <link rel="icon" href="{{ '/favicon.svg' | url }}" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon-16x16.png' | url }}">
+  <link rel="manifest" href="{{ '/site.webmanifest' | url }}">
   
   <!-- Open graph -->
   <meta property="og:title" content="{{ title }}">
@@ -30,7 +30,7 @@
   <meta name="twitter:image" content="{{ cover }}">
   <meta name="twitter:creator" content="@NivenRanchhod">
 
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="{{ '/css/styles.css' | url }}">
   {# <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet"> #}
@@ -39,7 +39,7 @@
   <meta name="theme-color" content="#8e2de2">
 
   <script src="https://kit.fontawesome.com/bfabfb8392.js" crossorigin="anonymous" defer></script>
-	<script src="/js/scripts.js" defer></script>
+	<script src="{{ '/js/scripts.js' | url }}" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
 </head>
@@ -50,7 +50,7 @@
   <header>
     <div class="logo stagger">
       <a class="stagger" href="/">
-        <img class="stagger" src="/images/bare-bones.svg" alt="Bare Bones" />
+        <img class="stagger" src="{{ '/images/bare-bones.svg' | url }}" alt="Bare Bones" />
       </a>
     </div>
 
@@ -81,8 +81,8 @@
   <footer>
     <div class="socials">
       <div class="logo">
-        <a href="/">
-          <img class="scroll-transition" src="/images/bare-bones-skull-only.svg" alt="Bare Bones" />
+        <a href="{{ '/' | url }}">
+          <img class="scroll-transition" src="{{ '/images/bare-bones-skull-only.svg' | url }}" alt="Bare Bones" />
         </a>
       </div>
 
