@@ -3,3 +3,9 @@ README.md
 
 # Unit tests should be ignored by Eleventy
 tests/
+
+# _site is where the static generated files are copied to
+_site/
+
+node_modules/
+.idea/

@@ -23,6 +23,8 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(syntaxHighlight);
 
+  eleventyConfig.setUseGitIgnore(false);
+
   return {
     pathPrefix: "/bare-bones/"
   }
