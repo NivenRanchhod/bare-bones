@@ -8,7 +8,7 @@
     "watch:eleventy": "eleventy --serve",
     "build:eleventy": "eleventy",
     "start": "npm-run-all build:sass --parallel watch:*",
-    "build:prod": "npx @11ty/eleventy"
+    "build": "NODE_ENV=production eleventy --pathprefix 'bare-bones'"
   },
   "repository": {
     "type": "git",
