@@ -8,12 +8,12 @@
   
   <title>Tesla Configurator &amp; Battery Range Calculator — Interactive HTML Email Experiment</title>
     
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" href="/bare-bones/favicon.ico">
+  <link rel="icon" href="/bare-bones/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/bare-bones/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/bare-bones/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/bare-bones/favicon-16x16.png">
+  <link rel="manifest" href="/bare-bones/site.webmanifest">
   
   <!-- Open graph -->
   <meta property="og:title" content="Tesla Configurator &amp; Battery Range Calculator — Interactive HTML Email Experiment">
@@ -30,14 +30,14 @@
   <meta name="twitter:image" content="">
   <meta name="twitter:creator" content="@NivenRanchhod">
 
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/bare-bones/css/styles.css">
   
   <link rel="preconnect" href="https://fonts.bunny.net">
   <link href="https://fonts.bunny.net/css?family=montserrat:500,700,800" rel="stylesheet" />
   <meta name="theme-color" content="#8e2de2">
 
   <script src="https://kit.fontawesome.com/bfabfb8392.js" crossorigin="anonymous" defer></script>
-	<script src="/js/scripts.js" defer></script>
+	<script src="/bare-bones/js/scripts.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
 </head>
@@ -46,7 +46,7 @@
   <header>
     <div class="logo stagger">
       <a class="stagger" href="/">
-        <img class="stagger" src="/images/bare-bones.svg" alt="Bare Bones" />
+        <img class="stagger" src="/bare-bones/images/bare-bones.svg" alt="Bare Bones" />
       </a>
     </div>
 
@@ -81,12 +81,12 @@
 <blockquote>
 <p>Disclaimer: This project was in no way affiliated with Tesla</p>
 </blockquote>
-<p><img src="/images/blog-images/tesla-calculator-result.png" alt="My version of the old Tesla Range Calculator in all of it's glory">
+<p><img src="/bare-bones/images/blog-images/tesla-calculator-result.png" alt="My version of the old Tesla Range Calculator in all of it's glory">
 <br>
 <br></p>
 <p><a class="button scroll-transition" href="/code/tesla-car-configurator/">View this experiment</a>
 <br></p>
-<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
 <h2>🎮 Functionality</h2>
 <p>The interactive tool is made up of two parts:</p>
 <ol>
@@ -99,7 +99,7 @@ Both of the colour and wheel options will update the slideshow so you can previe
 The three settings will each have a determining factor on the range of each model option.</p>
 </li>
 </ol>
-<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
 <h2>💡 The idea</h2>
 <p>The idea for this email was sparked at least four or five years ago after seeing the original range calculator on the Tesla website (now removed), being recreated in <a href="https://www.freecodecamp.org/news/building-teslas-battery-range-calculator-with-react-part-1-2cb7abd8c1ee/">React</a> &amp; <a href="https://ultimatecourses.com/blog/building-tesla-range-calculator-angular-2-reactive-forms#stats-component">Angular</a>.<br>
 The idea only included the battery range calculator at the time. The configurator was a later addition.</p>
@@ -123,7 +123,7 @@ Work was completed when I had some down time.
 I was juggling a lot, at work and in my personal life so work on this was infrequent.</p>
 <p>Fast forward a few months and we were planning our big move from New Zealand to the UK. Unfortunately this resulted in this build collecting digital dust while I got myself settled into Scottish life and a new job.</p>
 <p>Fast forward three and a half years to early 2021 and while cleaning up my personal files I found this little gem.</p>
-<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
 <h2>🔨 Build — Sourcing assets</h2>
 <p>At the point of stopping work on this almost four years ago, I had tested out <a href="https://css-tricks.com/almanac/properties/c/counter-increment/">CSS counters</a> to control the range calculations. This was in an effort to avoid <a href="https://www.webdesignerdepot.com/2015/10/punched-card-coding-the-secret-of-interactive-email/">Punched Card Coding</a> (PCC) i.e. multiple inputs and labels being shown/hidden to display specific content. The larger and more complex the functionality, the more inputs and complex CSS selector chaining required.<br>
 In the end it just wasn't the way to go and so I reverted to the trusted PCC method.</p>
@@ -135,14 +135,14 @@ It took a while but I ended up finding high-res images of all colour &amp; wheel
 Hours of cutting out and refining and I finally had some transparent PNGs to work with.</p>
 <p>Now the cut outs aren't that great because of the way the final images were exported, so I ended up heavily using the feather on the edges of all images.<br>
 I'm not completely happy with the dark mode view because of the white halo around the images, but ultimately I just need to remember if this were in fact a real world Tesla commissioned project, they would easily be able to provide me with clear cut transparent PNGs, so my half baked solution will suffice for now.</p>
-<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
 <h2>🔨 Build — Design</h2>
 <p>Right, first off — I am not a designer! I can scrape through with small design tweaks but I'm not that creative with layouts etc.
 BUT, I'm really happy with the end result.</p>
 <p>I did some design research on Dribbble and ended up amalgamating a few ideas to give me the configurator design.</p>
 <p>Looks quite polished in light mode!</p>
 <p><img src="https://media.giphy.com/media/ku2YMEjzMwud2/giphy.gif" alt=""></p>
-<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
 <h2>🔨 Build — Execution</h2>
 <h3>Hero &amp; slideshow</h3>
 <p>The hero section which includes the “MODEL S” title + slideshow are layered with the title being absolutely positioned. No faux absolute position setups here, just a simple CSS declaration on the title div.</p>
@@ -219,14 +219,14 @@ Long Range / Plaid / Plaid+.</p>
 <p>That is a fair amount of CSS to spit out one figure for each model.<br>
 Now imagine that for each variable for speed, outside temp and AC/Heat on/off.<br>
 An upside of this method of setup is the flexibility to amend those figures going forward, when using an external stylesheet.</p>
-<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
 <h2>💀 Fallback</h2>
 <p>This specific execution doesn't have amazing support, as noted earlier on. It pretty much only works in Apple Mail (desktop &amp; mobile) &amp; Outlook Office 365 (MacOS). But it still shows what is possible.</p>
 <p><img src="/images/blog-images/tesla-calculator-fallback.png" alt=""></p>
 <p>The fall back I have in place is literally just for fun. If this were a commissioned project, then I would have looked into a static alternative which pointed the user to use the website configurator.</p>
 <p>Or I could have looked into splitting the build out and looked into how the tabbed slideshow could work in Yahoo webmail.</p>
 <p>There are definitely other avenues I could have taken but ultimately the challenge was to build a complex interactive email and I did it!</p>
-<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
 <h2>😭 Conclusion</h2>
 <p>In an ideal world, the ‘Order now' button would take your configuration and take you to the checkout page for the Model S.</p>
 <p>Also you may wonder why this would be useful?<br>
@@ -251,7 +251,7 @@ Wish me luck!</p>
     <div class="card">
     <div class="logo">
         <h4 class="scroll-transition">Join</h4>
-        <img class="scroll-transition" src="/images/bare-bones-club.svg" alt="Bare Bones Club" />
+        <img class="scroll-transition" src="/bare-bones/images/bare-bones-club.svg" alt="Bare Bones Club" />
     </div>
 
     <div class="subscribe">
@@ -314,8 +314,8 @@ Wish me luck!</p>
   <footer>
     <div class="socials">
       <div class="logo">
-        <a href="/">
-          <img class="scroll-transition" src="/images/bare-bones-skull-only.svg" alt="Bare Bones" />
+        <a href="/bare-bones/">
+          <img class="scroll-transition" src="/bare-bones/images/bare-bones-skull-only.svg" alt="Bare Bones" />
         </a>
       </div>
 
