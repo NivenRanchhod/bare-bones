@@ -1,0 +1,193 @@
+
+<!doctype html>
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<!--
+
+//  Another Bare Bones email experiment
+//
+//   ________  ________  ________  _______           ________  ________  ________   _______   ________      
+//  |\   __  \|\   __  \|\   __  \|\  ___ \         |\   __  \|\   __  \|\   ___  \|\  ___ \ |\   ____\     
+//  \ \  \|\ /\ \  \|\  \ \  \|\  \ \   __/|        \ \  \|\ /\ \  \|\  \ \  \\ \  \ \   __/|\ \  \___|_    
+//   \ \   __  \ \   __  \ \   _  _\ \  \_|/__       \ \   __  \ \  \\\  \ \  \\ \  \ \  \_|/_\ \_____  \   
+//    \ \  \|\  \ \  \ \  \ \  \\  \\ \  \_|\ \       \ \  \|\  \ \  \\\  \ \  \\ \  \ \  \_|\ \|____|\  \  
+//     \ \_______\ \__\ \__\ \__\\ _\\ \_______\       \ \_______\ \_______\ \__\\ \__\ \_______\____\_\  \ 
+//      \|_______|\|__|\|__|\|__|\|__|\|_______|        \|_______|\|_______|\|__| \|__|\|_______|\_________\
+//                                                                                              \|_________|
+//
+//                                                                                          Code tutorials <
+//                                                                                        Design teardowns <
+//                                                        Semi-intelligible ramblings on email development <
+//                                                                                         >> Bare-Bones.dev
+//                                                                                                          
+
+-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+    <!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]-->
+    
+    <!--[if (gte mso 9)|(IE)]>
+    <style type="text/css">
+    table {
+        border-collapse:collapse !important;
+        mso-table-lspace:0pt!important;
+        mso-table-rspace:0pt!important;
+    }
+    h1,h2,h3,h4,h5,h6,p,a,span,td,strong,li {
+        font-family:Arial,Helvetica,Verdana,sans-serif !important;
+    }
+    </style>
+    <![endif]-->
+    
+    
+  <style id="fonts" type="text/css">
+    /* latin */
+    @font-face {
+      font-family: 'Permanent Marker';
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://fonts.gstatic.com/s/permanentmarker/v16/Fh4uPib9Iyv2ucM6pGQMWimMp004La2Cfw.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+  </style>
+    
+  <!-- RESETS  -->
+  <style type="text/css">
+    body, table, td, a { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+    table, td{ mso-table-lspace:0pt; mso-table-rspace:0pt; }
+    img{ -ms-interpolation-mode:bicubic; }
+      
+    img { border:0; height:auto; line-height:100%; outline:none; text-decoration:none; }
+    table, table td { border-collapse:collapse!important; }
+    body { height:100%!important; margin:0!important; padding:0!important; width:100%!important; }
+
+    a[x-apple-data-detectors=true]{ color:inherit !important;text-decoration:none !important; font-size:inherit!important; font-family:inherit!important; font-weight:inherit!important; line-height:inherit!important; }
+    u + #body a { color:inherit; text-decoration:none; font-size:inherit; font-family:inherit; font-weight:inherit; line-height:inherit; }
+    #MessageViewBody { color:inherit; text-decoration:none; font-size:inherit; font-family:inherit; font-weight:inherit; line-height:inherit; }
+    
+    .button { transition:0.2s all linear; }
+    .button:hover { color:#fff!important; background:#171a20!important; }
+    
+    label { cursor:pointer; }
+    * { transition:all 0.3s ease-out; }
+
+    h1 { margin: 0; font-family:'Permanent Marker',Arial,Helvetica,sans-serif; font-size:35px; line-height:1; color:#7e45ff; font-weight:400; text-align:center; letter-spacing:1px; text-shadow:0 3px 2px #e3e3e3; }
+
+    .credit { font-family:Montserrat, sans-serif; font-weight:500; font-size:14px; line-height:1.5; margin:200px 0 100px; }
+  </style>
+  
+  <!-- INTERACTIVE -->
+  <style id="interactive-styles" type="text/css">
+    .toggle { width:200px; background:#F1F0F5; height:59px; border-radius:60px; margin:50px auto; border-bottom:2px solid #fff; box-shadow:0 2px 2px inset #e3e3e3; position:relative; }
+    .toggle:before { content: ''; position: absolute; top: 7px; background:#fff; width:90px; height:43px; border-radius:60px; z-index:2; box-shadow:0 2px 4px #dbdbdb; transition:all 0.3s cubic-bezier(.55,.06,.68,.19); border-top:2px solid #626262; }
+    #light-mode:checked ~ .wrapper .toggle:before { left: 7px; }
+    #dark-mode:checked ~ .wrapper .toggle:before { left: 103px; }
+    .select { display:inline-block; width:95px; height:59px; line-height: 59px; position:relative; z-index:2; }
+    .select span { max-height:0;max-width:0;display:inline-block;mso-font-width:0%;mso-style-textfill-type: none; white-space: nowrap;font-size:1px;color:rgba(0,0,0,0);text-indent:9px; }
+
+    .light { width:90px; height:59px; background:url(/bare-bones/experiment-assets/colour-scheme-switcher/sun.png); background-size:22px; background-repeat:no-repeat; background-position:center; }
+    .dark { width:90px; height:59px; background:url(/bare-bones/experiment-assets/colour-scheme-switcher/moon.png); background-size:22px; background-repeat:no-repeat; background-position:35px center; }
+
+    #light-mode ~ .wrapper .toggle .light .icon { height:100%; background:url(/bare-bones/experiment-assets/colour-scheme-switcher/sun-on.png); background-position:center; background-size:22px; background-repeat:no-repeat; opacity:0; }
+    #dark-mode ~ .wrapper .toggle .dark .icon { height:100%; background:url(/bare-bones/experiment-assets/colour-scheme-switcher/moon-on.png); background-position:35px center; background-size:22px; background-repeat:no-repeat; opacity:0; }
+    #light-mode ~ .wrapper .toggle .light:hover .icon,
+    #dark-mode ~ .wrapper .toggle .dark:hover .icon { opacity:1; }
+
+    #light-mode:checked ~ .wrapper .toggle .light { background:url(/bare-bones/experiment-assets/colour-scheme-switcher/sun-on.png); background-size:22px; background-repeat:no-repeat; background-position:center; }
+    #dark-mode:checked ~ .wrapper .toggle .dark { background:url(/bare-bones/experiment-assets/colour-scheme-switcher/moon-on.png); background-size:22px; background-repeat:no-repeat; background-position:35px center; }
+
+    #dark-mode:checked ~ .wrapper { background:#3a393d; }
+    #light-mode:checked ~ .wrapper h1 { color:#7e45ff; text-shadow:0 2px 2px #dbdbdb; }
+    #dark-mode:checked ~ .wrapper h1 { color:#986bff; text-shadow:0 3px 4px #262626; }
+      #light-mode:checked ~ .wrapper a { color:#7e45ff; }
+      #dark-mode:checked ~ .wrapper a { color:#986bff; }
+
+    #dark-mode:checked ~ .wrapper .toggle { background:#313033; box-shadow:0 2px 2px inset #262626; border-bottom-color:#4a4a4a; }
+    #dark-mode:checked ~ .wrapper .toggle:before { background:#4D4B52; box-shadow:0 2px 4px #262626; }
+    #light-mode:checked ~ .wrapper .toggle:before { border-top-color:#fff; }
+
+    #light-mode:checked ~ .wrapper .toggle:after {  content: ''; position: absolute; top:7px; left:103px; width:90px; height:45px; border-radius:60px; z-index:1; opacity:0; transition:background 0.3s ease-out; transition:opacity 0.3s ease-out; }
+    #dark-mode:checked ~ .wrapper .toggle:after { content: ''; position: absolute; top:7px; left:7px; width:90px; height:45px; border-radius:60px; z-index:1; opacity:0; transition:background 0.3s ease-out; transition:opacity 0.3s ease-out; }
+    #light-mode:checked:hover ~ .wrapper .toggle:after,
+    #dark-mode:checked:hover ~ .wrapper .toggle:after { opacity:0!important; }
+  </style>
+  
+  <!-- DARK MODE -->
+  <style id="dark-mode-styles" type="text/css">
+    @media (prefers-color-scheme: dark) {
+      #dark-mode:checked ~ .wrapper .go-light { color:#bfbfbf!important; }
+      .wrapper,
+      #dark-mode:checked ~ .wrapper { background:#3a393d; }
+      .wrapper h1,a
+      #dark-mode:checked ~ .wrapper h1 { color:#986bff; text-shadow:none; }
+      #light-mode:checked ~ .wrapper a { color:#7e45ff; }
+      #dark-mode:checked ~ .wrapper a { color:#986bff; }
+
+      .toggle,
+      #dark-mode:checked ~ .wrapper .toggle { background:#313033; box-shadow:0 2px 2px inset #262626; border-bottom-color:#4a4a4a; }
+      .toggle:before,
+      #dark-mode:checked ~ .wrapper .toggle:before { background:#4D4B52; box-shadow:0 2px 4px #262626; }
+
+      #light-mode:checked ~ .wrapper { background:#fffffe!important; background-image:linear-gradient(#fffffe,#fffffe)!important; }
+      #light-mode:checked ~ .wrapper .toggle { background:#F1F0F5!important; box-shadow:0 2px 2px inset #e3e3e3!important; border-bottom-color:#fffffe!important; }
+      #light-mode:checked ~ .wrapper .toggle:before { background:#fffffe!important; box-shadow:0 2px 4px #dbdbdb!important; }
+      #light-mode:checked ~ .wrapper h1 { color:#7e45ff!important; text-shadow:none!important; }
+    }
+  </style>
+
+  <title>Bare Bones - Colour Scheme Switch Experiment</title>
+</head>
+<body id="body" class="go-dark-bg" style="margin:0; padding:0; background-color:#FFFFFF; text-align:center;">
+
+<input name="colour-scheme" type="radio" id="light-mode" style="display:none;" checked />
+<input name="colour-scheme" type="radio" id="dark-mode" style="display:none;" />
+
+<div class="wrapper" role="article" aria-roledescription="email" aria-label="Bare Bones - Colour Scheme Switch Experiment" lang="en" style="margin:0; padding:0; height:100vh;">
+  <div class="go-light" style="max-width:770px; margin:0 auto; padding:50px 20px; font-family:Arial,Helvetica,sans-serif; color:#4c4c4c; font-weight:400; text-align:center;">
+    <form action="#" style="margin:0 !important">
+      <div class="tech">
+
+        <!-- <input name="colour-scheme" type="radio" id="light-mode" style="display:inline-block;" checked />
+        <input name="colour-scheme" type="radio" id="dark-mode" style="display:inline-block;" /> -->
+
+        <h1>Colour Scheme Switcher</h1>
+
+        <div class="toggle">
+          <label for="light-mode" class="select light">
+            <div class="icon"></div>
+            <span>Enable light mode</span>
+          </label>
+          <label for="dark-mode" class="select dark">
+            <div class="icon"></div>
+            <span>Enable dark mode</span>
+          </label>
+        </div>
+
+
+        <div class="credit">
+          <p>Interested in how this was built? <br>
+          <a href="/blog/colour-scheme-switcher-email-experiment/" style="text-decoration:underline;" target="_blank">Read&nbsp;my&nbsp;technical&nbsp;breakdown</a>.</p>
+          <br><br>
+          <p>Inspired by Michal Parulski's <a href="https://dribbble.com/shots/14630755-Cards-Dark-UI" style="text-decoration:underline;" target="_blank">'Dark&nbsp;UI'&nbsp;Dribbble&nbsp;shot</a>.</p>
+          <p><a href="https://www.flaticon.com/free-icons/sun" title="sun icons">Sun</a> & <a href="https://www.flaticon.com/free-icons/moon" title="moon icons">Moon</a> icons created by Good&nbsp;Ware&nbsp;-&nbsp;Flaticon</p>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>
