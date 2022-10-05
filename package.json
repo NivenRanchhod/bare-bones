@@ -4,7 +4,9 @@
   "description": "An example blog site using Eleventy that covers fundamental functionality",
   "scripts": {
     "watch:sass": "npx sass sass:_site/css --watch",
-    "watch:eleventy": "npx @11ty/eleventy --serve",
+    "build:sass": "npx sass sass:_site/css",
+    "watch:eleventy": "eleventy --serve",
+    "build:eleventy": "eleventy",
     "start": "npm-run-all build:sass --parallel watch:*",
     "build": "npx @11ty/eleventy"
   },
