@@ -12,7 +12,7 @@ module.exports = function (eleventyConfig) {
   // eleventyConfig.addShortcode("excerpt", (article) => extractExcerpt(article));
 
   eleventyConfig.setBrowserSyncConfig({
-    files: "./_site/css/**/*.css",
+    files: "/css/**/*.css",
   });
 
   // Folders to copy to output folder
@@ -23,9 +23,9 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(syntaxHighlight);
 
-  return {
-    pathPrefix: "/bare-bones/"
-  }
+  // return {
+  //   pathPrefix: "/bare-bones/"
+  // }
 };
 
 function extractExcerpt(article) {
