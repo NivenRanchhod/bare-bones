@@ -65,10 +65,10 @@
 
     <nav class="nav">
       <ul id="main-navigation" class="main-navigation" data-visible="false">
-          <li class="stagger"><a data-display="Written" href="{% if page.url != '/' %}/blog
+          <li class="stagger"><a data-display="Written" href="{% if page.url != '/' %}{{ '/blog' | url }}
           {% else %}#written{% endif %}"><i class="fa-solid fa-feather-pointed"></i> <span>Written</span></a></li>
-          <li class="stagger"><a data-display="Coded" href="{% if page.url != '/' %}/code{% else %}#coded{% endif %}"><i class="fa-solid fa-code-fork"></i> <span>Coded</span></a></li>
-          <li class="stagger"><a data-display="About" href="{% if page.url != '/' %}/#about
+          <li class="stagger"><a data-display="Coded" href="{% if page.url != '/' %}{{ '/code' | url }}{% else %}#coded{% endif %}"><i class="fa-solid fa-code-fork"></i> <span>Coded</span></a></li>
+          <li class="stagger"><a data-display="About" href="{% if page.url != '/' %}{{ '/#about' | url }}
           {% else %}#about{% endif %}"><i class="fa-solid fa-robot"></i> <span>About</span></a></li>
           <li class="stagger"><a data-display="Newsletter" href="#newsletter"><i class="fa-solid fa-inbox"></i> <span>Newsletter</span></a></li>
       </ul>

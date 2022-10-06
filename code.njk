@@ -30,7 +30,7 @@ layout: base-layout.njk
                         
                         <div class="excerpt-container stagger">{{ post.data.description }}</div>
 
-                        <span class="arrow-link stagger" aria-labelledby="post-title" href="{{ post.url | url }}" target="_blank">Read post <i class="fa-solid fa-arrow-right-long"></i></span>
+                        <a href="{{ post.url | url }}" class="arrow-link stagger" aria-labelledby="post-title" target="_blank">View example <i class="fa-solid fa-arrow-right-long"></i></a>
                     </div>
                 </article>
             </li>
