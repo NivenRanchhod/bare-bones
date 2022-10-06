@@ -17,13 +17,12 @@ module.exports = function (eleventyConfig) {
 
   // Folders to copy to output folder
   eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addPassthroughCopy("sass");
   eleventyConfig.addPassthroughCopy("experiment-assets");
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("js");
 
   eleventyConfig.addPlugin(syntaxHighlight);
-
-  eleventyConfig.setUseGitIgnore(false);
 
   return {
     pathPrefix: "/bare-bones/"
