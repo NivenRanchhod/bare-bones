@@ -12,7 +12,7 @@ module.exports = function (eleventyConfig) {
   // eleventyConfig.addShortcode("excerpt", (article) => extractExcerpt(article));
 
   eleventyConfig.setBrowserSyncConfig({
-    files: "./_site/sass/**/*.css",
+    files: "./_site/css/**/*.css",
   });
 
   // Folders to copy to output folder
