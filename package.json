@@ -6,7 +6,7 @@
     "watch:sass": "npx sass sass:_site/css --watch",
     "build:sass": "npx sass sass:_site/css",
     "watch:eleventy": "npx @11ty/eleventy --serve",
-    "start": "npm-run-all build:sass --parallel watch:*",
+    "start": "npm run watch:eleventy & npm run watch:sass",
     "build": "npx @11ty/eleventy"
   },
   "repository": {
