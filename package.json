@@ -3,8 +3,8 @@
   "version": "1.1.0",
   "description": "An example blog site using Eleventy that covers fundamental functionality",
   "scripts": {
-    "watch:sass": "npx sass sass:_site/sass --watch",
-    "build:sass": "npx sass sass:_site/sass",
+    "watch:sass": "npx sass sass:_site/css --watch",
+    "build:sass": "npx sass sass:_site/css",
     "watch:eleventy": "npx @11ty/eleventy --serve",
     "start": "npm run watch:eleventy & npm run watch:sass",
     "build": "npx @11ty/eleventy"
