@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Niven Ranchhod">
+  <meta name="description" content="">
+  
+  <title>Bare Bones</title>
+    
+  <link rel="icon" href="/bare-bones/favicon.ico">
+  <link rel="icon" href="/bare-bones/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/bare-bones/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/bare-bones/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/bare-bones/favicon-16x16.png">
+  <link rel="manifest" href="/bare-bones/site.webmanifest">
+  
+  <!-- Open graph -->
+  <meta property="og:title" content="Bare Bones">
+  <meta property="og:description" content="Development resource with tutorials, design reviews, template teardowns, coding experiments and thoughts on HTML &amp; CSS email development.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://barebones/images/og/og-cover.jpg"/>
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- Twitter -->
+  <meta name="twitter:title" content="Bare Bones">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@NivenRanchhod">
+  <meta name="twitter:description" content="Development resource with tutorials, design reviews, template teardowns, coding experiments and thoughts on HTML &amp; CSS email development.">
+  <meta name="twitter:image" content="https://barebones/images/og/og-cover.jpg">
+  <meta name="twitter:creator" content="@NivenRanchhod">
+
+  <link rel="stylesheet" href="/bare-bones/css/styles.css">
+  
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=montserrat:500,700,800" rel="stylesheet" />
+  <meta name="theme-color" content="#8e2de2">
+
+  <script src="https://kit.fontawesome.com/bfabfb8392.js" crossorigin="anonymous" defer></script>
+	<script src="/bare-bones/js/scripts.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  
+  <header>
+    <div class="logo stagger">
+      <a class="stagger" href="/bare-bones/">
+        <img class="stagger" src="/bare-bones/images/bare-bones.svg" alt="Bare Bones" />
+      </a>
+    </div>
+
+    <button class="mobile-nav-toggle stagger" aria-controls="main-navigation" aria-expanded="false">
+      <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <span class="sr-only">Menu</span>
+    </button>
+
+    <nav class="nav">
+      <ul id="main-navigation" class="main-navigation" data-visible="false">
+          <li class="stagger"><a data-display="Written" href="#written"><i class="fa-solid fa-feather-pointed"></i> <span>Written</span></a></li>
+          <li class="stagger"><a data-display="Coded" href="#coded"><i class="fa-solid fa-code-fork"></i> <span>Coded</span></a></li>
+          <li class="stagger"><a data-display="About" href="#about"><i class="fa-solid fa-robot"></i> <span>About</span></a></li>
+          <li class="stagger"><a data-display="Newsletter" href="#newsletter"><i class="fa-solid fa-inbox"></i> <span>Newsletter</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+  <h1 class="stagger">Code tutorials, <br>
+  design teardowns <br>
+  & thoughts... on <span class="highlight">email&nbsp;development</span>.</h1>
+
+  <div class="icons">
+    <a class="stagger" href="https://twitter.com/NivenRanchhod" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+    <a class="stagger" href="https://codepen.io/NivenRanchhod" target="_blank"><i class="fa-brands fa-codepen"></i></a>
+    <a class="stagger" href="https://medium.com/@nivenranchhod" target="_blank"><i class="fa-brands fa-medium"></i></a>
+    <a class="stagger" href="https://dev.to/nivenranchhod" target="_blank"><i class="fa-brands fa-dev"></i></a>
+    <a class="stagger" href="https://barebones.hashnode.dev/" target="_blank"><i class="fa-brands fa-hashnode"></i></a>
+  </div>
+
+  <div class="subscribe">
+    <p class="stagger">Join the <a class="underline" href="https://www.getrevue.co/profile/Barebonesclub" target="_blank">Bare Bones Club</a> to stay up to date with my code, ramblings and rare moments of intelligence.</p>
+
+    <div id="revue-embed" class="revue-embed">
+      <form action="https://www.getrevue.co/profile/Barebonesclub/add_subscriber" method="post" id="revue-form" name="revue-form"  target="_blank">
+      <div class="row">
+        <div class="revue-form-group">
+          <label class="sr-only" for="member_email">Email address</label>
+          <input class="revue-form-field stagger" placeholder="Your email address..." type="email" name="member[email]" id="member_email">
+        </div>
+        <div class="revue-form-actions">
+          <input class="stagger" type="submit" value="Subscribe" name="member[subscribe]" id="member_submit">
+        </div>
+      </div>
+      <div class="revue-form-footer stagger">By subscribing, you agree with Revue's <a class="underline" target="_blank" href="https://www.getrevue.co/terms">Terms of Service</a> and <a class="underline" target="_blank" href="https://www.getrevue.co/privacy">Privacy Policy</a>.</div>
+      </form>
+      </div>
+
+    <a class="arrow-link stagger" href="https://www.getrevue.co/profile/Barebonesclub#archive" target="_blank">See previous editions <i class="fa-solid fa-arrow-right-long"></i></a>
+  </div>
+</section>
+
+<section class="written" id="written">
+  <h2 class="scroll-transition"><span class="highlight">Written... </span></h2>
+
+  <div class="row">
+    <p class="scroll-transition">A few of my latest write-ups from across the internet.</p>
+
+    <a class="arrow-link scroll-transition" href="/bare-bones/blog">View all posts <i class="fa-solid fa-arrow-right-long"></i></a>
+  </div>
+
+  <div class="cards">
+    
+      
+        <article class="card scroll-transition">
+          <a href="/bare-bones/blog/colour-scheme-switcher-email-experiment/">
+            <div class="row"><i class="fa-brands fa-medium"></i><time datetime="Sep 23, 2022">Sep 23, 2022</time>
+            </div>
+
+            <div class="title-container">
+              <h3 id="post-title">Colour Scheme Switcher — Interactive HTML Email Experiment</h3>
+            </div>
+
+            <div class="excerpt-container">Inspired by a dark mode toggle design on Dribbble, I decided to rebuild the toggle for email.</div>
+
+            <span class="arrow-link" aria-labelledby="post-title">Read post <i class="fa-solid fa-arrow-right-long"></i></span>
+          </a>
+        </article>
+      
+    
+      
+        <article class="card scroll-transition">
+          <a href="/bare-bones/blog/uber-email-receipt-vs-outlook/">
+            <div class="row"><i class="fa-brands fa-medium"></i><time datetime="Aug 5, 2022">Aug 5, 2022</time>
+            </div>
+
+            <div class="title-container">
+              <h3 id="post-title">Uber email receipt vs. Outlook — an exclusive take from an email developer</h3>
+            </div>
+
+            <div class="excerpt-container">I did a deep dive into the HTML template causing so much strife for Outlook and got a little obsessive along the way.</div>
+
+            <span class="arrow-link" aria-labelledby="post-title">Read post <i class="fa-solid fa-arrow-right-long"></i></span>
+          </a>
+        </article>
+      
+    
+      
+        <article class="card scroll-transition">
+          <a href="/bare-bones/blog/tesla-configurator-and-battery-range-calculator-email-experiment/">
+            <div class="row"><i class="fa-brands fa-medium"></i><time datetime="May 13, 2021">May 13, 2021</time>
+            </div>
+
+            <div class="title-container">
+              <h3 id="post-title">Tesla Configurator &amp; Battery Range Calculator — Interactive HTML Email Experiment</h3>
+            </div>
+
+            <div class="excerpt-container">My personal challenge to build a complex &amp; real world interactive email.</div>
+
+            <span class="arrow-link" aria-labelledby="post-title">Read post <i class="fa-solid fa-arrow-right-long"></i></span>
+          </a>
+        </article>
+      
+    
+  </div>
+</section>
+
+<section class="coded" id="coded">
+  <h2 class="scroll-transition"><span class="highlight">Coded... </span></h2>
+
+  <div class="row">
+    <p class="scroll-transition">My latest experiments, tutorials and other attempts to look smart.</p>
+
+    <a class="arrow-link scroll-transition" href="/bare-bones/code">View all code examples <i class="fa-solid fa-arrow-right-long"></i></a>
+  </div>
+
+  <div class="cards">
+    
+      
+        <article class="card scroll-transition">
+          <a href="
+          
+            /bare-bones/code/colour-scheme-switcher/
+          
+          " target="_blank">
+            <div class="row"><i class="fa-brands fa-"></i><time datetime="Aug 23, 2022">Aug 23, 2022</time>
+            </div>
+
+            <div class="title-container">
+              <h3 id="post-title">Colour Scheme Switcher - Interactive Email Experiment</h3>
+            </div>
+
+            <div class="excerpt-container">Inspired by a dark mode toggle design on Dribbble, I decided to rebuild the toggle for email.</div>
+
+            <span class="arrow-link" aria-labelledby="post-title">View example <i class="fa-solid fa-arrow-right-long"></i></span>
+          </a>
+        </article>
+      
+    
+      
+        <article class="card scroll-transition">
+          <a href="
+          
+            /bare-bones/code/mclaren-car-configurator/
+          
+          " target="_blank">
+            <div class="row"><i class="fa-brands fa-"></i><time datetime="Oct 20, 2021">Oct 20, 2021</time>
+            </div>
+
+            <div class="title-container">
+              <h3 id="post-title">McLaren Car Configurator - Interactive AMP for Email Experiment</h3>
+            </div>
+
+            <div class="excerpt-container">I decided to give AMP for Email a go by rebuilding the McLaren car configurator.</div>
+
+            <span class="arrow-link" aria-labelledby="post-title">View example <i class="fa-solid fa-arrow-right-long"></i></span>
+          </a>
+        </article>
+      
+    
+      
+        <article class="card scroll-transition">
+          <a href="
+          
+            /bare-bones/code/tesla-car-configurator/
+          
+          " target="_blank">
+            <div class="row"><i class="fa-brands fa-"></i><time datetime="May 13, 2021">May 13, 2021</time>
+            </div>
+
+            <div class="title-container">
+              <h3 id="post-title">Tesla Car Configurator - Interactive Email Experiment</h3>
+            </div>
+
+            <div class="excerpt-container">The code behind my interactive Tesla Car Configurator email experiment.</div>
+
+            <span class="arrow-link" aria-labelledby="post-title">View example <i class="fa-solid fa-arrow-right-long"></i></span>
+          </a>
+        </article>
+      
+    
+  </div>
+</section>
+
+<section class="about" id="about">
+  <h2 class="scroll-transition"><span class="highlight">About... </span></h2>
+
+  <p class="scroll-transition"><img class="wave" src="images/wave.png" alt="Waving hello to you" /> I'm <a class="underline" href="https://twitter.com/NivenRanchhod" target="_blank">Niven</a>, an email specialist with over 10 years of experience in HTML & CSS development.<br>
+  With the urge to take on 1-1 mentoring but a lack of time, Bare Bones was created to indirectly mentor & upskill developers of all levels. <br>
+  I'll be the first to raise my hand and admit I don't know everything, so as well as flexing my current skillset & knowledge, this will be as much of a learning opportunity for me as it will be for you.</p>
+
+  <p class="scroll-transition">The aim is to strip layout problems down to the basic fundamental workings and provide simple examples of every day techniques. This way, we help each other develop problem solving skills by being exposed to more ways of achieving the same result.</p>
+
+  <p class="scroll-transition">I'll also be sharing some of my experiments with interactive email elements. Some examples will be practical and some outlandish, but it's all for fun to show what we're capable of with email.</p>
+
+  <p class="scroll-transition">I'll be taking inspiration for builds from designs & ideas I see on Dribbble, Codepen, HTML & CSS specific newsletters and basically anywhere else I find inspiration.</p>
+
+  <p class="scroll-transition">Make sure to subscribe to my newsletter - <a class="underline" href="https://www.getrevue.co/profile/Barebonesclub" target="_blank">Bare Bones Club</a>, to stay up to date with my learnings, experiments & random thoughts.</p>
+
+  <p class="scroll-transition">Happy coding,<br>
+  Niven</p>
+
+  <div class="face scroll-transition"></div>
+
+  <div class="icons">
+    <a class="scroll-transition" href="https://twitter.com/NivenRanchhod" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+    <a class="scroll-transition" href="https://codepen.io/NivenRanchhod" target="_blank"><i class="fa-brands fa-codepen"></i></a>
+    <a class="scroll-transition" href="https://medium.com/@nivenranchhod" target="_blank"><i class="fa-brands fa-medium"></i></a>
+    <a class="scroll-transition" href="https://dev.to/nivenranchhod" target="_blank"><i class="fa-brands fa-dev"></i></a>
+    <a class="scroll-transition" href="https://barebones.hashnode.dev/" target="_blank"><i class="fa-brands fa-hashnode"></i></a>
+    <a class="scroll-transition" href="https://www.linkedin.com/in/nivenranchhod/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+    <a class="scroll-transition" href="mailto:hello@bare-bones.dev" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+  </div>
+</section>
+
+<section class="contribute" id="contribute">
+  <h3 class="scroll-transition">Interested in <span class="highlight">working together</span> or <span class="highlight">contributing?</span></h3>
+
+  <p class="list-heading scroll-transition">Some reasons you could get in touch:</p>
+  <ul class="list">
+    <li class="scroll-transition"><i class="fa-solid fa-circle-check"></i> An interesting project you'd like to work on together.</li>
+    <li class="scroll-transition"><i class="fa-solid fa-circle-check"></i> Sponsoring or supporting the <a class="underline" href="https://www.getrevue.co/profile/Barebonesclub" target="_blank">Bare Bones Club</a> newsletter by way of access to your tool or service to help build, test & share my tutorials.</li>
+    <li class="scroll-transition"><i class="fa-solid fa-circle-check"></i> You want to share an idea for a tutorial or interactive email / element you would like me to build or collaborate with me on.</li>
+  </ul>
+
+  <p class="list-heading scroll-transition">Please, don't use this for:</p>
+  <ul class="list red">
+    <li class="scroll-transition"><i class="fa-solid fa-circle-xmark red"></i> 1-1 help / support with your own projects. I cannot dedicate time for this kind of work at the moment, so I’ll simply ignore these requests. <br>
+    I'm really sorry!</li>
+  </ul>
+
+  <div class="contact">
+    <a class="button scroll-transition" href="mailto:hello@bare-bones.dev">Get in touch</a>
+  </div>
+
+  <div class="icons">
+    <a class="scroll-transition" href="https://twitter.com/NivenRanchhod" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+    <a class="scroll-transition" href="https://www.linkedin.com/in/nivenranchhod/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+    <a class="scroll-transition" href="mailto:hello@bare-bones.dev" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+  </div>
+</section>
+
+<section class="newsletter scroll-transition" id="newsletter">
+    <div class="card">
+    <div class="logo">
+        <h4 class="scroll-transition">Join</h4>
+        <img class="scroll-transition" src="/bare-bones/images/bare-bones-club.svg" alt="Bare Bones Club" />
+    </div>
+
+    <div class="subscribe">
+        <div class="newsletter-desc">
+        <p class="scroll-transition">Stay up to date with my code, ramblings and rare moments of intelligence.</p>
+        </div>
+
+        <div id="revue-embed" class="revue-embed">
+        <form action="https://www.getrevue.co/profile/Barebonesclub/add_subscriber" method="post" id="revue-form" class="revue-form" name="revue-form"  target="_blank">
+            <div class="row">
+            <div class="revue-form-group">
+                <label class="sr-only" for="member_email">Email address</label>
+                <input class="revue-form-field scroll-transition" placeholder="Your email address..." type="email" name="member[email]" id="member_email">
+            </div>
+            <div class="revue-form-actions">
+                <input type="submit" value="Subscribe" name="member[subscribe]" id="member_submit" class="scroll-transition">
+            </div>
+            </div>
+            
+            <div class="revue-form-footer">
+            <p class="scroll-transition">By subscribing, you agree with Revue's <a class="underline no-wrap" target="_blank" href="https://www.getrevue.co/terms">Terms of Service</a> and <a class="underline no-wrap" target="_blank" href="https://www.getrevue.co/privacy">Privacy Policy</a>.</p>
+            
+            <p class="scroll-transition"><a class="arrow-link" href="https://www.getrevue.co/profile/Barebonesclub#archive" target="_blank">See previous editions <i class="fa-solid fa-arrow-right-long"></i></a></p>
+            </div>
+        </div>
+        </form>
+
+    </div>
+    </div>
+</section>
+  </main>
+  <footer>
+    <div class="socials">
+      <div class="logo">
+        <a href="/bare-bones/">
+          <img class="scroll-transition" src="/bare-bones/images/bare-bones-skull-only.svg" alt="Bare Bones" />
+        </a>
+      </div>
+
+      <div class="icons">
+        <a class="scroll-transition" href="https://twitter.com/NivenRanchhod" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+        <a class="scroll-transition" href="https://codepen.io/NivenRanchhod" target="_blank"><i class="fa-brands fa-codepen"></i></a>
+        <a class="scroll-transition" href="https://medium.com/@nivenranchhod" target="_blank"><i class="fa-brands fa-medium"></i></a>
+        <a class="scroll-transition" href="https://dev.to/nivenranchhod" target="_blank"><i class="fa-brands fa-dev"></i></a>
+        <a class="scroll-transition" href="https://barebones.hashnode.dev/" target="_blank"><i class="fa-brands fa-hashnode"></i></a>
+        <a class="scroll-transition" href="https://www.linkedin.com/in/nivenranchhod/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a class="scroll-transition" href="mailto:hello@bare-bones.dev" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+
+    <div class="sign-off">
+      <p class="scroll-transition">Built with humility & Haggis, <span class="no-wrap">in Scotland</span>.</p>
+      
+      <p class="scroll-transition"><span class="no-wrap">&copy; <a class="underline" href="https://twitter.com/NivenRanchhod" target="_blank">Niven Ranchhod</a> <span class="year"></span></span></p>
+    </div>
+  </footer>
+  
+
+  <script>
+      const scrollelements = gsap.utils.toArray('.scroll-transition');
+
+      scrollelements.forEach(box => {
+        gsap.from(box, {
+          scrollTrigger: {
+            trigger: box,
+            start:"top bottom"
+          },
+          y:50,
+          opacity:0,
+          duration:.8,
+          stagger:0.8
+        })
+      });
+
+      gsap.from('.stagger',{
+          opacity:0,
+          y:-5,
+          stagger:.1,
+          duration:.3
+      });
+      
+      gsap.from('.wave', {
+        scrollTrigger: {
+          start: 'top bottom',
+          end: 'bottom top',
+          toggleClass: 'waving'
+        }
+      });
+
+      const wave = gsap.utils.toArray('.wave');
+      wave.forEach((btn) => {
+        gsap.from(btn, {
+          scrollTrigger: {
+            start: 'top bottom',
+            end: 'bottom top',
+            trigger: btn,
+            toggleClass: 'waving'
+          }
+        });
+      });
+  </script>
+
+  <script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>
+</body>
+</html>

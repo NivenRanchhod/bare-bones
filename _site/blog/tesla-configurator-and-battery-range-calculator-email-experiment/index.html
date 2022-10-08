@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Niven Ranchhod">
+  <meta name="description" content="My personal challenge to build a complex &amp; real world interactive email.">
+  
+  <title>Tesla Configurator &amp; Battery Range Calculator — Interactive HTML Email Experiment</title>
+    
+  <link rel="icon" href="/bare-bones/favicon.ico">
+  <link rel="icon" href="/bare-bones/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/bare-bones/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/bare-bones/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/bare-bones/favicon-16x16.png">
+  <link rel="manifest" href="/bare-bones/site.webmanifest">
+  
+  <!-- Open graph -->
+  <meta property="og:title" content="Tesla Configurator &amp; Battery Range Calculator — Interactive HTML Email Experiment">
+  <meta property="og:description" content="Tesla Configurator &amp; Battery Range Calculator — Interactive HTML Email Experiment">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content=""/>
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- Twitter -->
+  <meta name="twitter:title" content="Tesla Configurator &amp; Battery Range Calculator — Interactive HTML Email Experiment">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@NivenRanchhod">
+  <meta name="twitter:description" content="Tesla Configurator &amp; Battery Range Calculator — Interactive HTML Email Experiment">
+  <meta name="twitter:image" content="">
+  <meta name="twitter:creator" content="@NivenRanchhod">
+
+  <link rel="stylesheet" href="/bare-bones/css/styles.css">
+  
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=montserrat:500,700,800" rel="stylesheet" />
+  <meta name="theme-color" content="#8e2de2">
+
+  <script src="https://kit.fontawesome.com/bfabfb8392.js" crossorigin="anonymous" defer></script>
+	<script src="/bare-bones/js/scripts.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  
+  <header>
+    <div class="logo stagger">
+      <a class="stagger" href="/bare-bones/">
+        <img class="stagger" src="/bare-bones/images/bare-bones.svg" alt="Bare Bones" />
+      </a>
+    </div>
+
+    <button class="mobile-nav-toggle stagger" aria-controls="main-navigation" aria-expanded="false">
+      <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <span class="sr-only">Menu</span>
+    </button>
+
+    <nav class="nav">
+      <ul id="main-navigation" class="main-navigation" data-visible="false">
+          <li class="stagger"><a data-display="Written" href="/bare-bones/blog
+          "><i class="fa-solid fa-feather-pointed"></i> <span>Written</span></a></li>
+          <li class="stagger"><a data-display="Coded" href="/bare-bones/code"><i class="fa-solid fa-code-fork"></i> <span>Coded</span></a></li>
+          <li class="stagger"><a data-display="About" href="/bare-bones/#about
+          "><i class="fa-solid fa-robot"></i> <span>About</span></a></li>
+          <li class="stagger"><a data-display="Newsletter" href="#newsletter"><i class="fa-solid fa-inbox"></i> <span>Newsletter</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <article class="main-article">
+  <h1 class="stagger">Tesla Configurator &amp; Battery Range Calculator — Interactive HTML Email Experiment</h1>
+  
+  <p class="date stagger"><i class="fa-solid fa-calendar-days"></i> <time datetime="May 13, 2021">May 13, 2021</time></p>
+  
+  <p>My personal challenge to build a complex &amp; real world interactive email.</p>
+<blockquote>
+<p>Disclaimer: This project was in no way affiliated with Tesla</p>
+</blockquote>
+<p><img src="/bare-bones/images/blog-images/tesla-calculator-result.png" alt="My version of the old Tesla Range Calculator in all of it's glory">
+<br>
+<br></p>
+<p><a class="button scroll-transition" href="/code/tesla-car-configurator/">View this experiment</a>
+<br></p>
+<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<h2>🎮 Functionality</h2>
+<p>The interactive tool is made up of two parts:</p>
+<ol>
+<li>
+<p><strong>Car configurator</strong> — Includes a slideshow of three different angles of the car, colour selection and wheel size &amp; design selection.
+Both of the colour and wheel options will update the slideshow so you can preview your specific Model S.</p>
+</li>
+<li>
+<p><strong>Range calculator</strong> — Includes the three model options in the Model S family and their ‘calculated' ranges with the three default settings (speed, outside temperature &amp; AC or Heat on/off).<br>
+The three settings will each have a determining factor on the range of each model option.</p>
+</li>
+</ol>
+<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<h2>💡 The idea</h2>
+<p>The idea for this email was sparked at least four or five years ago after seeing the original range calculator on the Tesla website (now removed), being recreated in <a href="https://www.freecodecamp.org/news/building-teslas-battery-range-calculator-with-react-part-1-2cb7abd8c1ee/">React</a> &amp; <a href="https://ultimatecourses.com/blog/building-tesla-range-calculator-angular-2-reactive-forms#stats-component">Angular</a>.<br>
+The idea only included the battery range calculator at the time. The configurator was a later addition.</p>
+<p><img src="/images/blog-images/tesla-calculator-original.png" alt="The original look of the battery range calculator on the Tesla website."></p>
+<p>It was really interesting to see how these developers went about recreating the tool in the chosen frameworks and it got me thinking…
+How would this translate to email?</p>
+<ol>
+<li>
+<p>We obviously can't use a matrix of range values in JS like the JS framework examples are using.</p>
+</li>
+<li>
+<p>How will the up/down arrows &amp; AC/Heat button change the three range values</p>
+</li>
+<li>
+<p>Is there any way to connect the wheels to the current speed to add a little more interactivity and a differentiating factor to the JS examples. The original and rebuilds simply had the wheels rotating at one speed.</p>
+</li>
+</ol>
+<p>Todd Motto, the creator of the Angular tutorial thankfully supplied all of the assets including the car, wheels with motion blur added, AC/Heat button and the Model S option logos.</p>
+<p>So I went ahead and started the base build, laying out each section and leaving the nitty gritty testing for updating the range calculations for later.
+Work was completed when I had some down time.
+I was juggling a lot, at work and in my personal life so work on this was infrequent.</p>
+<p>Fast forward a few months and we were planning our big move from New Zealand to the UK. Unfortunately this resulted in this build collecting digital dust while I got myself settled into Scottish life and a new job.</p>
+<p>Fast forward three and a half years to early 2021 and while cleaning up my personal files I found this little gem.</p>
+<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<h2>🔨 Build — Sourcing assets</h2>
+<p>At the point of stopping work on this almost four years ago, I had tested out <a href="https://css-tricks.com/almanac/properties/c/counter-increment/">CSS counters</a> to control the range calculations. This was in an effort to avoid <a href="https://www.webdesignerdepot.com/2015/10/punched-card-coding-the-secret-of-interactive-email/">Punched Card Coding</a> (PCC) i.e. multiple inputs and labels being shown/hidden to display specific content. The larger and more complex the functionality, the more inputs and complex CSS selector chaining required.<br>
+In the end it just wasn't the way to go and so I reverted to the trusted PCC method.</p>
+<p>As well as blowing off the dust of this old project, Tesla had worked on an update to the Model S, introducing the 2021 Model S including cosmetic updates which were a massive issue for my build. My imagery, assets grabbed from Todd Motto's tutorial and model options would be out of date.<br>
+Further to that, the design was pretty dated. Definitely time for a refresh!</p>
+<p>So I scoured the internet for high-res imagery, even resorting to guessing URLs for images on the Tesla website.<br>
+It took a while but I ended up finding high-res images of all colour &amp; wheels variants of the new Model S, including an updated side profile &amp; wheels for the range calculator animation.</p>
+<p>Thinking modern day email development, I also then needed to cut all of these out so I could optimise for dark mode.<br>
+Hours of cutting out and refining and I finally had some transparent PNGs to work with.</p>
+<p>Now the cut outs aren't that great because of the way the final images were exported, so I ended up heavily using the feather on the edges of all images.<br>
+I'm not completely happy with the dark mode view because of the white halo around the images, but ultimately I just need to remember if this were in fact a real world Tesla commissioned project, they would easily be able to provide me with clear cut transparent PNGs, so my half baked solution will suffice for now.</p>
+<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<h2>🔨 Build — Design</h2>
+<p>Right, first off — I am not a designer! I can scrape through with small design tweaks but I'm not that creative with layouts etc.
+BUT, I'm really happy with the end result.</p>
+<p>I did some design research on Dribbble and ended up amalgamating a few ideas to give me the configurator design.</p>
+<p>Looks quite polished in light mode!</p>
+<p><img src="https://media.giphy.com/media/ku2YMEjzMwud2/giphy.gif" alt=""></p>
+<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<h2>🔨 Build — Execution</h2>
+<h3>Hero &amp; slideshow</h3>
+<p>The hero section which includes the “MODEL S” title + slideshow are layered with the title being absolutely positioned. No faux absolute position setups here, just a simple CSS declaration on the title div.</p>
+<p>The reason I didn't go with the faux absolute position method (<a href="https://www.goodemailcode.com/email-enhancements/faux-absolute-position">Mark Robbins</a> / <a href="https://sayo1337.medium.com/overlay-email-absolute-positioning-efd2f2f09ed4">Steven Sayo</a>) is that this email will generally only really work with the methods included in Apple Mail (MacOS &amp; iOS) and Outlook Office 365 (MacOS) which all support absolute positioning and all of the other methods used in this email for that matter.</p>
+<p>The slideshow is essentially like a <a href="https://codepen.io/anon/pen/WQwagL">tabbed section</a>.<br>
+Hide all main content areas (side and rear profile views) on load, apart from the default which in this case was the front angle image.<br>
+The thumbs are radio inputs, so only one can be selected at a time.<br>
+On click, a radio button is selected and the CSS selector will switch which larger preview is shown. Easy!
+<br>
+<br></p>
+<h3>Configurator</h3>
+<p>This is where things get a little complicated.<br>
+I've now added a colour selector and a wheel size &amp; design selector.<br>
+Easy in functionality, again using radio inputs so only one can be a selected at a time but I've tied this into the slideshow which adds so much complexity into the CSS required to show/hide not only the correct colour but also the correct car angle depending on where the user stopped clicking through the thumbs.<br>
+On top of that, the thumbnails also update to reflect the colour and wheel options.</p>
+<p>Oh, I didn't mention this also ties into the battery range calculator car with the spinning wheels below the configurator.</p>
+<p><img src="https://media.giphy.com/media/l0MYPyvlf5JDEPUys/giphy.gif" alt=""></p>
+<p>I'm not going to go into detail on how this all ties together as there is a whole lot to go through!<br>
+Feel free to view the external stylesheet that holds all of the interactive CSS.<br>
+It's mega and complicated but it is essentially the brains of the operation.</p>
+<p><strong>Battery Range Calculator</strong><br>
+By now you're probably exhausted. So was I.<br>
+But we still have half of the build left to go.</p>
+<p>My first task was to find out the different speed and outside temperature options included in the original tool.<br>
+Easy, I just copied what was included in the original tool.</p>
+<p>Speed range: 45 / 50 / 55 (default) / 60 / 65 / 70</p>
+<p>Outside temperature range: -10 / 0 / 10 / 20 (default) / 30 / 40</p>
+<p>Oh wait, there's more. We also have an AC/Heat button which is enabled by default but also changes between AC when the outside temperature is above 10° and Heat when the outside temperature is below 20°</p>
+<p>So for the speed and outside temperatures to work with the up/down arrows, I decided to go with the psuedo selector :before.
+This way I'm not hiding/showing a div or and image to simply show a number.</p>
+<p>For example — We increase the speed to 60, the corresponding CSS is:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">#speed-60-up:checked ~ .showroom .speed-counter:before</span> <span class="token punctuation">{</span> <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'60'</span><span class="token punctuation">;</span> <span class="token punctuation">}</span></code></pre>
+<br>
+<br>
+Same for increasing the outside temperature to 30°:
+<br>
+<br>
+<pre class="language-css"><code class="language-css"><span class="token selector">#temp-30-up:checked ~ .showroom .temp-counter:before</span> <span class="token punctuation">{</span> <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'30'</span><span class="token punctuation">;</span> <span class="token punctuation">}</span></code></pre>
+<br>
+<br>
+Now for the AC/Heat button background image switch, if we've set an outside temperature of 20° or above:
+<br>
+<br>
+<pre class="language-css"><code class="language-css"><span class="token selector">#temp-20-up:checked ~ #temp-control:checked ~ .showroom .temp-control-bg, <br>#temp-30-up:checked ~ #temp-control:checked ~ .showroom .temp-control-bg, <br>#temp-40-up:checked ~ #temp-control:checked ~ .showroom .temp-control-bg, <br>#temp-20-down:checked ~ #temp-control:checked ~ .showroom .temp-control-bg, <br>#temp-30-down:checked ~ #temp-control:checked ~ .showroom .temp-control-bg</span> <span class="token punctuation">{</span> <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>images/temp-control-ac.png<span class="token punctuation">)</span></span><span class="token important">!important</span><span class="token punctuation">;</span> <span class="token punctuation">}</span></code></pre>
+<br>
+<br>
+10° or below:
+<br>
+<br>
+<pre class="language-css"><code class="language-css"><span class="token selector">#temp-10-up:checked ~ #temp-control:checked ~ .showroom .temp-control-bg, <br>#temp-0-up:checked ~ #temp-control:checked ~ .showroom .temp-control-bg, <br>#temp-10-down:checked ~ #temp-control:checked ~ .showroom .temp-control-bg, <br>#temp-0-down:checked ~ #temp-control:checked ~ .showroom .temp-control-bg, <br>#temp--10-down:checked ~ #temp-control:checked ~ .showroom .temp-control-bg</span> <span class="token punctuation">{</span> <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>images/temp-control-heat.png<span class="token punctuation">)</span></span><span class="token important">!important</span><span class="token punctuation">;</span> <span class="token punctuation">}</span></code></pre>
+<p><img src="https://media.giphy.com/media/3o7TKRwpns23QMNNiE/giphy.gif" alt=""></p>
+<p>And finally I tied the wheel turning animation to the speed figure.
+So now any time the speed is increased/decreased, the CSS animation will also increase/decrease. With the default 55mph:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">#speed-55-up:checked ~ .showroom .wheel, <br>#speed-55-down:checked ~ .showroom .wheel</span> <span class="token punctuation">{</span> <span class="token property">-webkit-animation</span><span class="token punctuation">:</span> infinite-spinning 80ms <span class="token function">steps</span><span class="token punctuation">(</span>4<span class="token punctuation">)</span> infinite reverse<span class="token important">!important</span><span class="token punctuation">;</span> <span class="token property">animation</span><span class="token punctuation">:</span> infinite-spinning 80ms <span class="token function">steps</span><span class="token punctuation">(</span>4<span class="token punctuation">)</span> infinite reverse<span class="token important">!important</span><span class="token punctuation">;</span> <span class="token punctuation">}</span></code></pre>
+<p>Right that's the settings panels out of the way. The values switch out as expected but now how do we tie those into the range values???</p>
+<p>Again we can utilise our trusty pseudo selector :before, again.<br>
+However, the CSS chaining is waaaaay more complicated here.</p>
+<ol>
+<li>With the updated model, the range calculations would no doubt be different from the original Model S options. What are they and where do I get them?<br></li>
+<li>Even if they were the same, would I have to go through every variation in the calculator to find out all of the figures.<br></li>
+<li>Could I just make up some figures to save me time but also to avoid using old figures?<br></li>
+</ol>
+<p>I ended up doing some digging and found that the Angular tutorial had recorded all of this information for me in this <a href="https://github.com/ultimatecourses/angular-tesla-range-calculator/blob/master/src/app/tesla-battery/tesla-battery.service.ts">amazingly detailed file</a> on Github.<br>
+They had the ranges corresponding to the outside temperatures, grouped by speed, then by whether the AC/Heat was on/off, then by wheel size and then by model type.<br>
+I couldn't even dream of being that detailed with my matrix, but it's exactly what I needed.</p>
+<p>The original Model S had a lot more model types:<br>
+60 / 60D / 75 / 75D / 90D / P100D.</p>
+<p>Whereas the 2021 model only had (at the time of build):<br>
+Long Range / Plaid / Plaid+.</p>
+<p>This reduced a lot of manual documentation. THANKFULLY!</p>
+<p>But I still had a lot of work to set up the CSS selector chain to show the correct range value for each model.</p>
+<p>Here is the CSS for a speed of 55mph, outside temp of 20°, AC on and the 19&quot; wheel option:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">Long Range:<br>#speed-55-down:checked ~ #temp-20-down:checked ~ #temp-control:checked ~ #wheel-19:checked ~ .showroom .model-long-range:after, <br>#speed-55-down:checked ~ #temp-20-up:checked ~ #temp-control:checked ~ #wheel-19:checked ~ .showroom .model-long-range:after, <br>#speed-55-up:checked ~ #temp-20-down:checked ~ #temp-control:checked ~ #wheel-19:checked ~ .showroom .model-long-range:after, <br>#speed-55-up:checked ~ #temp-20-up:checked ~ #temp-control:checked ~ #wheel-19:checked ~ .showroom .model-long-range:after</span> <span class="token punctuation">{</span> <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'306'</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><br><br><span class="token selector">Plaid:<br>#speed-55-down:checked ~ #temp-20-down:checked ~ #temp-control:checked ~ #wheel-19:checked ~ .showroom .model-plaid:after, <br>#speed-55-down:checked ~ #temp-20-up:checked ~ #temp-control:checked ~ #wheel-19:checked ~ .showroom .model-plaid:after, <br>#speed-55-up:checked ~ #temp-20-down:checked ~ #temp-control:checked ~ #wheel-19:checked ~ .showroom .model-plaid:after, <br>#speed-55-up:checked ~ #temp-20-up:checked ~ #temp-control:checked ~ #wheel-19:checked ~ .showroom .model-plaid:after</span> <span class="token punctuation">{</span> <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'336'</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><br><br><span class="token selector">Plaid+:<br>#speed-55-down:checked ~ #temp-20-down:checked ~ #temp-control:checked ~ #wheel-19:checked ~ .showroom .model-plaid-plus:after, <br>#speed-55-down:checked ~ #temp-20-up:checked ~ #temp-control:checked ~ #wheel-19:checked ~ .showroom .model-plaid-plus:after, <br>#speed-55-up:checked ~ #temp-20-down:checked ~ #temp-control:checked ~ #wheel-19:checked ~ .showroom .model-plaid-plus:after, <br>#speed-55-up:checked ~ #temp-20-up:checked ~ #temp-control:checked ~ #wheel-19:checked ~ .showroom .model-plaid-plus:after</span> <span class="token punctuation">{</span> <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'376'</span><span class="token punctuation">;</span> <span class="token punctuation">}</span></code></pre>
+<p>That is a fair amount of CSS to spit out one figure for each model.<br>
+Now imagine that for each variable for speed, outside temp and AC/Heat on/off.<br>
+An upside of this method of setup is the flexibility to amend those figures going forward, when using an external stylesheet.</p>
+<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<h2>💀 Fallback</h2>
+<p>This specific execution doesn't have amazing support, as noted earlier on. It pretty much only works in Apple Mail (desktop &amp; mobile) &amp; Outlook Office 365 (MacOS). But it still shows what is possible.</p>
+<p><img src="/images/blog-images/tesla-calculator-fallback.png" alt=""></p>
+<p>The fall back I have in place is literally just for fun. If this were a commissioned project, then I would have looked into a static alternative which pointed the user to use the website configurator.</p>
+<p>Or I could have looked into splitting the build out and looked into how the tabbed slideshow could work in Yahoo webmail.</p>
+<p>There are definitely other avenues I could have taken but ultimately the challenge was to build a complex interactive email and I did it!</p>
+<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<h2>😭 Conclusion</h2>
+<p>In an ideal world, the ‘Order now' button would take your configuration and take you to the checkout page for the Model S.</p>
+<p>Also you may wonder why this would be useful?<br>
+Imagine the Model S was released in allocation pools and this email were part of an automated journey and was fired out when a new allocation pool opened up. Customers who showed interest could choose their configuration, double check the mileage they would get with the model of choice and then hit ‘Order now' and the system can take them through to checkout instantly.</p>
+<p>I reckon that would make customers over the moon if that meant they could effectively jump the queue.
+<br>
+<br></p>
+<h3>Technical note</h3>
+<p>Now by no means am I saying the methods I've used in this are ideal or the best way to do it. I'm already wondering if there is a cleaner way to select the numerous variables to spit out a result.<br>
+I mean, could I have used better CSS selectors to reduce some of the weight. Maybe.<br>
+Could I have built this with better support to allow more people to view the email, maybe.
+<br>
+<br></p>
+<h3>My next challenge</h3>
+<p>I've already got my eye on the next challenge, which will be building the <a href="https://configurator.mclaren.com/configuration/startConfiguration.do?profileName=765LT">McLaren car configurator</a> using AMP.</p>
+<p>I'm potentially getting in way over my head but I need to learn AMP, I want to build even more complex interactive emails and I'm always up for a challenge.<br>
+Wish me luck!</p>
+<img class="icon-sign-off" src="/images/logo-as-icon-crosses.svg" alt="" />
+</article>
+
+<section class="newsletter scroll-transition" id="newsletter">
+    <div class="card">
+    <div class="logo">
+        <h4 class="scroll-transition">Join</h4>
+        <img class="scroll-transition" src="/bare-bones/images/bare-bones-club.svg" alt="Bare Bones Club" />
+    </div>
+
+    <div class="subscribe">
+        <div class="newsletter-desc">
+        <p class="scroll-transition">Stay up to date with my code, ramblings and rare moments of intelligence.</p>
+        </div>
+
+        <div id="revue-embed" class="revue-embed">
+        <form action="https://www.getrevue.co/profile/Barebonesclub/add_subscriber" method="post" id="revue-form" class="revue-form" name="revue-form"  target="_blank">
+            <div class="row">
+            <div class="revue-form-group">
+                <label class="sr-only" for="member_email">Email address</label>
+                <input class="revue-form-field scroll-transition" placeholder="Your email address..." type="email" name="member[email]" id="member_email">
+            </div>
+            <div class="revue-form-actions">
+                <input type="submit" value="Subscribe" name="member[subscribe]" id="member_submit" class="scroll-transition">
+            </div>
+            </div>
+            
+            <div class="revue-form-footer">
+            <p class="scroll-transition">By subscribing, you agree with Revue's <a class="underline no-wrap" target="_blank" href="https://www.getrevue.co/terms">Terms of Service</a> and <a class="underline no-wrap" target="_blank" href="https://www.getrevue.co/privacy">Privacy Policy</a>.</p>
+            
+            <p class="scroll-transition"><a class="arrow-link" href="https://www.getrevue.co/profile/Barebonesclub#archive" target="_blank">See previous editions <i class="fa-solid fa-arrow-right-long"></i></a></p>
+            </div>
+        </div>
+        </form>
+
+    </div>
+    </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bare-bones.dev/blog/uber-email-receipt-vs-outlook/"
+  },
+  "headline": "Tesla Configurator &amp; Battery Range Calculator — Interactive HTML Email Experiment",
+  "description": "My personal challenge to build a complex &amp; real world interactive email.",
+  "image": "https://bare-bones.dev/images/bare-bones.png",
+  "author": {
+    "@type": "Person",
+    "name": "Niven Ranchhod",
+    "url": "https://bare-bones.dev"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bare Bones",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://bare-bones.dev/images/bare-bones.png"
+    }
+  },
+  "datePublished": "Thu May 13 2021 01:00:00 GMT+0100 (British Summer Time)"
+}
+</script>
+  </main>
+  <footer>
+    <div class="socials">
+      <div class="logo">
+        <a href="/bare-bones/">
+          <img class="scroll-transition" src="/bare-bones/images/bare-bones-skull-only.svg" alt="Bare Bones" />
+        </a>
+      </div>
+
+      <div class="icons">
+        <a class="scroll-transition" href="https://twitter.com/NivenRanchhod" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+        <a class="scroll-transition" href="https://codepen.io/NivenRanchhod" target="_blank"><i class="fa-brands fa-codepen"></i></a>
+        <a class="scroll-transition" href="https://medium.com/@nivenranchhod" target="_blank"><i class="fa-brands fa-medium"></i></a>
+        <a class="scroll-transition" href="https://dev.to/nivenranchhod" target="_blank"><i class="fa-brands fa-dev"></i></a>
+        <a class="scroll-transition" href="https://barebones.hashnode.dev/" target="_blank"><i class="fa-brands fa-hashnode"></i></a>
+        <a class="scroll-transition" href="https://www.linkedin.com/in/nivenranchhod/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a class="scroll-transition" href="mailto:hello@bare-bones.dev" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+
+    <div class="sign-off">
+      <p class="scroll-transition">Built with humility & Haggis, <span class="no-wrap">in Scotland</span>.</p>
+      
+      <p class="scroll-transition"><span class="no-wrap">&copy; <a class="underline" href="https://twitter.com/NivenRanchhod" target="_blank">Niven Ranchhod</a> <span class="year"></span></span></p>
+    </div>
+  </footer>
+  
+
+  <script>
+      const scrollelements = gsap.utils.toArray('.scroll-transition');
+
+      scrollelements.forEach(box => {
+        gsap.from(box, {
+          scrollTrigger: {
+            trigger: box,
+            start:"top bottom"
+          },
+          y:50,
+          opacity:0,
+          duration:.8,
+          stagger:0.8
+        })
+      });
+
+      gsap.from('.stagger',{
+          opacity:0,
+          y:-5,
+          stagger:.1,
+          duration:.3
+      });
+      
+      gsap.from('.wave', {
+        scrollTrigger: {
+          start: 'top bottom',
+          end: 'bottom top',
+          toggleClass: 'waving'
+        }
+      });
+
+      const wave = gsap.utils.toArray('.wave');
+      wave.forEach((btn) => {
+        gsap.from(btn, {
+          scrollTrigger: {
+            start: 'top bottom',
+            end: 'bottom top',
+            trigger: btn,
+            toggleClass: 'waving'
+          }
+        });
+      });
+  </script>
+
+  <script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>
+</body>
+</html>

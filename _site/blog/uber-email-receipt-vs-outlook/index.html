@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Niven Ranchhod">
+  <meta name="description" content="I did a deep dive into the HTML template causing so much strife for Outlook and got a little obsessive along the way.">
+  
+  <title>Uber email receipt vs. Outlook — an exclusive take from an email developer</title>
+    
+  <link rel="icon" href="/bare-bones/favicon.ico">
+  <link rel="icon" href="/bare-bones/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/bare-bones/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/bare-bones/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/bare-bones/favicon-16x16.png">
+  <link rel="manifest" href="/bare-bones/site.webmanifest">
+  
+  <!-- Open graph -->
+  <meta property="og:title" content="Uber email receipt vs. Outlook — an exclusive take from an email developer">
+  <meta property="og:description" content="Uber email receipt vs. Outlook — an exclusive take from an email developer">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content=""/>
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- Twitter -->
+  <meta name="twitter:title" content="Uber email receipt vs. Outlook — an exclusive take from an email developer">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@NivenRanchhod">
+  <meta name="twitter:description" content="Uber email receipt vs. Outlook — an exclusive take from an email developer">
+  <meta name="twitter:image" content="">
+  <meta name="twitter:creator" content="@NivenRanchhod">
+
+  <link rel="stylesheet" href="/bare-bones/css/styles.css">
+  
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=montserrat:500,700,800" rel="stylesheet" />
+  <meta name="theme-color" content="#8e2de2">
+
+  <script src="https://kit.fontawesome.com/bfabfb8392.js" crossorigin="anonymous" defer></script>
+	<script src="/bare-bones/js/scripts.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  
+  <header>
+    <div class="logo stagger">
+      <a class="stagger" href="/bare-bones/">
+        <img class="stagger" src="/bare-bones/images/bare-bones.svg" alt="Bare Bones" />
+      </a>
+    </div>
+
+    <button class="mobile-nav-toggle stagger" aria-controls="main-navigation" aria-expanded="false">
+      <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <span class="sr-only">Menu</span>
+    </button>
+
+    <nav class="nav">
+      <ul id="main-navigation" class="main-navigation" data-visible="false">
+          <li class="stagger"><a data-display="Written" href="/bare-bones/blog
+          "><i class="fa-solid fa-feather-pointed"></i> <span>Written</span></a></li>
+          <li class="stagger"><a data-display="Coded" href="/bare-bones/code"><i class="fa-solid fa-code-fork"></i> <span>Coded</span></a></li>
+          <li class="stagger"><a data-display="About" href="/bare-bones/#about
+          "><i class="fa-solid fa-robot"></i> <span>About</span></a></li>
+          <li class="stagger"><a data-display="Newsletter" href="#newsletter"><i class="fa-solid fa-inbox"></i> <span>Newsletter</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <article class="main-article">
+  <h1 class="stagger">Uber email receipt vs. Outlook — an exclusive take from an email developer</h1>
+  
+  <p class="date stagger"><i class="fa-solid fa-calendar-days"></i> <time datetime="Aug 5, 2022">Aug 5, 2022</time></p>
+  
+  <p>I did a deep dive into the HTML template causing so much strife for Outlook and got a little obsessive along the way.</p>
+<p><span class="stagger">🔗 Original story by <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-outlook-is-crashing-when-reading-uber-receipt-emails">Bleeping Computer </a></span></p>
+<p><span class="stagger"><img src="https://media.giphy.com/media/HteV6g0QTNxp6/giphy-downsized-large.gif" alt="">
+<em>Pointless but funny gif of Ron Swanson from Parks &amp; Recreation, dumping his computer in a bin. Outlook troubles, Ron?</em>
+</span>
+<br>
+<br></p>
+<h2>📖 How it started</h2>
+<p>The email community was having a field day with this. As soon as the news started circling about an email that was finally able to take down the mighty Outlook desktop application (which is notorious in it's own right for being a poor experience), we were trying to figure out what could have possibly caused the bug.</p>
+<p>The description ‘complex tables' was thrown about like anyone knew what that actually meant. One eagle eyed community member found an <a href="https://reallygoodemails.com/emails/personal-your-tuesday-morning-trip-with-uber">example of a recent Uber email receipt</a> dating back to May 2022, saved on <a href="https://reallygoodemails.com/">Really Good Emails</a>. She was able to pull the source code and share with the community.</p>
+<p>I jumped at the chance to try and figure out what the issue actually was as well as get a peek behind the curtain on how a global company of this size, codes their emails.</p>
+<p>Let's just say, I was impressed but for all the wrong reasons 😔</p>
+<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<h2>👷🏾‍♂️ Let's get technical</h2>
+<p>First I dropped the source code into <a href="https://parcel.io/">Parcel</a> (a dedicated Email builder tool) and skimmed through the HTML.
+Parcel has helpful tools in it's editor, such as:</p>
+<ul>
+<li>
+<p><strong>Inspect Element</strong> — Click any HTML element in the preview to jump to the corresponding code.</p>
+</li>
+<li>
+<p><strong>Focus Mode</strong> — Highlights and scroll the HTML element you are editing into view.</p>
+</li>
+<li>
+<p><strong>Expanded Table View</strong> — Outline table elements to easily debug table-based layout issues.</p>
+</li>
+</ul>
+<p>I cannot emphasise enough, how helpful these extra editor tools were to debugging this email. Without them, I think this would have taken twice the time to review. And they're included in the Free plan, which I'm on.</p>
+<p>Thanks Parcel 👍🏾</p>
+<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<h3>Container</h3>
+<p>On initial review, I noticed a worrying trend… Numerous layers of nested tables for each section of the template.</p>
+<p>On top of that, an attempt at a fluid setup for the structure with some of the wrapping tables using max-widths (which Outlook doesn't support) and then a MSO or Outlook specific table with a fixed width (to fix the lack of max-width support).</p>
+<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!--[if (gte mso 9)|(IE)]><br>&lt;table width="700" align="center" cellpadding="0" cellspacing="0" border="0">&lt;tr>&lt;td><br>&lt;![endif]--></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span><br>  <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>100%<span class="token punctuation">"</span></span><br>  <span class="token attr-name">border</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span><br>  <span class="token attr-name">cellpadding</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span><br>  <span class="token attr-name">cellspacing</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span><br>  <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">border</span><span class="token punctuation">:</span>none<span class="token punctuation">;</span> <span class="token property">border-collapse</span><span class="token punctuation">:</span>collapse<span class="token punctuation">;</span> <span class="token property">border-spacing</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span> <span class="token property">max-width</span><span class="token punctuation">:</span>700px<span class="token punctuation">;</span> <span class="token property">mso-table-lspace</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span> <span class="token property">mso-table-rspace</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span> <span class="token property">width</span><span class="token punctuation">:</span>100%</span><span class="token punctuation">"</span></span></span><br>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>wrapper<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><br>  ...<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span></code></pre>
+<p>This setup is completely normal, but to see it being used on almost every layer of the nested structure, is simply not necessary.</p>
+<p>This is how the email looked with the ‘Expanded Table View' switched on:</p>
+<p><img src="/images/blog-images/uber-review-complicated-table-structure.jpg" alt="A screenshot of the ‘Expanded Table View' in Parcel, showing the multiple layers of nested tables."></p>
+<p>I discovered there were five extra tables wrapping the outer 700px wide container.</p>
+<p>Removing these extra tables resulted in 38 lines of code being removed and a drop in file size by 33kb.
+I mean, that is huge!</p>
+<p>The email originally weighed in at 172kb. It's now sitting at 139kb, after this removal.</p>
+<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<h3>Header</h3>
+<p>The header was also wrapped in another six tables 🤯</p>
+<p><img src="/images/blog-images/uber-review-header.png" alt="Screenshot of the header area and it's contents of the Uber email in question"></p>
+<p>Designs like this are rather simple to lay out.</p>
+<ol>
+<li>
+<p>One full width table which has the background colour and vertical padding.</p>
+</li>
+<li>
+<p>A centred inner table of the intended width, with the two elements sitting in two columns since they stay side by side on smaller screens.</p>
+</li>
+</ol>
+<p>That's two tables.
+Four extra tables doesn't seem like a lot, but removing these resulted in a 5kb reduction in HTML file size.</p>
+<p>5kb doesn't sound like a lot, but in a world where Gmail clips emails larger than 102kb, a 5kb saving can be huge.
+The amends to the header meant we were sitting at 134kb.</p>
+<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<h3>🏃🏾‍♀️ And on and on...</h3>
+<p>The themes from the points above continue on for all sections.
+Extra tables with CSS being applied at different stages.
+In some cases, padding was being applied vertically in one layer and then one or two layers further in, horizontal padding was being applied.</p>
+<p>Other issues I found:</p>
+<ul>
+<li>
+<p>Heavy multi-table faux columns. 13 lines of code to mimic a table column. Hints at a mix of development styles by multiple developers.</p>
+</li>
+<li>
+<p>100% width Outlook fallbacks for 100% width tables. Effectively, this doubles the code for no reason.</p>
+</li>
+<li>
+<p>A lot of unused CSS in the head. A hangover from a templated system. This isn't too concerning but making CSS in the head conditional depending on the use would make savings in file size too.</p>
+</li>
+<li>
+<p>Class names for mobile styles are all doing the same thing. In this case, the .full class name (at the bottom of the list) would have sufficed.</p>
+</li>
+</ul>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@media</span> screen <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 699px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span><br>  <span class="token selector">.t1of12,<br>  .t2of12,<br>  .t3of12,<br>  .t4of12,<br>  .t5of12,<br>  .t6of12,<br>  .t7of12,<br>  .t8of12,<br>  .t9of12,<br>  .t10of12,<br>  .t11of12,<br>  .t12of12,<br>  .full</span> <span class="token punctuation">{</span><br>    <span class="token property">width</span><span class="token punctuation">:</span> 100% <span class="token important">!important</span><span class="token punctuation">;</span><br>    <span class="token property">max-width</span><span class="token punctuation">:</span> none <span class="token important">!important</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p><img src="https://giphy.com/gifs/computer-disgusted-hammer-12bVDtXPOzYwda" alt=""></p>
+<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<h3>🦾 Accessibility</h3>
+<p>I ran the original code through the Litmus accessibility checker and found these results:</p>
+<ul>
+<li>
+<p>Images are missing alt attributes</p>
+</li>
+<li>
+<p>&lt;html&gt; is missing a lang attribute</p>
+</li>
+<li>
+<p>A large number of presentational tables are missing a role attribute to inform screens readers to ignore their structure.</p>
+</li>
+</ul>
+<p>These are the basics for email accessibility, especially alt attributes on images, even if empty.</p>
+<p>Not a good look.</p>
+<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<h2>Conclusion</h2>
+<p>Outlook crashing or being crippled by HTML absolutely shouldn't be happening!
+The Outlook team pushing out a hot fix, begs the question… Why can't they do the same to fix the numerous issues with how Outlook renders HTML, which have plagued developers for years and over multiple versions of the software?</p>
+<p>On the flipside, why is a Unicorn like Uber unable to produce standard HTML email templates?
+There is a flourishing community of <a href="https://email.geeks.chat/">#emailgeeks</a> sharing how to build and deliver emails in a standard and accessible way.</p>
+<p>We now also have the <a href="https://emailmarkup.org/">Email Markup Consortium</a>, made up completely of community members, attempting to help the community and ESPs set standards for everything email.
+Resources are in reach.</p>
+<p>I've been building emails for eight years now. I've seen email templating systems of all sizes in my time, but never anything this poorly built and managed. And it's sad to see such poor accessibility integration.
+<br><br></p>
+<p><strong>⚠️ I must emphasise</strong><br>
+There is actually nothing complex about the table structure being used in this template. ‘Complex tables' is the wrong term to use in this instance.
+It's simply convoluted and poorly built. That's it.
+Band-aids are being** applied over older band aids. Clearly, no one is reviewing the code base and ensuring it's up to date, being applied correctly or even up to scratch standards wise.</p>
+<p>I'm still not 100% clear on what the specific issue was.
+All I know is that cleaning the HTML slightly, fixed it. No HTML errors were showing in the original file, so it doesn't seem to be an invalid HTML issue.
+It's as if Outlook was itself overwhelmed by the sheer over complication of what should have been a simple build 😵
+<br><br></p>
+<p><strong>Do better Uber.</strong><br>
+You have the money and resource to fix this.
+We as a community would love if you reached out for help.
+We'll welcome you in, run you through what you need to work on and help with implementation.</p>
+<p>We look forward to hearing from you ✌🏾</p>
+<img class="icon-sign-off" src="/images/logo-as-icon-crosses.svg" alt="" />
+</article>
+
+<section class="newsletter scroll-transition" id="newsletter">
+    <div class="card">
+    <div class="logo">
+        <h4 class="scroll-transition">Join</h4>
+        <img class="scroll-transition" src="/bare-bones/images/bare-bones-club.svg" alt="Bare Bones Club" />
+    </div>
+
+    <div class="subscribe">
+        <div class="newsletter-desc">
+        <p class="scroll-transition">Stay up to date with my code, ramblings and rare moments of intelligence.</p>
+        </div>
+
+        <div id="revue-embed" class="revue-embed">
+        <form action="https://www.getrevue.co/profile/Barebonesclub/add_subscriber" method="post" id="revue-form" class="revue-form" name="revue-form"  target="_blank">
+            <div class="row">
+            <div class="revue-form-group">
+                <label class="sr-only" for="member_email">Email address</label>
+                <input class="revue-form-field scroll-transition" placeholder="Your email address..." type="email" name="member[email]" id="member_email">
+            </div>
+            <div class="revue-form-actions">
+                <input type="submit" value="Subscribe" name="member[subscribe]" id="member_submit" class="scroll-transition">
+            </div>
+            </div>
+            
+            <div class="revue-form-footer">
+            <p class="scroll-transition">By subscribing, you agree with Revue's <a class="underline no-wrap" target="_blank" href="https://www.getrevue.co/terms">Terms of Service</a> and <a class="underline no-wrap" target="_blank" href="https://www.getrevue.co/privacy">Privacy Policy</a>.</p>
+            
+            <p class="scroll-transition"><a class="arrow-link" href="https://www.getrevue.co/profile/Barebonesclub#archive" target="_blank">See previous editions <i class="fa-solid fa-arrow-right-long"></i></a></p>
+            </div>
+        </div>
+        </form>
+
+    </div>
+    </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bare-bones.dev/blog/uber-email-receipt-vs-outlook/"
+  },
+  "headline": "Uber email receipt vs. Outlook — an exclusive take from an email developer",
+  "description": "I did a deep dive into the HTML template causing so much strife for Outlook and got a little obsessive along the way.",
+  "image": "https://bare-bones.dev/images/bare-bones.png",
+  "author": {
+    "@type": "Person",
+    "name": "Niven Ranchhod",
+    "url": "https://bare-bones.dev"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bare Bones",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://bare-bones.dev/images/bare-bones.png"
+    }
+  },
+  "datePublished": "Fri Aug 05 2022 01:00:00 GMT+0100 (British Summer Time)"
+}
+</script>
+  </main>
+  <footer>
+    <div class="socials">
+      <div class="logo">
+        <a href="/bare-bones/">
+          <img class="scroll-transition" src="/bare-bones/images/bare-bones-skull-only.svg" alt="Bare Bones" />
+        </a>
+      </div>
+
+      <div class="icons">
+        <a class="scroll-transition" href="https://twitter.com/NivenRanchhod" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+        <a class="scroll-transition" href="https://codepen.io/NivenRanchhod" target="_blank"><i class="fa-brands fa-codepen"></i></a>
+        <a class="scroll-transition" href="https://medium.com/@nivenranchhod" target="_blank"><i class="fa-brands fa-medium"></i></a>
+        <a class="scroll-transition" href="https://dev.to/nivenranchhod" target="_blank"><i class="fa-brands fa-dev"></i></a>
+        <a class="scroll-transition" href="https://barebones.hashnode.dev/" target="_blank"><i class="fa-brands fa-hashnode"></i></a>
+        <a class="scroll-transition" href="https://www.linkedin.com/in/nivenranchhod/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a class="scroll-transition" href="mailto:hello@bare-bones.dev" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+
+    <div class="sign-off">
+      <p class="scroll-transition">Built with humility & Haggis, <span class="no-wrap">in Scotland</span>.</p>
+      
+      <p class="scroll-transition"><span class="no-wrap">&copy; <a class="underline" href="https://twitter.com/NivenRanchhod" target="_blank">Niven Ranchhod</a> <span class="year"></span></span></p>
+    </div>
+  </footer>
+  
+
+  <script>
+      const scrollelements = gsap.utils.toArray('.scroll-transition');
+
+      scrollelements.forEach(box => {
+        gsap.from(box, {
+          scrollTrigger: {
+            trigger: box,
+            start:"top bottom"
+          },
+          y:50,
+          opacity:0,
+          duration:.8,
+          stagger:0.8
+        })
+      });
+
+      gsap.from('.stagger',{
+          opacity:0,
+          y:-5,
+          stagger:.1,
+          duration:.3
+      });
+      
+      gsap.from('.wave', {
+        scrollTrigger: {
+          start: 'top bottom',
+          end: 'bottom top',
+          toggleClass: 'waving'
+        }
+      });
+
+      const wave = gsap.utils.toArray('.wave');
+      wave.forEach((btn) => {
+        gsap.from(btn, {
+          scrollTrigger: {
+            start: 'top bottom',
+            end: 'bottom top',
+            trigger: btn,
+            toggleClass: 'waving'
+          }
+        });
+      });
+  </script>
+
+  <script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>
+</body>
+</html>
