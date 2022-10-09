@@ -20,7 +20,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("experiment-assets");
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("js");
-  eleventyConfig.addPassthroughCopy("src/CNAME");
+  eleventyConfig.addPassthroughCopy("CNAME");
 
   eleventyConfig.addPlugin(syntaxHighlight);
 
