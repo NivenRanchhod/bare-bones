@@ -20,12 +20,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("experiment-assets");
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("js");
+  eleventyConfig.addPassthroughCopy("src/CNAME");
 
   eleventyConfig.addPlugin(syntaxHighlight);
 
-  return {
-    pathPrefix: "/bare-bones/"
-  }
+  // return {
+  //   pathPrefix: "/bare-bones/"
+  // }
 };
 
 function extractExcerpt(article) {
