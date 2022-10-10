@@ -89,7 +89,7 @@
 <p>The description ‘complex tables' was thrown about like anyone knew what that actually meant. One eagle eyed community member found an <a href="https://reallygoodemails.com/emails/personal-your-tuesday-morning-trip-with-uber">example of a recent Uber email receipt</a> dating back to May 2022, saved on <a href="https://reallygoodemails.com/">Really Good Emails</a>. She was able to pull the source code and share with the community.</p>
 <p>I jumped at the chance to try and figure out what the issue actually was as well as get a peek behind the curtain on how a global company of this size, codes their emails.</p>
 <p>Let's just say, I was impressed but for all the wrong reasons 😔</p>
-<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
 <h2>👷🏾‍♂️ Let's get technical</h2>
 <p>First I dropped the source code into <a href="https://parcel.io/">Parcel</a> (a dedicated Email builder tool) and skimmed through the HTML.
 Parcel has helpful tools in it's editor, such as:</p>
@@ -106,7 +106,7 @@ Parcel has helpful tools in it's editor, such as:</p>
 </ul>
 <p>I cannot emphasise enough, how helpful these extra editor tools were to debugging this email. Without them, I think this would have taken twice the time to review. And they're included in the Free plan, which I'm on.</p>
 <p>Thanks Parcel 👍🏾</p>
-<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
 <h3>Container</h3>
 <p>On initial review, I noticed a worrying trend… Numerous layers of nested tables for each section of the template.</p>
 <p>On top of that, an attempt at a fluid setup for the structure with some of the wrapping tables using max-widths (which Outlook doesn't support) and then a MSO or Outlook specific table with a fixed width (to fix the lack of max-width support).</p>
@@ -118,7 +118,7 @@ Parcel has helpful tools in it's editor, such as:</p>
 <p>Removing these extra tables resulted in 38 lines of code being removed and a drop in file size by 33kb.
 I mean, that is huge!</p>
 <p>The email originally weighed in at 172kb. It's now sitting at 139kb, after this removal.</p>
-<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
 <h3>Header</h3>
 <p>The header was also wrapped in another six tables 🤯</p>
 <p><img src="/images/blog-images/uber-review-header.png" alt="Screenshot of the header area and it's contents of the Uber email in question"></p>
@@ -135,7 +135,7 @@ I mean, that is huge!</p>
 Four extra tables doesn't seem like a lot, but removing these resulted in a 5kb reduction in HTML file size.</p>
 <p>5kb doesn't sound like a lot, but in a world where Gmail clips emails larger than 102kb, a 5kb saving can be huge.
 The amends to the header meant we were sitting at 134kb.</p>
-<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
 <h3>🏃🏾‍♀️ And on and on...</h3>
 <p>The themes from the points above continue on for all sections.
 Extra tables with CSS being applied at different stages.
@@ -157,7 +157,7 @@ In some cases, padding was being applied vertically in one layer and then one or
 </ul>
 <pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@media</span> screen <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 699px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span><br>  <span class="token selector">.t1of12,<br>  .t2of12,<br>  .t3of12,<br>  .t4of12,<br>  .t5of12,<br>  .t6of12,<br>  .t7of12,<br>  .t8of12,<br>  .t9of12,<br>  .t10of12,<br>  .t11of12,<br>  .t12of12,<br>  .full</span> <span class="token punctuation">{</span><br>    <span class="token property">width</span><span class="token punctuation">:</span> 100% <span class="token important">!important</span><span class="token punctuation">;</span><br>    <span class="token property">max-width</span><span class="token punctuation">:</span> none <span class="token important">!important</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
 <p><img src="https://giphy.com/gifs/computer-disgusted-hammer-12bVDtXPOzYwda" alt=""></p>
-<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
 <h3>🦾 Accessibility</h3>
 <p>I ran the original code through the Litmus accessibility checker and found these results:</p>
 <ul>
@@ -173,7 +173,7 @@ In some cases, padding was being applied vertically in one layer and then one or
 </ul>
 <p>These are the basics for email accessibility, especially alt attributes on images, even if empty.</p>
 <p>Not a good look.</p>
-<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
 <h2>Conclusion</h2>
 <p>Outlook crashing or being crippled by HTML absolutely shouldn't be happening!
 The Outlook team pushing out a hot fix, begs the question… Why can't they do the same to fix the numerous issues with how Outlook renders HTML, which have plagued developers for years and over multiple versions of the software?</p>

@@ -72,7 +72,7 @@ body {
   margin: 0 auto;
   border-top: 4px solid #8F48FF;
   font-size: 1.8rem;
-  line-height: 1.5;
+  line-height: 1.7;
   font-weight: 500;
   color: #fff;
   text-rendering: optimizeSpeed;
@@ -83,9 +83,9 @@ header, main, footer {
   margin: 0 auto;
   padding: 0 5rem;
 }
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
   header, main, footer {
-    padding: 0 3rem;
+    padding: 0 2.5rem;
   }
 }
 
@@ -384,7 +384,7 @@ header .mobile-nav-toggle .hamburger .line {
     width: 4rem;
     aspect-ratio: 1;
     top: 6rem;
-    right: 4rem;
+    right: 2.5rem;
     border: none;
     background: none;
   }
@@ -451,12 +451,17 @@ h1 {
 }
 @media only screen and (max-width: 900px) {
   h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 }
 @media only screen and (max-width: 500px) {
   h1 {
-    font-size: 2.3rem;
+    font-size: 2.8rem;
+  }
+}
+@media only screen and (max-width: 350px) {
+  h1 {
+    font-size: 2.5rem;
   }
 }
 
@@ -561,6 +566,19 @@ main .intro .revue-embed .revue-form-footer {
   font-size: 1.4rem;
   line-height: 1.7;
   margin-top: 2rem;
+  color: #8b8b8b;
+}
+main .intro .revue-embed .revue-form-footer .underline {
+  color: #8b8b8b;
+}
+main .intro .revue-embed .revue-form-footer .underline:after {
+  border-color: #8b8b8b;
+}
+main .intro .revue-embed .revue-form-footer .underline:hover {
+  color: #8F48FF;
+}
+main .intro .revue-embed .revue-form-footer .underline:hover:after {
+  border-color: #8F48FF;
 }
 main .intro .arrow-link {
   font-size: 1.6rem;
@@ -778,6 +796,11 @@ main .contribute .list {
   margin: 0 0 2.5rem 7rem;
   list-style: none;
   list-style-position: outside;
+}
+@media only screen and (max-width: 500px) {
+  main .contribute .list {
+    margin-left: 4rem;
+  }
 }
 main .contribute .list li {
   margin: 1.5rem 0;
@@ -1099,6 +1122,19 @@ main .newsletter .card .subscribe .revue-embed .revue-form .revue-form-footer {
   font-size: 1.4rem;
   line-height: 2;
   text-align: center;
+  color: #8b8b8b;
+}
+main .newsletter .card .subscribe .revue-embed .revue-form .revue-form-footer .underline {
+  color: #8b8b8b;
+}
+main .newsletter .card .subscribe .revue-embed .revue-form .revue-form-footer .underline:after {
+  border-color: #8b8b8b;
+}
+main .newsletter .card .subscribe .revue-embed .revue-form .revue-form-footer .underline:hover {
+  color: #8F48FF;
+}
+main .newsletter .card .subscribe .revue-embed .revue-form .revue-form-footer .underline:hover:after {
+  border-color: #8F48FF;
 }
 main .newsletter .card .subscribe .revue-embed .revue-form .revue-form-footer p {
   margin: 2rem 0 0;

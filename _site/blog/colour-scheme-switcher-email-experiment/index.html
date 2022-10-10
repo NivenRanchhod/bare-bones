@@ -81,17 +81,17 @@
 
 </script>
 <p>Inspired by a beautiful <a href="https://dribbble.com/shots/14630755-Cards-Dark-UI" target="_blank" rel="noopener noreferrer">dark mode toggle design</a> on Dribbble, I decided to translate this for use in email.</p>
-<p><img src="/bare-bones/images/blog-images/colour-scheme-switcher-result.jpg" alt="A preview of the toggle experiment in both light &amp; dark modes">
+<p><img src="/images/blog-images/colour-scheme-switcher-result.jpg" alt="A preview of the toggle experiment in both light &amp; dark modes">
 <br>
 <br></p>
 <p><a class="button scroll-transition" href="/code/colour-scheme-switcher" target="_blank">View this experiment</a>
 <br></p>
-<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
 <h2>💡 The idea</h2>
 <p>One day, while perusing Dribbble for interactive email design inspiration, I stumbled upon this lovely little <a href="https://dribbble.com/shots/14630755-Cards-Dark-UI" target="_blank" rel="noopener noreferrer">dark card UI design</a>.</p>
 <p>Lately, I've had a real desire to build out some of the amazing web &amp; mobile design work that is constantly being shared on Twitter, Dribbble, newsletters and a myriad of other places.</p>
 <p>This toggle design really stood out to me and stumbling upon it coincided with some research I was doing into colour scheme toggles for fun, which is something I find enjoyable apparently...</p>
-<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
 <h2>🔨 Build - The Basics</h2>
 <p>Building a toggle is actually really simple. <br>
 A checkbox with one label or two radio inputs with two labels. The labels are then used as a click/tap area to trigger the 'checked' state on the checkbox or respective radio input and then our CSS will shift the handle/indicator to the specified position.</p>
@@ -117,7 +117,7 @@ Before we make it look pretty, we need to choose between the radio and checkbox 
     <li>One checkbox means a smaller toggle can be used and simply tapping the toggle element as a whole will toggle between the two states.</li>
 </ol>
 <p>I'm more of a fan of explicitly telling the user which setting they'll be enabling upon click/tap, plus I'm building the toggle to be quite large, so the radio input option (option a) just makes sense.</p>
-<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
 <h2>🔨 Build — Make it Glitter</h2>
 <p>We want the colour scheme state to affect the entire body. To make this work, the inputs need to sit above everything else. The reason being - we watch the inputs for changes (unchecked / checked) and once a state change is made, we then use <a href="https://css-tricks.com/child-and-sibling-selectors" target="_blank" rel="noopener noreferrer">CSS sibling selectors</a> to run down the HTML to find and style our elements accordingly.</p>
 <p><strong>Example:</strong><br>
@@ -125,7 +125,7 @@ This is one of the selectors I'm using to switch out the dark mode icon when ena
 <pre class="language-css"><code class="language-css"><span class="token selector">#dark-mode:checked ~ .wrapper .toggle .dark</span> <span class="token punctuation">{</span> ... <span class="token punctuation">}</span></code></pre>
 <p>In shifting the inputs to sit above everything else, I dropped them directly below the body tag (the highest in the heirarchy we can go), with the wrapping content div following closely behind. <br>
 I then added a class of 'wrapper' on that wrapping div and now I can check for the <em>checked</em> input state, select my sibling .wrapper div and now I have access to my content structure for styling.</p>
-<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
 <p>If you've taken a look at the source code, you're probably (rightly) horrified. That's a lot of CSS just to switch the styles of an element and the body, for each colour scheme!
 And then we have a dark mode media query with styles that force the light mode colour palette on devices that have dark mode enabled but the light mode option enabled in the email.<br></p>
 <p>Baaaaaah 🤯</p>
@@ -135,7 +135,7 @@ It's beautiful and I find technically challenging builds like this fun, but it w
 Just look at my toggle examples in the 'Basics' section. They're super basic and with the right colour palette, you can easily show the different states of the toggle, without going over the top like I did.</p>
 <p>I know I didn't go into too much detail on adapting the styling to suit the final result but I wanted to keep this tutorial at a reasonable length. Plus, this is mostly basic CSS styling. The intricacies are in the selection of each item and linking them with the :checked state on the radio inputs.</p>
 <p><a href="/code/colour-scheme-switcher" target="_blank">View the final experiment</a> and comb through the source code to really see how each state change on the radio inputs is affecting ALL of the other elements. It's all yours to play with, adapt and use as you wish.</p>
-<div class="divider"><img src="/bare-bones/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
 <h3>🤔 Final thoughts</h3>
 <p>I do want to make it clear that I am a big proponent of pushing email to it's limit, especially when it comes to mimicking web functionality in email and I am a firm believer that innovation is the avoidance of stagnation. <br>
 <em>Someone quote that ^</em> 😅</p>
