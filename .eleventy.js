@@ -24,9 +24,6 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(syntaxHighlight);
 
-  return {
-    pathPrefix: "/bare-bones/"
-  }
 };
 
 function extractExcerpt(article) {
