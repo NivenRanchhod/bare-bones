@@ -21,6 +21,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("js");
   eleventyConfig.addPassthroughCopy("CNAME");
+  eleventyConfig.addPassthroughCopy("site.webmanifest");
 
   eleventyConfig.addPlugin(syntaxHighlight);
 
