@@ -75,7 +75,6 @@ html {
   padding: 0;
   font-family:'Montserrat', sans-serif;
   transition: all 0.25s ease-out;
-  font-display: optional;
 }
 
 body {
@@ -826,6 +825,7 @@ main {
 
       .wave {
         width:35px;
+        height:35px;
         position:relative;
         top:8px;
         display:inline-block;
@@ -1542,7 +1542,8 @@ footer {
 
       img {
         width:100%;
-        max-width:50px;
+        width:50px;
+        height:60px;
         margin:0 auto;
       }
     }
