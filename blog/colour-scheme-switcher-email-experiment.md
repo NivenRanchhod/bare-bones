@@ -54,7 +54,7 @@ In general, it's all about using CSS to check for changes on your inputs and the
 
 This toggle could be pushed further with more options added to transform it into a slider. We simply add more radio input options (checkboxes won't work here unless you want a multi-choice slider, if that is a thing), lengthen the track and add CSS to tell the handle to travel further for each added option, when selected.
 
-#### Example:
+#### Example: (may not work too well on mobile)
 <iframe src="https://parcel.io/embed/dcd2de1a-a535-443a-a308-644be427dccf?parts=html&default-part=html&preview-size=500&theme=parcel-dark&layout=preview" style="width:100%; height:230px; border:0; border-radius: 4px; overflow:hidden; margin-top:0.5rem;" scrolling="No" title="Basic HTML slider example embedded from Parcel" loading="lazy" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-popups-to-escape-sandbox allow-scripts" samesite="none" secure="true" onload="this.src=this.src+'#source='+window.location.href"> </iframe>
 
 At Mayoris, we utilise sliders in our interactive email API - Mailix, for our clients to pull into their survey builds for NPS ratings or as an alternative to a list or grid of radio input options. <br>

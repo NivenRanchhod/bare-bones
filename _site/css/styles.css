@@ -446,7 +446,6 @@ header .mobile-nav-toggle .hamburger .line {
 h1 {
   font-weight: 800;
   font-size: 4rem;
-  line-height: 1.4;
   margin-bottom: 3rem;
 }
 @media only screen and (max-width: 900px) {
@@ -459,10 +458,9 @@ h1 {
     font-size: 2.8rem;
   }
 }
-@media only screen and (max-width: 350px) {
-  h1 {
-    font-size: 2.5rem;
-  }
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.5;
 }
 
 main .intro {
@@ -566,13 +564,13 @@ main .intro .revue-embed .revue-form-footer {
   font-size: 1.4rem;
   line-height: 1.7;
   margin-top: 2rem;
-  color: #8b8b8b;
+  color: #bbbbbb;
 }
 main .intro .revue-embed .revue-form-footer .underline {
-  color: #8b8b8b;
+  color: #bbbbbb;
 }
 main .intro .revue-embed .revue-form-footer .underline:after {
-  border-color: #8b8b8b;
+  border-color: #bbbbbb;
 }
 main .intro .revue-embed .revue-form-footer .underline:hover {
   color: #8F48FF;
@@ -590,6 +588,11 @@ main .written h2, main .coded h2, main .about h2 {
   font-weight: 800;
   font-size: 3rem;
   color: #fff;
+}
+@media only screen and (max-width: 900px) {
+  main .written h2, main .coded h2, main .about h2 {
+    font-size: 2.5rem;
+  }
 }
 main .written h2 .highlight, main .coded h2 .highlight, main .about h2 .highlight {
   position: relative;
@@ -679,7 +682,7 @@ main .written .cards article a .row time, main .coded .cards article a .row time
   font-size: 1.4rem;
 }
 main .written .cards article a .title-container, main .coded .cards article a .title-container, main .about .cards article a .title-container {
-  max-height: 8rem;
+  height: 7.5rem;
   overflow: hidden;
   -webkit-box-orient: vertical;
   display: block;
@@ -710,28 +713,16 @@ main .written .cards article a .excerpt-container p, main .coded .cards article 
   font-weight: 500;
 }
 main .written .cards article a .arrow-link, main .coded .cards article a .arrow-link, main .about .cards article a .arrow-link {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 main .written .cards article a .arrow-link i, main .coded .cards article a .arrow-link i, main .about .cards article a .arrow-link i {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 main .written .cards article a .arrow-link:hover, main .coded .cards article a .arrow-link:hover, main .about .cards article a .arrow-link:hover {
   color: #fff;
 }
-main .coded .cards article {
-  font-size: 1.7rem;
-  line-height: 1.5;
-}
-main .coded .cards article a .title-container {
-  max-height: 10rem;
-  -webkit-line-clamp: 4;
-  margin-bottom: 1rem;
-}
-main .coded .cards article a .excerpt-container {
-  height: 10rem;
-}
 main .about p {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 main .about p .wave {
   width: 35px;
@@ -775,6 +766,11 @@ main .contribute h3 {
   font-size: 2.8rem;
   color: #fff;
 }
+@media only screen and (max-width: 900px) {
+  main .contribute h3 {
+    font-size: 2.3rem;
+  }
+}
 main .contribute h3 .highlight {
   position: relative;
 }
@@ -813,6 +809,10 @@ main .contribute .list li i {
   top: -1px;
   left: -40px;
 }
+main .contribute .list li i:before {
+  position: relative;
+  top: 2px;
+}
 main .contribute .list li i:after {
   content: "";
   background: #fff;
@@ -821,7 +821,7 @@ main .contribute .list li i:after {
   height: 23px;
   border-radius: 50px;
   position: relative;
-  top: -26px;
+  top: -24px;
   left: 2px;
   z-index: -1;
 }
@@ -1122,13 +1122,13 @@ main .newsletter .card .subscribe .revue-embed .revue-form .revue-form-footer {
   font-size: 1.4rem;
   line-height: 2;
   text-align: center;
-  color: #8b8b8b;
+  color: #bbbbbb;
 }
 main .newsletter .card .subscribe .revue-embed .revue-form .revue-form-footer .underline {
-  color: #8b8b8b;
+  color: #bbbbbb;
 }
 main .newsletter .card .subscribe .revue-embed .revue-form .revue-form-footer .underline:after {
-  border-color: #8b8b8b;
+  border-color: #bbbbbb;
 }
 main .newsletter .card .subscribe .revue-embed .revue-form .revue-form-footer .underline:hover {
   color: #8F48FF;
@@ -1147,12 +1147,6 @@ main .main-article {
   font-size: 1.9rem;
   max-width: 800px;
   line-height: 1.7;
-}
-@media only screen and (max-width: 700px) {
-  main .main-article {
-    font-size: 1.6rem;
-    line-height: 1.7;
-  }
 }
 main .main-article h1, main .main-article h2, main .main-article h3, main .main-article h4, main .main-article h5, main .main-article h6 {
   margin: 2rem 0 0;
@@ -1238,6 +1232,11 @@ main .main-article a:hover:after {
 main .main-article ul, main .main-article ol {
   margin-left: 4rem;
   margin-bottom: 5rem;
+}
+@media only screen and (max-width: 500px) {
+  main .main-article ul, main .main-article ol {
+    margin-left: 2rem;
+  }
 }
 main .main-article ul li, main .main-article ol li {
   margin: 0 0 2rem 0;
