@@ -14,6 +14,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest" crossorigin="use-credentials">
+  <meta name="theme-color" content="#8e2de2">
   
   <!-- Open graph -->
   <meta property="og:title" content="Uber email receipt vs. Outlook — an exclusive take from an email developer">
@@ -36,7 +37,6 @@
   
   <link rel="preconnect" href="https://fonts.bunny.net">
   <link href="https://fonts.bunny.net/css?family=montserrat:500,700,800&display=swap" rel="stylesheet" />
-  <meta name="theme-color" content="#8e2de2">
 
   <script src="https://kit.fontawesome.com/bfabfb8392.js" crossorigin="anonymous" defer></script>
 	<script src="/js/scripts.js" defer></script>
@@ -337,5 +337,11 @@ We'll welcome you in, run you through what you need to work on and help with imp
   </script>
 
   <script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/js/sw.js');
+    }
+  </script>
 </body>
 </html>
