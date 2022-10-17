@@ -18,7 +18,7 @@
   
   <!-- Open graph -->
   <meta property="og:title" content="Tesla Configurator &amp; Battery Range Calculator — Interactive HTML Email Experiment">
-  <meta property="og:description" content="Tesla Configurator &amp; Battery Range Calculator — Interactive HTML Email Experiment">
+  <meta property="og:description" content="My personal challenge to build a complex &amp; real world interactive email.">
   <meta property="og:type" content="website">
   <meta property="og:image" content=""/>
   <meta property="og:image:width" content="1200" />
@@ -27,7 +27,7 @@
   <meta name="twitter:title" content="Tesla Configurator &amp; Battery Range Calculator — Interactive HTML Email Experiment">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@NivenRanchhod">
-  <meta name="twitter:description" content="Tesla Configurator &amp; Battery Range Calculator — Interactive HTML Email Experiment">
+  <meta name="twitter:description" content="My personal challenge to build a complex &amp; real world interactive email.">
   <meta name="twitter:image" content="">
   <meta name="twitter:creator" content="@NivenRanchhod">
 
@@ -37,18 +37,13 @@
   
   <link rel="preconnect" href="https://fonts.bunny.net">
   <link href="https://fonts.bunny.net/css?family=montserrat:500,700,800&display=swap" rel="stylesheet" />
-
-  <script src="https://kit.fontawesome.com/bfabfb8392.js" crossorigin="anonymous" defer></script>
-	<script src="/js/scripts.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
 </head>
 <body>
   
   <header>
     <div class="logo stagger">
       <a class="stagger" href="/">
-        <img class="stagger" src="/images/bare-bones.svg" alt="Bare Bones" />
+        <img class="stagger" src="/images/bare-bones.svg" alt="Bare Bones" loading="lazy" decoding="async" />
       </a>
     </div>
 
@@ -88,7 +83,7 @@
 <br></p>
 <p><a class="button scroll-transition" href="/code/tesla-car-configurator/">View this experiment</a>
 <br></p>
-<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 <h2>🎮 Functionality</h2>
 <p>The interactive tool is made up of two parts:</p>
 <ol>
@@ -101,7 +96,7 @@ Both of the colour and wheel options will update the slideshow so you can previe
 The three settings will each have a determining factor on the range of each model option.</p>
 </li>
 </ol>
-<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 <h2>💡 The idea</h2>
 <p>The idea for this email was sparked at least four or five years ago after seeing the original range calculator on the Tesla website (now removed), being recreated in <a href="https://www.freecodecamp.org/news/building-teslas-battery-range-calculator-with-react-part-1-2cb7abd8c1ee/">React</a> &amp; <a href="https://ultimatecourses.com/blog/building-tesla-range-calculator-angular-2-reactive-forms#stats-component">Angular</a>.<br>
 The idea only included the battery range calculator at the time. The configurator was a later addition.</p>
@@ -125,7 +120,7 @@ Work was completed when I had some down time.
 I was juggling a lot, at work and in my personal life so work on this was infrequent.</p>
 <p>Fast forward a few months and we were planning our big move from New Zealand to the UK. Unfortunately this resulted in this build collecting digital dust while I got myself settled into Scottish life and a new job.</p>
 <p>Fast forward three and a half years to early 2021 and while cleaning up my personal files I found this little gem.</p>
-<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 <h2>🔨 Build — Sourcing assets</h2>
 <p>At the point of stopping work on this almost four years ago, I had tested out <a href="https://css-tricks.com/almanac/properties/c/counter-increment/">CSS counters</a> to control the range calculations. This was in an effort to avoid <a href="https://www.webdesignerdepot.com/2015/10/punched-card-coding-the-secret-of-interactive-email/">Punched Card Coding</a> (PCC) i.e. multiple inputs and labels being shown/hidden to display specific content. The larger and more complex the functionality, the more inputs and complex CSS selector chaining required.<br>
 In the end it just wasn't the way to go and so I reverted to the trusted PCC method.</p>
@@ -137,14 +132,14 @@ It took a while but I ended up finding high-res images of all colour &amp; wheel
 Hours of cutting out and refining and I finally had some transparent PNGs to work with.</p>
 <p>Now the cut outs aren't that great because of the way the final images were exported, so I ended up heavily using the feather on the edges of all images.<br>
 I'm not completely happy with the dark mode view because of the white halo around the images, but ultimately I just need to remember if this were in fact a real world Tesla commissioned project, they would easily be able to provide me with clear cut transparent PNGs, so my half baked solution will suffice for now.</p>
-<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 <h2>🔨 Build — Design</h2>
 <p>Right, first off — I am not a designer! I can scrape through with small design tweaks but I'm not that creative with layouts etc.
 BUT, I'm really happy with the end result.</p>
 <p>I did some design research on Dribbble and ended up amalgamating a few ideas to give me the configurator design.</p>
 <p>Looks quite polished in light mode!</p>
 <p><img src="https://media.giphy.com/media/ku2YMEjzMwud2/giphy.gif" alt=""></p>
-<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 <h2>🔨 Build — Execution</h2>
 <h3>Hero &amp; slideshow</h3>
 <p>The hero section which includes the “MODEL S” title + slideshow are layered with the title being absolutely positioned. No faux absolute position setups here, just a simple CSS declaration on the title div.</p>
@@ -221,14 +216,14 @@ Long Range / Plaid / Plaid+.</p>
 <p>That is a fair amount of CSS to spit out one figure for each model.<br>
 Now imagine that for each variable for speed, outside temp and AC/Heat on/off.<br>
 An upside of this method of setup is the flexibility to amend those figures going forward, when using an external stylesheet.</p>
-<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 <h2>💀 Fallback</h2>
 <p>This specific execution doesn't have amazing support, as noted earlier on. It pretty much only works in Apple Mail (desktop &amp; mobile) &amp; Outlook Office 365 (MacOS). But it still shows what is possible.</p>
 <p><img src="/images/blog-images/tesla-calculator-fallback.png" alt=""></p>
 <p>The fall back I have in place is literally just for fun. If this were a commissioned project, then I would have looked into a static alternative which pointed the user to use the website configurator.</p>
 <p>Or I could have looked into splitting the build out and looked into how the tabbed slideshow could work in Yahoo webmail.</p>
 <p>There are definitely other avenues I could have taken but ultimately the challenge was to build a complex interactive email and I did it!</p>
-<div class="divider"><img src="/images/crossbones.svg" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 <h2>😭 Conclusion</h2>
 <p>In an ideal world, the ‘Order now' button would take your configuration and take you to the checkout page for the Model S.</p>
 <p>Also you may wonder why this would be useful?<br>
@@ -246,14 +241,14 @@ Could I have built this with better support to allow more people to view the ema
 <p>I've already got my eye on the next challenge, which will be building the <a href="https://configurator.mclaren.com/configuration/startConfiguration.do?profileName=765LT">McLaren car configurator</a> using AMP.</p>
 <p>I'm potentially getting in way over my head but I need to learn AMP, I want to build even more complex interactive emails and I'm always up for a challenge.<br>
 Wish me luck!</p>
-<img class="icon-sign-off" src="/images/logo-as-icon-crosses.svg" alt="" />
+<img class="icon-sign-off" src="/images/logo-as-icon-crosses.svg" alt="" loading="lazy" decoding="async" />
 </article>
 
 <section class="newsletter scroll-transition" id="newsletter">
     <div class="card">
     <div class="logo">
         <h4 class="scroll-transition">Join</h4>
-        <img class="scroll-transition" src="/images/bare-bones-club.svg" alt="Bare Bones Club" />
+        <img class="scroll-transition" src="/images/bare-bones-club.svg" alt="Bare Bones Club" loading="lazy" decoding="async" />
     </div>
 
     <div class="subscribe">
@@ -317,18 +312,18 @@ Wish me luck!</p>
     <div class="socials">
       <div class="logo">
         <a href="/">
-          <img class="scroll-transition" src="/images/bare-bones-skull-only.svg" alt="Bare Bones" />
+          <img class="scroll-transition" src="/images/bare-bones-skull-only.svg" alt="Bare Bones" loading="lazy" decoding="async" />
         </a>
       </div>
 
       <div class="icons">
-        <a class="scroll-transition" href="https://twitter.com/NivenRanchhod" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-        <a class="scroll-transition" href="https://codepen.io/NivenRanchhod" target="_blank"><i class="fa-brands fa-codepen"></i></a>
-        <a class="scroll-transition" href="https://medium.com/@nivenranchhod" target="_blank"><i class="fa-brands fa-medium"></i></a>
-        <a class="scroll-transition" href="https://dev.to/nivenranchhod" target="_blank"><i class="fa-brands fa-dev"></i></a>
-        <a class="scroll-transition" href="https://barebones.hashnode.dev/" target="_blank"><i class="fa-brands fa-hashnode"></i></a>
-        <a class="scroll-transition" href="https://www.linkedin.com/in/nivenranchhod/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a class="scroll-transition" href="mailto:hello@bare-bones.dev" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+        <a class="scroll-transition" href="https://twitter.com/NivenRanchhod" target="_blank"><i class="fa-brands fa-twitter" title="Twitter"></i></a>
+        <a class="scroll-transition" href="https://codepen.io/NivenRanchhod" target="_blank"><i class="fa-brands fa-codepen" title="Codepen"></i></a>
+        <a class="scroll-transition" href="https://medium.com/@nivenranchhod" target="_blank"><i class="fa-brands fa-medium" title="Medium"></i></a>
+        <a class="scroll-transition" href="https://dev.to/nivenranchhod" target="_blank"><i class="fa-brands fa-dev" title="Dev.to"></i></a>
+        <a class="scroll-transition" href="https://barebones.hashnode.dev/" target="_blank"><i class="fa-brands fa-hashnode" title="Hashnode"></i></a>
+        <a class="scroll-transition" href="https://www.linkedin.com/in/nivenranchhod/" target="_blank"><i class="fa-brands fa-linkedin-in" title="Linkedin"></i></a>
+        <a class="scroll-transition" href="mailto:hello@bare-bones.dev" target="_blank"><i class="fa-solid fa-envelope" title="Email me"></i></a>
       </div>
     </div>
 
@@ -339,6 +334,11 @@ Wish me luck!</p>
     </div>
   </footer>
   
+
+  <script src="https://kit.fontawesome.com/bfabfb8392.js" crossorigin="anonymous" defer></script>
+	<script src="/js/scripts.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
 
   <script>
       const scrollelements = gsap.utils.toArray('.scroll-transition');
@@ -388,7 +388,7 @@ Wish me luck!</p>
 
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/js/sw.js');
+      navigator.serviceWorker.register('sw.js');
     }
   </script>
 </body>

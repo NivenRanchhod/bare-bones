@@ -11,14 +11,14 @@ My personal challenge to build a complex & real world interactive email.
 
 > Disclaimer: This project was in no way affiliated with Tesla
 
-![My version of the old Tesla Range Calculator in all of it's glory]({{ '/images/blog-images/tesla-calculator-result.png' | url }})
+![My version of the old Tesla Range Calculator in all of it's glory](/images/blog-images/tesla-calculator-result.png)
 <br>
 <br>
 
 <a class="button scroll-transition" href="/code/tesla-car-configurator/">View&nbsp;this&nbsp;experiment</a>
 <br>
 
-<div class="divider"><img src="{{ '/images/crossbones.svg' | url }}" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 
 ## 🎮 Functionality
 
@@ -29,7 +29,7 @@ Both of the colour and wheel options will update the slideshow so you can previe
 2. **Range calculator** — Includes the three model options in the Model S family and their ‘calculated' ranges with the three default settings (speed, outside temperature & AC or Heat on/off).<br>
 The three settings will each have a determining factor on the range of each model option.
 
-<div class="divider"><img src="{{ '/images/crossbones.svg' | url }}" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 
 ## 💡 The idea
 
@@ -57,7 +57,7 @@ Fast forward a few months and we were planning our big move from New Zealand to 
 
 Fast forward three and a half years to early 2021 and while cleaning up my personal files I found this little gem.
 
-<div class="divider"><img src="{{ '/images/crossbones.svg' | url }}" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 
 ## 🔨 Build — Sourcing assets
 
@@ -76,7 +76,7 @@ Hours of cutting out and refining and I finally had some transparent PNGs to wor
 Now the cut outs aren't that great because of the way the final images were exported, so I ended up heavily using the feather on the edges of all images.<br>
 I'm not completely happy with the dark mode view because of the white halo around the images, but ultimately I just need to remember if this were in fact a real world Tesla commissioned project, they would easily be able to provide me with clear cut transparent PNGs, so my half baked solution will suffice for now.
 
-<div class="divider"><img src="{{ '/images/crossbones.svg' | url }}" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 
 ## 🔨 Build — Design
 
@@ -89,7 +89,7 @@ Looks quite polished in light mode!
 
 ![](https://media.giphy.com/media/ku2YMEjzMwud2/giphy.gif)
 
-<div class="divider"><img src="{{ '/images/crossbones.svg' | url }}" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 
 ## 🔨 Build — Execution
 ### Hero & slideshow
@@ -234,7 +234,7 @@ That is a fair amount of CSS to spit out one figure for each model.<br>
 Now imagine that for each variable for speed, outside temp and AC/Heat on/off.<br>
 An upside of this method of setup is the flexibility to amend those figures going forward, when using an external stylesheet.
 
-<div class="divider"><img src="{{ '/images/crossbones.svg' | url }}" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 
 ## 💀 Fallback
 
@@ -248,7 +248,7 @@ Or I could have looked into splitting the build out and looked into how the tabb
 
 There are definitely other avenues I could have taken but ultimately the challenge was to build a complex interactive email and I did it!
 
-<div class="divider"><img src="{{ '/images/crossbones.svg' | url }}" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 
 ## 😭 Conclusion
 
@@ -275,4 +275,4 @@ I've already got my eye on the next challenge, which will be building the [McLar
 I'm potentially getting in way over my head but I need to learn AMP, I want to build even more complex interactive emails and I'm always up for a challenge.<br>
 Wish me luck!
 
-<img class="icon-sign-off" src="/images/logo-as-icon-crosses.svg" alt="" />
+<img class="icon-sign-off" src="/images/logo-as-icon-crosses.svg" alt="" loading="lazy" decoding="async" />

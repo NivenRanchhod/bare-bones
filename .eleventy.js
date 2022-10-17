@@ -4,34 +4,6 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 moment.locale("en");
 
-module.exports = function (eleventyConfig) {
-  eleventyConfig.addFilter("postDate", (dateObj) => {
-    return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
-  });
-
-  // eleventyConfig.addShortcode("excerpt", (article) => extractExcerpt(article));
-
-  eleventyConfig.setBrowserSyncConfig({
-    files: "./_site/css/**/*.css",
-  });
-
-  // Folders to copy to output folder
-  eleventyConfig.addPassthroughCopy("css");
-  eleventyConfig.addPassthroughCopy("experiment-assets");
-  eleventyConfig.addPassthroughCopy("images");
-  eleventyConfig.addPassthroughCopy("js");
-  eleventyConfig.addPassthroughCopy("CNAME");
-  eleventyConfig.addPassthroughCopy("site.webmanifest");
-  eleventyConfig.addPassthroughCopy("android-chrome-192x192.png");
-  eleventyConfig.addPassthroughCopy("android-chrome-512x512.png");
-  eleventyConfig.addPassthroughCopy("apple-touch-icon.png");
-  eleventyConfig.addPassthroughCopy("favicon-16x16.png");
-  eleventyConfig.addPassthroughCopy("favicon-32x32.png");
-
-  eleventyConfig.addPlugin(syntaxHighlight);
-
-};
-
 function extractExcerpt(article) {
   if (!article.hasOwnProperty("templateContent")) {
     console.warn(
@@ -66,4 +38,31 @@ function extractExcerpt(article) {
 
   return excerpt;
 }
+
+module.exports = function (eleventyConfig) {
+  eleventyConfig.addFilter("postDate", (dateObj) => {
+    return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
+  });
+
+  // eleventyConfig.addShortcode("excerpt", (article) => extractExcerpt(article));
+
+  eleventyConfig.setBrowserSyncConfig({
+    files: "./_site/css/**/*.css",
+  });
+
+  // Folders to copy to output folder
+  eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addPassthroughCopy("images");
+  eleventyConfig.addPassthroughCopy("js");
+  eleventyConfig.addPassthroughCopy("CNAME");
+  eleventyConfig.addPassthroughCopy("site.webmanifest");
+  eleventyConfig.addPassthroughCopy("sw.js");
+  eleventyConfig.addPassthroughCopy("android-chrome-192x192.png");
+  eleventyConfig.addPassthroughCopy("android-chrome-512x512.png");
+  eleventyConfig.addPassthroughCopy("apple-touch-icon.png");
+  eleventyConfig.addPassthroughCopy("favicon-16x16.png");
+  eleventyConfig.addPassthroughCopy("favicon-32x32.png");
+
+  eleventyConfig.addPlugin(syntaxHighlight);
+};
 

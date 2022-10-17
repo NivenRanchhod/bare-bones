@@ -13,14 +13,14 @@ source: medium
 
 Inspired by a beautiful <a href="https://dribbble.com/shots/14630755-Cards-Dark-UI" target="_blank" rel="noopener noreferrer">dark mode toggle design</a> on Dribbble, I decided to translate this for use in email.
 
-![A preview of the toggle experiment in both light & dark modes]({{ '/images/blog-images/colour-scheme-switcher-result.jpg' | url }})
+![A preview of the toggle experiment in both light & dark modes](/images/blog-images/colour-scheme-switcher-result.jpg)
 <br>
 <br>
 
 <a class="button scroll-transition" href="/code/colour-scheme-switcher" target="_blank">View&nbsp;this&nbsp;experiment</a>
 <br>
 
-<div class="divider"><img src="{{ '/images/crossbones.svg' | url }}" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 
 ## 💡 The idea
 
@@ -30,7 +30,7 @@ Lately, I've had a real desire to build out some of the amazing web & mobile des
 
 This toggle design really stood out to me and stumbling upon it coincided with some research I was doing into colour scheme toggles for fun, which is something I find enjoyable apparently...
 
-<div class="divider"><img src="{{ '/images/crossbones.svg' | url }}" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 
 ## 🔨 Build - The Basics
 
@@ -75,7 +75,7 @@ My thinking here is:
 
 I'm more of a fan of explicitly telling the user which setting they'll be enabling upon click/tap, plus I'm building the toggle to be quite large, so the radio input option (option&nbsp;a) just makes sense.
 
-<div class="divider"><img src="{{ '/images/crossbones.svg' | url }}" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 
 
 ## 🔨 Build — Make it Glitter
@@ -92,7 +92,7 @@ In shifting the inputs to sit above everything else, I dropped them directly bel
 I then added a class of 'wrapper' on that wrapping div and now I can check for the *checked* input state, select my sibling .wrapper div and now I have access to my content structure for styling.
 
 
-<div class="divider"><img src="{{ '/images/crossbones.svg' | url }}" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 
 
 If you've taken a look at the source code, you're probably (rightly) horrified. That's a lot of CSS just to switch the styles of an element and the body, for each colour scheme!
@@ -111,7 +111,7 @@ I know I didn't go into too much detail on adapting the styling to suit the fina
 <a href="/code/colour-scheme-switcher" target="_blank">View the final experiment</a> and comb through the source code to really see how each state change on the radio inputs is affecting ALL of the other elements. It's all yours to play with, adapt and use as you wish.
 
 
-<div class="divider"><img src="{{ '/images/crossbones.svg' | url }}" alt="" /></div>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 
 ### 🤔 Final thoughts
 
@@ -134,4 +134,4 @@ Expect a lot more of this from me.
 Thanks for reading, fellow geek.<br>
 Niven
 
-<div class="divider"><img class="icon-sign-off" src="/images/logo-as-icon-crosses.svg" alt="" /></div>
+<div class="divider"><img class="icon-sign-off" src="/images/logo-as-icon-crosses.svg" alt="" loading="lazy" decoding="async" /></div>

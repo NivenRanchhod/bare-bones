@@ -6,7 +6,7 @@ title: Oops! Not Found
 ---
 <div class="not-found">
     <section class="intro">
-        <img class="stagger icon" src="{{ '/images/bare-bones-404.png' | url }}" alt="" />
+        <img class="stagger icon" src="/images/bare-bones-404.png" alt="" loading="lazy" decoding="async" />
 
         <h1 class="stagger">Oopsie, you made a <span class="highlight">poopsie!</span></h1>
 
@@ -23,7 +23,7 @@ title: Oops! Not Found
         <div class="row">
             <p class="scroll-transition">A few of my latest write-ups from across the internet.</p>
 
-            <a class="arrow-link scroll-transition" href="{{ '/blog' | url }}">View all posts <i class="fa-solid fa-arrow-right-long"></i></a>
+            <a class="arrow-link scroll-transition" href="/blog">View all posts <i class="fa-solid fa-arrow-right-long"></i></a>
         </div>
 
         <div class="cards">
@@ -40,12 +40,12 @@ title: Oops! Not Found
                     </div>
 
                     <div class="title-container">
-                    <h3 id="post-title">{{ post.data.title }}</h3>
+                    <h3 id="post-title-blog-{{ loop.index0 }}">{{ post.data.title }}</h3>
                     </div>
 
                     <div class="excerpt-container">{{ post.data.description }}</div>
 
-                    <span class="arrow-link" aria-labelledby="post-title">Read post <i class="fa-solid fa-arrow-right-long"></i></span>
+                    <span class="arrow-link" aria-labelledby="post-title-blog-{{ loop.index0 }}">Read post <i class="fa-solid fa-arrow-right-long"></i></span>
                 </a>
                 </article>
             {% endif %}
@@ -59,7 +59,7 @@ title: Oops! Not Found
         <div class="row">
             <p class="scroll-transition">My latest experiments, tutorials and other attempts to look smart.</p>
 
-            <a class="arrow-link scroll-transition" href="{{ '/code' | url }}">View all code examples <i class="fa-solid fa-arrow-right-long"></i></a>
+            <a class="arrow-link scroll-transition" href="/code">View all code examples <i class="fa-solid fa-arrow-right-long"></i></a>
         </div>
 
         <div class="cards">
@@ -82,12 +82,12 @@ title: Oops! Not Found
                     </div>
 
                     <div class="title-container">
-                    <h3 id="post-title">{{ post.data.title }}</h3>
+                    <h3 id="post-title-code-{{ loop.index0 }}">{{ post.data.title }}</h3>
                     </div>
 
                     <div class="excerpt-container">{{ post.data.description }}</div>
 
-                    <span class="arrow-link" aria-labelledby="post-title">Read post <i class="fa-solid fa-arrow-right-long"></i></span>
+                    <span class="arrow-link" aria-labelledby="post-title-code-{{ loop.index0 }}">Read post <i class="fa-solid fa-arrow-right-long"></i></span>
                 </a>
                 </article>
             {% endif %}

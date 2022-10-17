@@ -37,18 +37,13 @@
   
   <link rel="preconnect" href="https://fonts.bunny.net">
   <link href="https://fonts.bunny.net/css?family=montserrat:500,700,800&display=swap" rel="stylesheet" />
-
-  <script src="https://kit.fontawesome.com/bfabfb8392.js" crossorigin="anonymous" defer></script>
-	<script src="/js/scripts.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
 </head>
 <body>
   
   <header>
     <div class="logo stagger">
       <a class="stagger" href="/">
-        <img class="stagger" src="/images/bare-bones.svg" alt="Bare Bones" />
+        <img class="stagger" src="/images/bare-bones.svg" alt="Bare Bones" loading="lazy" decoding="async" />
       </a>
     </div>
 
@@ -83,9 +78,9 @@
         <p class="stagger">Other places I post content:</p>
         
         <div class="icons">
-            <a class="stagger" href="https://medium.com/@nivenranchhod" target="_blank"><i class="fa-brands fa-medium"></i></a>
-            <a class="stagger" href="https://dev.to/nivenranchhod" target="_blank"><i class="fa-brands fa-dev"></i></a>
-            <a class="stagger" href="https://barebones.hashnode.dev/" target="_blank"><i class="fa-brands fa-hashnode"></i></a>
+            <a class="stagger" href="https://medium.com/@nivenranchhod" target="_blank"><i class="fa-brands fa-medium" title="Medium"></i></a>
+            <a class="stagger" href="https://dev.to/nivenranchhod" target="_blank"><i class="fa-brands fa-dev" title="Dev.to"></i></a>
+            <a class="stagger" href="https://barebones.hashnode.dev/" target="_blank"><i class="fa-brands fa-hashnode" title="Hashnode"></i></a>
         </div>
     </section>
 
@@ -153,7 +148,7 @@
     <div class="card">
     <div class="logo">
         <h4 class="scroll-transition">Join</h4>
-        <img class="scroll-transition" src="/images/bare-bones-club.svg" alt="Bare Bones Club" />
+        <img class="scroll-transition" src="/images/bare-bones-club.svg" alt="Bare Bones Club" loading="lazy" decoding="async" />
     </div>
 
     <div class="subscribe">
@@ -190,18 +185,18 @@
     <div class="socials">
       <div class="logo">
         <a href="/">
-          <img class="scroll-transition" src="/images/bare-bones-skull-only.svg" alt="Bare Bones" />
+          <img class="scroll-transition" src="/images/bare-bones-skull-only.svg" alt="Bare Bones" loading="lazy" decoding="async" />
         </a>
       </div>
 
       <div class="icons">
-        <a class="scroll-transition" href="https://twitter.com/NivenRanchhod" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-        <a class="scroll-transition" href="https://codepen.io/NivenRanchhod" target="_blank"><i class="fa-brands fa-codepen"></i></a>
-        <a class="scroll-transition" href="https://medium.com/@nivenranchhod" target="_blank"><i class="fa-brands fa-medium"></i></a>
-        <a class="scroll-transition" href="https://dev.to/nivenranchhod" target="_blank"><i class="fa-brands fa-dev"></i></a>
-        <a class="scroll-transition" href="https://barebones.hashnode.dev/" target="_blank"><i class="fa-brands fa-hashnode"></i></a>
-        <a class="scroll-transition" href="https://www.linkedin.com/in/nivenranchhod/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a class="scroll-transition" href="mailto:hello@bare-bones.dev" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+        <a class="scroll-transition" href="https://twitter.com/NivenRanchhod" target="_blank"><i class="fa-brands fa-twitter" title="Twitter"></i></a>
+        <a class="scroll-transition" href="https://codepen.io/NivenRanchhod" target="_blank"><i class="fa-brands fa-codepen" title="Codepen"></i></a>
+        <a class="scroll-transition" href="https://medium.com/@nivenranchhod" target="_blank"><i class="fa-brands fa-medium" title="Medium"></i></a>
+        <a class="scroll-transition" href="https://dev.to/nivenranchhod" target="_blank"><i class="fa-brands fa-dev" title="Dev.to"></i></a>
+        <a class="scroll-transition" href="https://barebones.hashnode.dev/" target="_blank"><i class="fa-brands fa-hashnode" title="Hashnode"></i></a>
+        <a class="scroll-transition" href="https://www.linkedin.com/in/nivenranchhod/" target="_blank"><i class="fa-brands fa-linkedin-in" title="Linkedin"></i></a>
+        <a class="scroll-transition" href="mailto:hello@bare-bones.dev" target="_blank"><i class="fa-solid fa-envelope" title="Email me"></i></a>
       </div>
     </div>
 
@@ -212,6 +207,11 @@
     </div>
   </footer>
   
+
+  <script src="https://kit.fontawesome.com/bfabfb8392.js" crossorigin="anonymous" defer></script>
+	<script src="/js/scripts.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
 
   <script>
       const scrollelements = gsap.utils.toArray('.scroll-transition');
@@ -261,7 +261,7 @@
 
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/js/sw.js');
+      navigator.serviceWorker.register('sw.js');
     }
   </script>
 </body>
