@@ -2,7 +2,7 @@
 layout: post-layout.njk
 title: Colour Scheme Switcher — Interactive HTML Email Experiment
 description: Inspired by a dark mode toggle design on Dribbble, I decided to rebuild the toggle for email.
-date: 2022-09-23
+date: 2022-10-19
 tags: ["post"]
 source: medium
 ---
