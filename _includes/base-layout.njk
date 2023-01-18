@@ -85,6 +85,7 @@
 
       <div class="icons">
         <a class="scroll-transition" href="https://twitter.com/NivenRanchhod" target="_blank"><i class="fa-brands fa-twitter" title="Twitter"></i><span class="sr-only">Twitter</span></a>
+        <a class="scroll-transition" href="https://mstdn.social/@NivenRanchhod" target="_blank"><i class="fa-brands fa-mastodon" title="Mastodon"></i><span class="sr-only">Mastodon</span></a>
         <a class="scroll-transition" href="https://codepen.io/NivenRanchhod" target="_blank"><i class="fa-brands fa-codepen" title="Codepen"></i><span class="sr-only">Codepen</span></a>
         <a class="scroll-transition" href="https://medium.com/@nivenranchhod" target="_blank"><i class="fa-brands fa-medium" title="Medium"></i><span class="sr-only">Medium</span></a>
         <a class="scroll-transition" href="https://dev.to/nivenranchhod" target="_blank"><i class="fa-brands fa-dev" title="Dev.to"></i><span class="sr-only">Dev.to</span></a>
@@ -128,26 +129,6 @@
           y:-5,
           stagger:.1,
           duration:.3
-      });
-      
-      gsap.from('.wave', {
-        scrollTrigger: {
-          start: 'top bottom',
-          end: 'bottom top',
-          toggleClass: 'waving'
-        }
-      });
-
-      const wave = gsap.utils.toArray('.wave');
-      wave.forEach((btn) => {
-        gsap.from(btn, {
-          scrollTrigger: {
-            start: 'top bottom',
-            end: 'bottom top',
-            trigger: btn,
-            toggleClass: 'waving'
-          }
-        });
       });
   </script>
 

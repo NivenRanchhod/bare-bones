@@ -1240,7 +1240,7 @@ main {
     line-height:1.7;
 
     h1, h2, h3, h4, h5, h6 {
-      margin: 2rem 0 0;
+      margin:4rem 0 0;
     }
 
     h1 {
@@ -1299,32 +1299,36 @@ main {
       }
     }
 
+    h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
+      margin:2rem 0 0;
+    }
+
     p {
-      margin:2rem 0;
+      margin:4rem 0 0;
     }
 
     a {
       position:relative;
       color:$link;
       text-decoration:none;
-      white-space: nowrap;
+      box-shadow: inset 0 -2px 0 0 $secondary;
     
-      &:after {
-        width: 100%;
-        border-width: 2px 0 0 0;
-        top: 2rem;
-        border-color:$link;
-        height: 7px;
-        border-style: solid;
-        position: absolute;
-        content: "";
-        border-radius: 40% 60% 0% 0%;
-        left: 0px; 
-        transition:all 0.25s linear;
-      }
+      // &:after {
+      //   width: 100%;
+      //   border-width: 2px 0 0 0;
+      //   top: 2rem;
+      //   border-color:$link;
+      //   height: 7px;
+      //   border-style: solid;
+      //   position: absolute;
+      //   content: "";
+      //   border-radius: 40% 60% 0% 0%;
+      //   left: 0px; 
+      //   transition:all 0.25s linear;
+      // }
     
       &:hover {
-        color:$primary;
+        box-shadow: inset 0 -2.5rem 0 0 $primary;
     
         &:after {
           border-color:$primary;
@@ -1334,7 +1338,7 @@ main {
 
     ul, ol {
       margin-left:4rem;
-      margin-bottom:5rem;
+      // margin-bottom:5rem;
 
       @media only screen and (max-width: 500px) {
         margin-left:2rem;
@@ -1363,83 +1367,94 @@ main {
 
     code {
       background:#9d8bca20;
-      padding:2rem;
-      display:block;
-      border-radius:10px;
-      box-shadow:8px -8px 0 $primary;
-      font-size:1.5rem;
-      white-space: pre-wrap;
+      padding:0.25rem 0.8rem;
+      display:inline;
+      border-radius:4px;
+      color:$secondary;
+    }
 
-      &.language-html {
-        .tag + br, 
-        .attr-value + br,
-        .special-attr + br {
-          display:none;
-        }
+    pre {
+      code {
+        background:#9d8bca20;
+        padding:2rem;
+        display:block;
+        border-radius:10px;
+        box-shadow:8px -8px 0 $primary;
+        font-size:1.5rem;
+        white-space: pre-wrap;
+        margin-top:2rem;
 
-        > .token.tag + br {
-          display:block;
-        }
-
-        .token.comment {
-          color:#848bbd;
-        }
-  
-        .token.tag {
-          color: #72f1b8;
-  
-          > .punctuation {
-            color:#36f9f6;
-          }
-        }
-  
-        .token.attr-name {
-          color: #fede5d;
-        }
-  
-        .token.attr-value,
-        .token.property {
-          color: #ff8b39;
-        }
-  
-        .token.attr-equals {
-          color: #b6b1b1;
-        }
-      }
-
-      &.language-css {
-        color:#ff8b39;
-
-        .token.atrule {
-          color:#f97e72;
-          
-          .rule, .keyword, .punctuation {
-            color:#fede5d;
+        &.language-html {
+          .tag + br, 
+          .attr-value + br,
+          .special-attr + br {
+            display:none;
           }
 
-          .token.function {
-            color: #f97e72;
+          > .token.tag + br {
+            display:block;
           }
-          
+
+          .token.comment {
+            color:#848bbd;
+          }
+    
+          .token.tag {
+            color: #72f1b8;
+    
+            > .punctuation {
+              color:#36f9f6;
+            }
+          }
+    
+          .token.attr-name {
+            color: #fede5d;
+          }
+    
+          .token.attr-value,
           .token.property {
-            color: #ff7edb;
+            color: #ff8b39;
+          }
+    
+          .token.attr-equals {
+            color: #b6b1b1;
           }
         }
 
-        .token.property {
-          color: #72f1b8;
-        }
-  
-        .token.selector {
-          color: #fede5d;
-        }
-  
-        .token.punctuation {
-          color: #fede5d;
-        }
+        &.language-css {
+          color:#ff8b39;
 
-        .token.important {
-          color: #fede5d;
+          .token.atrule {
+            color:#f97e72;
+            
+            .rule, .keyword, .punctuation {
+              color:#fede5d;
+            }
+
+            .token.function {
+              color: #f97e72;
+            }
+            
+            .token.property {
+              color: #ff7edb;
+            }
+          }
+
+          .token.property {
+            color: #72f1b8;
+          }
+    
+          .token.selector {
+            color: #fede5d;
+          }
+    
+          .token.punctuation {
+            color: #fede5d;
+          }
+
+          .token.important {
+            color: #fede5d;
+          }
         }
       }
     }
@@ -1496,6 +1511,41 @@ main {
       
       &:after {
         display:none;
+      }
+    }
+
+    .parcel-wrapper {
+      background-color:$primary;
+      border-radius:4px;
+      position:relative;
+
+      &:before {
+        content:'';
+        position:absolute;
+        top:20px;
+        left:20px;
+        border: 6px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top: 5px solid #fff;
+        width: 30px;
+        height: 30px;
+        -webkit-animation: spin 0.9s linear infinite;
+        animation: spin 0.9s linear infinite;
+      }
+
+      @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      iframe {
+        position:relative;
+        z-index:2;
       }
     }
   }

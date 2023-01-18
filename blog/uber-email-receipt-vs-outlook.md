@@ -4,7 +4,7 @@ title: Uber email receipt vs. Outlook — an exclusive take from an email develo
 description: I did a deep dive into the HTML template causing so much strife for Outlook and got a little obsessive along the way.
 date: 2022-08-05
 tags: ["post"]
-source: medium
+# source: medium
 ---
 
 I did a deep dive into the HTML template causing so much strife for Outlook and got a little obsessive along the way.

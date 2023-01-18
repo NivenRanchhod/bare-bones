@@ -23,16 +23,6 @@
   </url>
   
   <url>
-    <loc>https://bare-bones.dev/code/colour-scheme-switcher/</loc>
-    <lastmod>2022-08-23T00:00:00.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://bare-bones.dev/blog/colour-scheme-switcher-email-experiment/</loc>
-    <lastmod>2022-09-23T00:00:00.000Z</lastmod>
-  </url>
-  
-  <url>
     <loc>https://bare-bones.dev/404.html</loc>
     <lastmod>2022-10-05T08:57:59.258Z</lastmod>
   </url>
@@ -50,6 +40,21 @@
   <url>
     <loc>https://bare-bones.dev/</loc>
     <lastmod>2022-10-05T08:57:59.324Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bare-bones.dev/blog/colour-scheme-switcher-email-experiment/</loc>
+    <lastmod>2022-10-19T00:00:00.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bare-bones.dev/code/colour-scheme-switcher/</loc>
+    <lastmod>2022-10-19T00:00:00.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bare-bones.dev/blog/offset-shadows/</loc>
+    <lastmod>2022-10-28T00:00:00.000Z</lastmod>
   </url>
   
 </urlset>

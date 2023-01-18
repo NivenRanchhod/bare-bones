@@ -96,7 +96,7 @@
             
                 <article class="card scroll-transition">
                 <a href="/blog/colour-scheme-switcher-email-experiment/">
-                    <div class="row"><i class="fa-brands fa-medium"></i><time datetime="Sep 23, 2022">Sep 23, 2022</time>
+                    <div class="row"><i class="fa-brands fa-"></i><time datetime="Oct 19, 2022">Oct 19, 2022</time>
                     </div>
 
                     <div class="title-container">
@@ -113,7 +113,7 @@
             
                 <article class="card scroll-transition">
                 <a href="/blog/uber-email-receipt-vs-outlook/">
-                    <div class="row"><i class="fa-brands fa-medium"></i><time datetime="Aug 5, 2022">Aug 5, 2022</time>
+                    <div class="row"><i class="fa-brands fa-"></i><time datetime="Aug 5, 2022">Aug 5, 2022</time>
                     </div>
 
                     <div class="title-container">
@@ -130,7 +130,7 @@
             
                 <article class="card scroll-transition">
                 <a href="/blog/tesla-configurator-and-battery-range-calculator-email-experiment/">
-                    <div class="row"><i class="fa-brands fa-medium"></i><time datetime="May 13, 2021">May 13, 2021</time>
+                    <div class="row"><i class="fa-brands fa-"></i><time datetime="May 13, 2021">May 13, 2021</time>
                     </div>
 
                     <div class="title-container">
@@ -165,7 +165,7 @@
                     /code/colour-scheme-switcher/
                 
                 " target="_blank">
-                    <div class="row"><i class="fa-brands fa-codepen"></i><time datetime="Aug 23, 2022">Aug 23, 2022</time>
+                    <div class="row"><i class="fa-brands fa-codepen"></i><time datetime="Oct 19, 2022">Oct 19, 2022</time>
                     </div>
 
                     <div class="title-container">
@@ -234,12 +234,13 @@
       </div>
 
       <div class="icons">
-        <a class="scroll-transition" href="https://twitter.com/NivenRanchhod" target="_blank"><i class="fa-brands fa-twitter" title="Twitter"></i></a>
-        <a class="scroll-transition" href="https://codepen.io/NivenRanchhod" target="_blank"><i class="fa-brands fa-codepen" title="Codepen"></i></a>
-        <a class="scroll-transition" href="https://medium.com/@nivenranchhod" target="_blank"><i class="fa-brands fa-medium" title="Medium"></i></a>
-        <a class="scroll-transition" href="https://dev.to/nivenranchhod" target="_blank"><i class="fa-brands fa-dev" title="Dev.to"></i></a>
-        <a class="scroll-transition" href="https://barebones.hashnode.dev/" target="_blank"><i class="fa-brands fa-hashnode" title="Hashnode"></i></a>
-        <a class="scroll-transition" href="https://www.linkedin.com/in/nivenranchhod/" target="_blank"><i class="fa-brands fa-linkedin-in" title="Linkedin"></i></a>
+        <a class="scroll-transition" href="https://twitter.com/NivenRanchhod" target="_blank"><i class="fa-brands fa-twitter" title="Twitter"></i><span class="sr-only">Twitter</span></a>
+        <a class="scroll-transition" href="https://mstdn.social/@NivenRanchhod" target="_blank"><i class="fa-brands fa-mastodon" title="Mastodon"></i><span class="sr-only">Mastodon</span></a>
+        <a class="scroll-transition" href="https://codepen.io/NivenRanchhod" target="_blank"><i class="fa-brands fa-codepen" title="Codepen"></i><span class="sr-only">Codepen</span></a>
+        <a class="scroll-transition" href="https://medium.com/@nivenranchhod" target="_blank"><i class="fa-brands fa-medium" title="Medium"></i><span class="sr-only">Medium</span></a>
+        <a class="scroll-transition" href="https://dev.to/nivenranchhod" target="_blank"><i class="fa-brands fa-dev" title="Dev.to"></i><span class="sr-only">Dev.to</span></a>
+        <a class="scroll-transition" href="https://barebones.hashnode.dev/" target="_blank"><i class="fa-brands fa-hashnode" title="Hashnode"></i><span class="sr-only">Hashnode</span></a>
+        <a class="scroll-transition" href="https://www.linkedin.com/in/nivenranchhod/" target="_blank"><i class="fa-brands fa-linkedin-in" title="Linkedin"></i><span class="sr-only">Linkedin</span></a>
         <a class="scroll-transition" href="mailto:hello@bare-bones.dev" target="_blank"><i class="fa-solid fa-envelope" title="Email me"></i></a>
       </div>
     </div>
@@ -278,26 +279,6 @@
           y:-5,
           stagger:.1,
           duration:.3
-      });
-      
-      gsap.from('.wave', {
-        scrollTrigger: {
-          start: 'top bottom',
-          end: 'bottom top',
-          toggleClass: 'waving'
-        }
-      });
-
-      const wave = gsap.utils.toArray('.wave');
-      wave.forEach((btn) => {
-        gsap.from(btn, {
-          scrollTrigger: {
-            start: 'top bottom',
-            end: 'bottom top',
-            trigger: btn,
-            toggleClass: 'waving'
-          }
-        });
       });
   </script>
 

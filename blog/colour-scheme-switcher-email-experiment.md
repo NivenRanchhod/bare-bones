@@ -4,12 +4,41 @@ title: Colour Scheme Switcher — Interactive HTML Email Experiment
 description: Inspired by a dark mode toggle design on Dribbble, I decided to rebuild the toggle for email.
 date: 2022-10-19
 tags: ["post"]
-source: medium
+# source: medium
 ---
 
-<script>
 
+<script>
+    const parcel1Wrapper = document.querySelector('#parcel-1-wrapper')
+    const parcel2Wrapper = document.querySelector('#parcel-2-wrapper')
+    const parcel1Iframe = document.querySelector('#parcel-1')
+    const parcel2Iframe = document.querySelector('#parcel-2')
+    let isIframe1Visible = false
+    let isIframe2Visible = false
+    const iframeObserverOptions = { threshold: .05 }
+
+    const iframe1Observer = new IntersectionObserver(event => {
+    isIframe1Visible = event[0].isIntersecting
+
+    if (isIframe1Visible) {
+        parcel1Iframe.style.display = "block";
+    }
+
+    }, iframeObserverOptions)
+
+    const iframe2Observer = new IntersectionObserver(event => {
+    isIframe2Visible = event[0].isIntersecting
+
+    if (isIframe2Visible) {
+        parcel2Iframe.style.display = "block";
+    }
+
+    }, iframeObserverOptions)
+
+    iframe1Observer.observe(parcel1Wrapper);
+    iframe2Observer.observe(parcel2Wrapper);
 </script>
+
 
 Inspired by a beautiful <a href="https://dribbble.com/shots/14630755-Cards-Dark-UI" target="_blank" rel="noopener noreferrer">dark mode toggle design</a> on Dribbble, I decided to translate this for use in email.
 
@@ -24,7 +53,7 @@ Inspired by a beautiful <a href="https://dribbble.com/shots/14630755-Cards-Dark-
 
 ## 💡 The idea
 
-One day, while perusing Dribbble for interactive email design inspiration, I stumbled upon this lovely little <a href="https://dribbble.com/shots/14630755-Cards-Dark-UI" target="_blank" rel="noopener noreferrer">dark card UI design</a>. 
+One day, while perusing Dribbble for interactive email design inspiration, I stumbled upon this lovely little <a href="https://dribbble.com/shots/14630755-Cards-Dark-UI" target="_blank" rel="noopener noreferrer">dark&nbsp;card&nbsp;UI&nbsp;design</a>. 
 
 Lately, I've had a real desire to build out some of the amazing web & mobile design work that is constantly being shared on Twitter, Dribbble, newsletters and a myriad of other places.
 
@@ -38,7 +67,10 @@ Building a toggle is actually really simple. <br>
 A checkbox with one label or two radio inputs with two labels. The labels are then used as a click/tap area to trigger the 'checked' state on the checkbox or respective radio input and then our CSS will shift the handle/indicator to the specified position.
 
 #### Example:
-<iframe src="https://parcel.io/embed/89f168c6-c2ec-4490-b5d9-3c8f551fe68f?parts=html&default-part=html&preview-size=500&theme=parcel-dark&layout=preview" style="width:100%; height:350px; border:0; border-radius: 4px; overflow:hidden; margin-top:0.5rem;" scrolling="No" title="Basic HTML toggle examples embedded from Parcel" loading="lazy" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-popups-to-escape-sandbox allow-scripts" samesite="none" secure="true" onload="this.src=this.src+'#source='+window.location.href"> </iframe>
+
+<div class="parcel-wrapper" id="parcel-1-wrapper">
+    <iframe src="https://parcel.io/embed/89f168c6-c2ec-4490-b5d9-3c8f551fe68f?parts=html&default-part=html&preview-size=500&theme=parcel-dark&layout=preview" style="width:100%; height:350px; border:0; border-radius: 4px; overflow:hidden; margin-top:0.5rem;display:none;" scrolling="No" title="Basic HTML toggle examples embedded from Parcel" loading="lazy" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-popups-to-escape-sandbox allow-scripts" samesite="none" secure="true" id="parcel-1"> </iframe>
+</div>
 
 I've outlined the labels in red. Have a click around to see how the two different techniques work.
 
@@ -55,7 +87,9 @@ In general, it's all about using CSS to check for changes on your inputs and the
 This toggle could be pushed further with more options added to transform it into a slider. We simply add more radio input options (checkboxes won't work here unless you want a multi-choice slider, if that is a thing), lengthen the track and add CSS to tell the handle to travel further for each added option, when selected.
 
 #### Example: (may not work too well on mobile)
-<iframe src="https://parcel.io/embed/dcd2de1a-a535-443a-a308-644be427dccf?parts=html&default-part=html&preview-size=500&theme=parcel-dark&layout=preview" style="width:100%; height:230px; border:0; border-radius: 4px; overflow:hidden; margin-top:0.5rem;" scrolling="No" title="Basic HTML slider example embedded from Parcel" loading="lazy" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-popups-to-escape-sandbox allow-scripts" samesite="none" secure="true" onload="this.src=this.src+'#source='+window.location.href"> </iframe>
+<div class="parcel-wrapper" id="parcel-2-wrapper">
+    <iframe src="https://parcel.io/embed/dcd2de1a-a535-443a-a308-644be427dccf?parts=html&default-part=html&preview-size=500&theme=parcel-dark&layout=preview" style="width:100%; height:230px; border:0; border-radius: 4px; overflow:hidden; margin-top:0.5rem;display:none;" scrolling="No" title="Basic HTML slider example embedded from Parcel" loading="lazy" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-popups-to-escape-sandbox allow-scripts" samesite="none" secure="true" id="parcel-2"> </iframe>
+</div>
 
 At Mayoris, we utilise sliders in our interactive email API - Mailix, for our clients to pull into their survey builds for NPS ratings or as an alternative to a list or grid of radio input options. <br>
 And the work to adapt this to a horizontal layout for mobile is quite simple.
@@ -80,7 +114,7 @@ I'm more of a fan of explicitly telling the user which setting they'll be enabli
 
 ## 🔨 Build — Make it Glitter
 
-We want the colour scheme state to affect the entire body. To make this work, the inputs need to sit above everything else. The reason being - we watch the inputs for changes (unchecked / checked) and once a state change is made, we then use <a href="https://css-tricks.com/child-and-sibling-selectors" target="_blank" rel="noopener noreferrer">CSS sibling selectors</a> to run down the HTML to find and style our elements accordingly.
+We want the colour scheme state to affect the entire body. To make this work, the inputs need to sit above everything else. The reason being - we watch the inputs for changes (unchecked / checked) and once a state change is made, we then use <a href="https://css-tricks.com/child-and-sibling-selectors" target="_blank" rel="noopener noreferrer">CSS&nbsp;sibling&nbsp;selectors</a> to run down the HTML to find and style our elements accordingly.
 
 **Example:**<br>
 This is one of the selectors I'm using to switch out the dark mode icon when enabled.
@@ -108,7 +142,7 @@ Just look at my toggle examples in the 'Basics' section. They're super basic and
 
 I know I didn't go into too much detail on adapting the styling to suit the final result but I wanted to keep this tutorial at a reasonable length. Plus, this is mostly basic CSS styling. The intricacies are in the selection of each item and linking them with the :checked state on the radio inputs.
 
-<a href="/code/colour-scheme-switcher" target="_blank">View the final experiment</a> and comb through the source code to really see how each state change on the radio inputs is affecting ALL of the other elements. It's all yours to play with, adapt and use as you wish.
+<a href="/code/colour-scheme-switcher" target="_blank">View&nbsp;the&nbsp;final&nbsp;experiment</a> and comb through the source code to really see how each state change on the radio inputs is affecting ALL of the other elements. It's all yours to play with, adapt and use as you wish.
 
 
 <div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
