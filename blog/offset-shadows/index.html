@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Niven Ranchhod">
+  <meta name="description" content="Typically a difficult design to reproduce for email, I decided to experiment with building a card with a solid offset shadow for email.">
+  
+  <title>Offset Shadows - Email Experiment</title>
+    
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest" crossorigin="use-credentials">
+  <meta name="theme-color" content="#8e2de2">
+  
+  <!-- Open graph -->
+  <meta property="og:title" content="Offset Shadows - Email Experiment">
+  <meta property="og:description" content="Typically a difficult design to reproduce for email, I decided to experiment with building a card with a solid offset shadow for email.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content=""/>
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- Twitter -->
+  <meta name="twitter:title" content="Offset Shadows - Email Experiment">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@NivenRanchhod">
+  <meta name="twitter:description" content="Typically a difficult design to reproduce for email, I decided to experiment with building a card with a solid offset shadow for email.">
+  <meta name="twitter:image" content="">
+  <meta name="twitter:creator" content="@NivenRanchhod">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/css/styles.css">
+  <noscript><link rel="stylesheet" href="/css/styles.css"></noscript>
+
+  
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=montserrat:500,700,800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  
+  <header>
+    <div class="logo stagger">
+      <a class="stagger" href="/">
+        <img class="stagger" src="/images/bare-bones.svg" alt="Bare Bones" loading="lazy" decoding="async" />
+      </a>
+    </div>
+
+    <button class="mobile-nav-toggle stagger" aria-controls="main-navigation" aria-expanded="false">
+      <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <span class="sr-only">Menu</span>
+    </button>
+
+    <nav class="nav">
+      <ul id="main-navigation" class="main-navigation" data-visible="false">
+          <li class="stagger"><a data-display="Written" href="/blog
+          "><i class="fa-solid fa-feather-pointed"></i> <span>Written</span></a></li>
+          <li class="stagger"><a data-display="Coded" href="/code"><i class="fa-solid fa-code-fork"></i> <span>Coded</span></a></li>
+          <li class="stagger"><a data-display="About" href="/#about
+          "><i class="fa-solid fa-robot"></i> <span>About</span></a></li>
+          <li class="stagger"><a data-display="Newsletter" href="#newsletter"><i class="fa-solid fa-inbox"></i> <span>Newsletter</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <article class="main-article">
+  <h1 class="stagger">Offset Shadows - Email Experiment</h1>
+  
+  <p class="date stagger"><i class="fa-solid fa-calendar-days"></i> <time datetime="Oct 28, 2022">Oct 28, 2022</time></p>
+  
+  <p>With the introduction of the <a href="https://sayo1337.medium.com/overlay-email-absolute-positioning-efd2f2f09ed4" target="_blank" rel="noopener noreferrer">Faux Absolute Positioning Technique</a>, I've been on the lookout for design challenges to push the technique even further. I've specifically been looking for designs with multiple objects layered over the top of each other or intersecting each other. However, that's not so easy for email.</p>
+<p><img src="/images/blog-images/offset-shadows.png" alt="A preview of the offset shadow experiment, showing two different configurations">
+<br>
+<br></p>
+<p><a class="button scroll-transition" href="/code/offset-shadows" target="_blank">View this experiment</a>
+<br></p>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
+<p>Today we're specifically looking at this <a href="https://dribbble.com/shots/17304287-Trainual" target="_blank" rel="noopener noreferrer">offset shadow design</a> on Dribbble. This is definitely an example of a design feature that isn't easy to implement in email.</p>
+<p>Let's quickly look at the options we usually have:</p>
+<ol>
+<li>CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow" target="_blank" rel="noopener noreferrer">Box-shadow</a>.</li>
+<li>Adding rows and cells around the card structure with clever use of fill colours and sliced images of rounded corners.</li>
+<li>A background image.</li>
+</ol>
+<p>In detail:</p>
+<ol>
+<li>
+<p>Box-shadow doesn't have great support in email clients (<a href="https://www.caniemail.com/features/css-box-shadow/" target="_blank" rel="noopener noreferrer">caniemail.com</a>).</p>
+</li>
+<li>
+<p>Adding a table structure around the card could work really well and allow for easy adaptation to different lengths of content and mobile responsiveness. However, will pose problems in dark mode, with the use of images to achieve the rounded corners.</p>
+</li>
+<li>
+<p>Finally, background images... I’m no longer a fan of defaulting to background images. Faux Absolute Positioning is now my go to for layering content. Background images absolutely have their place but we can now be more exploratory when we're translating complex designs or even web designs for email.<br><br>
+Faux Absolute Positioning does have similar restrictions to background images. You still need to set a width &amp; height to ensure the background and foreground match, so it's not perfect. I also encountered some dark mode issues in Outlook &amp; Office 365 on Windows <strong>(which I'll now refer to as 'MSO clients')</strong> due to the VML required, but I'll get into that later.</p>
+</li>
+</ol>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
+<h2>🧐 Code review</h2>
+<br>
+<div class="parcel-wrapper" id="parcel-wrapper">
+    <iframe src="https://parcel.io/embed/f7e4c23e-65da-448e-840c-16cbcc68025f?parts=html&default-part=html&preview-size=500&theme=parcel-dark&layout=code" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;display:none;" title="A preview of the offset shadow card design" loading="lazy" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts allow-popups-to-escape-sandbox" samesite=none secure=true id="parcel"> </iframe>
+</div>
+<p>Visually the elements look great. Code wise, maybe not so great. Unfortunately to support as many email clients as possible (which I achieved), I needed a lot of code for visual consistency across the board.</p>
+<p>Let's dive in.</p>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
+<h2>🔨 Build - Breakdown</h2>
+<p>In terms of the actual implementation, it's not too dissimilar to the original examples.<br>
+A content block, stacked above a background block. Max-height to zero out the content block wrapper which then tricks the background block to shift upwards to fill the gap. And the content inside of the content block wrapper continuing to fill it's intended space and rendering above the background block.</p>
+<p>For the purposes of centring only, I have wrapped each module in a table. Fiddling with centering divs and then trying find a fallback option for MSO clients proved cumbersome. There is probably a simple way to get this working but for the purposes of this experiment, I'm not really trying to avoid the use of tables and I'm not going to over complicate this with ghost tables.</p>
+<h3>1. Content Block - Wrapper</h3>
+<p>We have the first of two divs. This is our content block wrapper which we use to trick the rendering engine. <br>
+Inside of that there are two divs (which swap out), to account for different rendering results between T-Online and the rest of the clients which support this technique. T-Online doesn't like <code>position:relative</code>, so a workaround in the form of an alternative div is used for T-Online only.</p>
+<p>The first version of the content block wrapper is the one we use for the majority of email clients.</p>
+<pre class="language-html"><code class="language-html">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">max-height</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span> <span class="token property">max-width</span><span class="token punctuation">:</span>480px<span class="token punctuation">;</span> <span class="token property">position</span><span class="token punctuation">:</span>relative<span class="token punctuation">;</span> <span class="token property">opacity</span><span class="token punctuation">:</span>0.999<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span></code></pre>
+<br>
+<ul>
+<li><code>max-height</code> - Zero out our height to pull the background block up</li>
+<li><code>max-width</code> - Really, this helps with smaller screens however, I haven't actually set this up to be repsonsive.</li>
+<li><code>position:relative</code> - With the above <em>tricks</em>, the content block renders below the background block. Adding this property enables <code>z-index</code> element layering (without needing to declare the actual property) and then pulls the content block up to sit on top of everything else. Now, this property isn't supported by every email client and so we also need the <code>opacity</code> property.</li>
+<li><code>opacity:0.999</code> - This will get around any clients that do not support <code>position:relative</code>. The opacity drop is negligible, so don't worry about the figure.</li>
+</ul>
+<blockquote>
+<p>Mark Robbins goes into detail on the last two points above. Please take a look at his write-up <a href="https://www.goodemailcode.com/email-enhancements/faux-absolute-position" target="_blank" rel="noopener noreferrer">Faux Absolute Position</a> on his website Good Email Code.</p>
+</blockquote>
+<p>The second version of the content block wrapper is the T-Online specific div.</p>
+<pre class="language-html"><code class="language-html">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">max-height</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span> <span class="token property">max-width</span><span class="token punctuation">:</span>480px<span class="token punctuation">;</span> <span class="token property">opacity</span><span class="token punctuation">:</span>0.999<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span></code></pre>
+<p><img src="/images/blog-images/offset-shadows-tonline-bug.png" alt="A preview of the the relative positioning in use in T-Online which breaks the layout of the stacked elements."></p>
+<p>Altogether now:</p>
+<pre class="language-html"><code class="language-html">    <span class="token comment">&lt;!--[if tonline]>&lt;div style="display:none">&lt;![endif]--></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">max-height</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span> <span class="token property">max-width</span><span class="token punctuation">:</span>480px<span class="token punctuation">;</span> <span class="token property">position</span><span class="token punctuation">:</span>relative<span class="token punctuation">;</span> <span class="token property">opacity</span><span class="token punctuation">:</span>0.999<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><br>    <span class="token comment">&lt;!--[if tonline]>&lt;/div>&lt;/div><br>    &lt;div style="max-height:0; max-width:480px; opacity:0.999;"><br>    &lt;![endif]--></span></code></pre>
+<h4>Something I also want to cover off:</h4>
+<p>Ordinarily, the recommendation when you do have the opportunity to use conditionals to fix outlier clients, is to make changes via CSS. <br>
+We already know T-Online has a condition we can utilise. However, at Mayoris we have a T-Online test account, so I have the advantage of opening a test send and utilising DevTools in Chrome, to dig through the final code. <br>
+Doing this, I can see the client is actually stripping that div of all of it's CSS properties when <code>position:relative</code> is defined. Removing that property or changing the value to static, avoids the issue.</p>
+<p>With this in mind, I removed the conditions and the extra div and added a class to the div and then tried setting a conditional CSS change in the head.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stat<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">max-height</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span> <span class="token property">max-width</span><span class="token punctuation">:</span>480px<span class="token punctuation">;</span> <span class="token property">position</span><span class="token punctuation">:</span>relative<span class="token punctuation">;</span> <span class="token property">opacity</span><span class="token punctuation">:</span>0.999<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span><br>    . . .<br>    <span class="token comment">&lt;!--[if tonline]><br>    &lt;style id="tonline-styles"><br>        .stat { position:static!important; }<br>    &lt;/style><br>    &lt;![endif]--></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span></code></pre>
+<p>This didn't work.<br>
+Why?</p>
+<p>I don't know for sure and once I saw this issue, I kind of lost interest in trying to pursue this via CSS. My guess is T-Online strips the head CSS. That's certainly what it looked like in DevTools. All of my base styles and resets weren't there.</p>
+<p>I have a fix working in HTML and even if this was a client build, I can see that spending more time on this actually isn't worth it.</p>
+<p>Best thing to do is move on.</p>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
+<h3>2. Content Block - Foreground Card</h3>
+<p>Next, we dive into the card design.</p>
+<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!--[if mso]><br>&lt;v:roundrect fill="t" stroked="t" strokecolor="#7d2cff" strokeweight="4px" arcsize="6%" style="position:absolute; top:0; width:480px;"><br>&lt;v:textbox inset="0,0,0,0" style="mso-fit-shape-to-text:true;"><br>&lt;![endif]--></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">background</span><span class="token punctuation">:</span>#fff<span class="token punctuation">;</span> <span class="token property">border</span><span class="token punctuation">:</span>4px solid #7d2cff<span class="token punctuation">;</span> <span class="token property">border-radius</span><span class="token punctuation">:</span>20px<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span> <span class="token attr-name">border</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">cellspacing</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">cellpadding</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">width</span><span class="token punctuation">:</span>100%</span><span class="token punctuation">"</span></span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>presentation<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span><br>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card-font<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">font</span><span class="token punctuation">:</span>600 18px/1.5 Montserrat<span class="token punctuation">,</span> sans-serif<span class="token punctuation">;</span><span class="token property">color</span><span class="token punctuation">:</span>#7d2cff<span class="token punctuation">;</span> <span class="token property">text-align</span><span class="token punctuation">:</span>left<span class="token punctuation">;</span> <span class="token property">padding</span><span class="token punctuation">:</span>30px 25px<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><br>                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">margin</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span> <span class="token property">font-size</span><span class="token punctuation">:</span>30px<span class="token punctuation">;</span><span class="token property">line-height</span><span class="token punctuation">:</span>42px<span class="token punctuation">;</span><span class="token property">font-weight</span><span class="token punctuation">:</span>800<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>Lorem ipsum dolor sit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span><br><br>                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">margin</span><span class="token punctuation">:</span>10px 0 40px 0</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><br><br>                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">margin</span><span class="token punctuation">:</span>0</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://bare-bones.dev<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">font</span><span class="token punctuation">:</span>600 20px/1 Montserrat<span class="token punctuation">,</span> sans-serif<span class="token punctuation">;</span> <span class="token property">background</span><span class="token punctuation">:</span>#7d2cff<span class="token punctuation">;</span> <span class="token property">text-decoration</span><span class="token punctuation">:</span>none<span class="token punctuation">;</span> <span class="token property">padding</span><span class="token punctuation">:</span>16px 50px<span class="token punctuation">;</span> <span class="token property">color</span><span class="token punctuation">:</span>#fff<span class="token punctuation">;</span> <span class="token property">border-radius</span><span class="token punctuation">:</span>15px<span class="token punctuation">;</span> <span class="token property">display</span><span class="token punctuation">:</span>inline-block<span class="token punctuation">;</span> <span class="token property">mso-padding-alt</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span> <span class="token property">border</span><span class="token punctuation">:</span> 4px solid transparent<span class="token punctuation">;</span><span class="token property">border-bottom</span><span class="token punctuation">:</span> 8px solid transparent<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><span class="token comment">&lt;!--[if mso]>&lt;i style="letter-spacing:50px;mso-font-width:-100%;mso-text-raise:20pt">&amp;nbsp;&lt;/i>&lt;![endif]--></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">mso-text-raise</span><span class="token punctuation">:</span>11pt<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>Lorem<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><span class="token comment">&lt;!--[if mso]>&lt;/span>&lt;i style="letter-spacing:50px;mso-font-width:-100%">&amp;nbsp;&lt;/i>&lt;![endif]--></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><br>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token comment">&lt;!--[if mso]><br>&lt;/v:textbox><br>&lt;/v:roundrect><br>&lt;![endif]--></span></code></pre>
+<p>I use the div to set the background colour, purple border and border radius for everything other than MSO clients. I then declare a table inside of that to help with maintaining the ability to use padding in all clients. <br>
+And to finish up, we wrap the whole element in VML for the MSO clients.</p>
+<p>Now it's time to touch on the dark mode issues.<br>
+The <code>&lt;v:roundrect&gt;</code> has the fill set to t/true. This is due to the div background colour not applying in MSO clients and I also can't set this on the nested table as doing that resulted in this monstrosity 😵‍💫:
+<img src="/images/blog-images/dark-mode-outlook.png" alt="The Litmus test result of the background colour on the nested table showing the colour only appearing directly behind the content and large gaps appearing between the content and the border which allows the background card to show through"></p>
+<p>With the fill on the <code>&lt;v:roundrect&gt;</code>, we get this instead:
+<img src="/images/blog-images/dark-mode-outlook-good.png" alt="The Litmus test result with the fill set to true in the VML rendering a lot better"></p>
+<p>The content &amp; button colours are off in dark mode, which is simply down to the dark purple I use, not having the appropriate contrast ratio. <br>
+Using the old trick of:</p>
+<ol>
+<li>Opening MS Word</li>
+<li>Typing some text</li>
+<li>Setting a gradient on the text</li>
+<li>Saving the document as an HTML file and then viewing the source</li>
+</ol>
+<p>Which is what <a href="https://twitter.com/moonstrips" target="_blank" rel="noopener noreferrer">Nicole Merlin</a> did to get her amazing <a href="https://webdesign.tutsplus.com/tutorials/how-to-fix-outlook-dark-mode-problems--cms-37718" target="_blank" rel="noopener noreferrer">MSO client dark mode fix</a>, I was able to set a lighter purple to more closely follow my normal palette. However, with setting the lighter purple, that then affects my light mode styling too which wasn't great. For now, I'm leaving the blue. It's fine. Again, not a client build, so moving on.</p>
+<p>Dark mode rendering everywhere else looks great. <br>
+Here is Apple Mail for example 😎:
+<img src="/images/blog-images/dark-mode-apple-mail.png" alt="The Litmus test result for dark mode in Apple Mail, showing the removal of white completely for the Bare Bones purple and a lighter purple for the content and button for a better contrast ratio"></p>
+<div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
+<h2>🧐 Conclusion</h2>
+<p>In general, I don't necessarily think this is an ideal solution for all use cases. The code weight of the HTML of one of the modules included in the example is only 3kb. That's pretty surprising.</p>
+<p>Thanks for reading, fellow geek.<br>
+Niven</p>
+<div class="divider"><img class="icon-sign-off" src="/images/logo-as-icon-crosses.svg" alt="" loading="lazy" decoding="async" /></div>
+<script>
+    const parcelWrapper = document.querySelector('#parcel-wrapper')
+    const parcelIframe = document.querySelector('#parcel')
+    let isIframeVisible = false
+    const iframeObserverOptions = { threshold: .05 }
+
+    const iframeObserver = new IntersectionObserver(event => {
+    isIframeVisible = event[0].isIntersecting
+
+    if (isIframeVisible) {
+        parcelIframe.style.display = "block";
+    }
+
+    }, iframeObserverOptions)
+
+    iframeObserver.observe(parcelWrapper)
+</script>
+</article>
+
+<section class="newsletter scroll-transition" id="newsletter">
+    <div class="card">
+        <div class="logo">
+            <h4 class="scroll-transition">Join</h4>
+            <img class="scroll-transition" src="/images/bare-bones-club.svg" alt="Bare Bones Club" loading="lazy" decoding="async" />
+        </div>
+
+        <div class="subscribe">
+            <div class="newsletter-desc">
+            <p class="scroll-transition">Stay up to date with my code, ramblings and rare moments of intelligence.</p>
+            </div>
+
+            <div id="revue-embed" class="revue-embed">
+                <iframe class="scroll-transition" src="https://embeds.beehiiv.com/a91fa3ea-209e-4600-ac9f-92ae676d0f88?slim=true" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="margin: 0; border-radius: 0px !important; background-color: transparent; width:100%; max-width:600px; height:60px;"></iframe>
+            </div>
+                
+            <div class="revue-form-footer">                
+                <p class="scroll-transition"><a class="arrow-link" href="https://bare-bones-club.beehiiv.com/?_gl=1*3908f5*_ga*MTk3NDI5NzQyMy4xNjY2NzM0NjA2*_ga_E6Y4WLQ2EC*MTY3NDA4MTA4OC4xNC4xLjE2NzQwODEyNTIuNjAuMC4w" target="_blank">See previous editions <i class="fa-solid fa-arrow-right-long"></i></a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bare-bones.dev/blog/uber-email-receipt-vs-outlook/"
+  },
+  "headline": "Offset Shadows - Email Experiment",
+  "description": "Typically a difficult design to reproduce for email, I decided to experiment with building a card with a solid offset shadow for email.",
+  "image": "https://bare-bones.dev/images/bare-bones.png",
+  "author": {
+    "@type": "Person",
+    "name": "Niven Ranchhod",
+    "url": "https://bare-bones.dev"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bare Bones",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://bare-bones.dev/images/bare-bones.png"
+    }
+  },
+  "datePublished": "Fri Oct 28 2022 00:00:00 GMT+0000 (Coordinated Universal Time)"
+}
+</script>
+  </main>
+  <footer>
+    <div class="socials">
+      <div class="logo">
+        <a href="/">
+          <img class="scroll-transition" src="/images/bare-bones-skull-only.svg" alt="Bare Bones" loading="lazy" decoding="async" />
+        </a>
+      </div>
+
+      <div class="icons">
+        <a class="scroll-transition" href="https://twitter.com/NivenRanchhod" target="_blank"><i class="fa-brands fa-twitter" title="Twitter"></i><span class="sr-only">Twitter</span></a>
+        <a class="scroll-transition" href="https://mstdn.social/@NivenRanchhod" target="_blank"><i class="fa-brands fa-mastodon" title="Mastodon"></i><span class="sr-only">Mastodon</span></a>
+        <a class="scroll-transition" href="https://codepen.io/NivenRanchhod" target="_blank"><i class="fa-brands fa-codepen" title="Codepen"></i><span class="sr-only">Codepen</span></a>
+        <a class="scroll-transition" href="https://medium.com/@nivenranchhod" target="_blank"><i class="fa-brands fa-medium" title="Medium"></i><span class="sr-only">Medium</span></a>
+        <a class="scroll-transition" href="https://dev.to/nivenranchhod" target="_blank"><i class="fa-brands fa-dev" title="Dev.to"></i><span class="sr-only">Dev.to</span></a>
+        <a class="scroll-transition" href="https://barebones.hashnode.dev/" target="_blank"><i class="fa-brands fa-hashnode" title="Hashnode"></i><span class="sr-only">Hashnode</span></a>
+        <a class="scroll-transition" href="https://www.linkedin.com/in/nivenranchhod/" target="_blank"><i class="fa-brands fa-linkedin-in" title="Linkedin"></i><span class="sr-only">Linkedin</span></a>
+        <a class="scroll-transition" href="mailto:hello@bare-bones.dev" target="_blank"><i class="fa-solid fa-envelope" title="Email me"></i></a>
+      </div>
+    </div>
+
+    <div class="sign-off">
+      <p class="scroll-transition">Built with humility & Haggis, <span class="no-wrap">in Scotland</span>.</p>
+      
+      <p class="scroll-transition"><span class="no-wrap">&copy; <a class="underline" href="https://twitter.com/NivenRanchhod" target="_blank">Niven Ranchhod</a> <span class="year"></span></span></p>
+    </div>
+  </footer>
+  
+
+  <script src="https://kit.fontawesome.com/bfabfb8392.js" crossorigin="anonymous" defer></script>
+	<script src="/js/scripts.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+
+  <script>
+      const scrollelements = gsap.utils.toArray('.scroll-transition');
+
+      scrollelements.forEach(box => {
+        gsap.from(box, {
+          scrollTrigger: {
+            trigger: box,
+            start:"top bottom"
+          },
+          y:50,
+          opacity:0,
+          duration:.8,
+          stagger:0.8
+        })
+      });
+
+      gsap.from('.stagger',{
+          opacity:0,
+          y:-5,
+          stagger:.1,
+          duration:.3
+      });
+  </script>
+
+  <script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>

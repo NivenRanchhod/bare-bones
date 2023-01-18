@@ -75,7 +75,34 @@
   <p class="date stagger"><i class="fa-solid fa-calendar-days"></i> <time datetime="Oct 19, 2022">Oct 19, 2022</time></p>
   
   <script>
+    const parcel1Wrapper = document.querySelector('#parcel-1-wrapper')
+    const parcel2Wrapper = document.querySelector('#parcel-2-wrapper')
+    const parcel1Iframe = document.querySelector('#parcel-1')
+    const parcel2Iframe = document.querySelector('#parcel-2')
+    let isIframe1Visible = false
+    let isIframe2Visible = false
+    const iframeObserverOptions = { threshold: .05 }
 
+    const iframe1Observer = new IntersectionObserver(event => {
+    isIframe1Visible = event[0].isIntersecting
+
+    if (isIframe1Visible) {
+        parcel1Iframe.style.display = "block";
+    }
+
+    }, iframeObserverOptions)
+
+    const iframe2Observer = new IntersectionObserver(event => {
+    isIframe2Visible = event[0].isIntersecting
+
+    if (isIframe2Visible) {
+        parcel2Iframe.style.display = "block";
+    }
+
+    }, iframeObserverOptions)
+
+    iframe1Observer.observe(parcel1Wrapper);
+    iframe2Observer.observe(parcel2Wrapper);
 </script>
 <p>Inspired by a beautiful <a href="https://dribbble.com/shots/14630755-Cards-Dark-UI" target="_blank" rel="noopener noreferrer">dark mode toggle design</a> on Dribbble, I decided to translate this for use in email.</p>
 <p><img src="/images/blog-images/colour-scheme-switcher-result.jpg" alt="A preview of the toggle experiment in both light &amp; dark modes">
@@ -85,7 +112,7 @@
 <br></p>
 <div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 <h2>💡 The idea</h2>
-<p>One day, while perusing Dribbble for interactive email design inspiration, I stumbled upon this lovely little <a href="https://dribbble.com/shots/14630755-Cards-Dark-UI" target="_blank" rel="noopener noreferrer">dark card UI design</a>.</p>
+<p>One day, while perusing Dribbble for interactive email design inspiration, I stumbled upon this lovely little <a href="https://dribbble.com/shots/14630755-Cards-Dark-UI" target="_blank" rel="noopener noreferrer">dark card UI design</a>.</p>
 <p>Lately, I've had a real desire to build out some of the amazing web &amp; mobile design work that is constantly being shared on Twitter, Dribbble, newsletters and a myriad of other places.</p>
 <p>This toggle design really stood out to me and stumbling upon it coincided with some research I was doing into colour scheme toggles for fun, which is something I find enjoyable apparently...</p>
 <div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
@@ -93,7 +120,9 @@
 <p>Building a toggle is actually really simple. <br>
 A checkbox with one label or two radio inputs with two labels. The labels are then used as a click/tap area to trigger the 'checked' state on the checkbox or respective radio input and then our CSS will shift the handle/indicator to the specified position.</p>
 <h4>Example:</h4>
-<iframe src="https://parcel.io/embed/89f168c6-c2ec-4490-b5d9-3c8f551fe68f?parts=html&default-part=html&preview-size=500&theme=parcel-dark&layout=preview" style="width:100%; height:350px; border:0; border-radius: 4px; overflow:hidden; margin-top:0.5rem;" scrolling="No" title="Basic HTML toggle examples embedded from Parcel" loading="lazy" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-popups-to-escape-sandbox allow-scripts" samesite="none" secure="true" onload="this.src=this.src+'#source='+window.location.href"> </iframe>
+<div class="parcel-wrapper" id="parcel-1-wrapper">
+    <iframe src="https://parcel.io/embed/89f168c6-c2ec-4490-b5d9-3c8f551fe68f?parts=html&default-part=html&preview-size=500&theme=parcel-dark&layout=preview" style="width:100%; height:350px; border:0; border-radius: 4px; overflow:hidden; margin-top:0.5rem;display:none;" scrolling="No" title="Basic HTML toggle examples embedded from Parcel" loading="lazy" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-popups-to-escape-sandbox allow-scripts" samesite="none" secure="true" id="parcel-1"> </iframe>
+</div>
 <p>I've outlined the labels in red. Have a click around to see how the two different techniques work.</p>
 <p>The difficulty with builds like this comes when you add visual complexity, like in my final build where I've included lighting and shadows.</p>
 <p>In general, it's all about using CSS to check for changes on your inputs and then styling your views for the different scenarios, i.e. disabled / enabled.</p>
@@ -101,7 +130,9 @@ A checkbox with one label or two radio inputs with two labels. The labels are th
 <pre class="language-css"><code class="language-css"><span class="token selector">.traffic-light</span> <span class="token punctuation">{</span> <span class="token property">background-color</span><span class="token punctuation">:</span>red<span class="token punctuation">;</span> <span class="token punctuation">}</span><br><span class="token selector">#green-light:checked ~ .wrapper .traffic-light</span> <span class="token punctuation">{</span> <span class="token property">background-color</span><span class="token punctuation">:</span>green<span class="token punctuation">;</span> <span class="token punctuation">}</span></code></pre>
 <p>This toggle could be pushed further with more options added to transform it into a slider. We simply add more radio input options (checkboxes won't work here unless you want a multi-choice slider, if that is a thing), lengthen the track and add CSS to tell the handle to travel further for each added option, when selected.</p>
 <h4>Example: (may not work too well on mobile)</h4>
-<iframe src="https://parcel.io/embed/dcd2de1a-a535-443a-a308-644be427dccf?parts=html&default-part=html&preview-size=500&theme=parcel-dark&layout=preview" style="width:100%; height:230px; border:0; border-radius: 4px; overflow:hidden; margin-top:0.5rem;" scrolling="No" title="Basic HTML slider example embedded from Parcel" loading="lazy" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-popups-to-escape-sandbox allow-scripts" samesite="none" secure="true" onload="this.src=this.src+'#source='+window.location.href"> </iframe>
+<div class="parcel-wrapper" id="parcel-2-wrapper">
+    <iframe src="https://parcel.io/embed/dcd2de1a-a535-443a-a308-644be427dccf?parts=html&default-part=html&preview-size=500&theme=parcel-dark&layout=preview" style="width:100%; height:230px; border:0; border-radius: 4px; overflow:hidden; margin-top:0.5rem;display:none;" scrolling="No" title="Basic HTML slider example embedded from Parcel" loading="lazy" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-popups-to-escape-sandbox allow-scripts" samesite="none" secure="true" id="parcel-2"> </iframe>
+</div>
 <p>At Mayoris, we utilise sliders in our interactive email API - Mailix, for our clients to pull into their survey builds for NPS ratings or as an alternative to a list or grid of radio input options. <br>
 And the work to adapt this to a horizontal layout for mobile is quite simple.</p>
 <br>
@@ -116,7 +147,7 @@ Before we make it look pretty, we need to choose between the radio and checkbox 
 <p>I'm more of a fan of explicitly telling the user which setting they'll be enabling upon click/tap, plus I'm building the toggle to be quite large, so the radio input option (option a) just makes sense.</p>
 <div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 <h2>🔨 Build — Make it Glitter</h2>
-<p>We want the colour scheme state to affect the entire body. To make this work, the inputs need to sit above everything else. The reason being - we watch the inputs for changes (unchecked / checked) and once a state change is made, we then use <a href="https://css-tricks.com/child-and-sibling-selectors" target="_blank" rel="noopener noreferrer">CSS sibling selectors</a> to run down the HTML to find and style our elements accordingly.</p>
+<p>We want the colour scheme state to affect the entire body. To make this work, the inputs need to sit above everything else. The reason being - we watch the inputs for changes (unchecked / checked) and once a state change is made, we then use <a href="https://css-tricks.com/child-and-sibling-selectors" target="_blank" rel="noopener noreferrer">CSS sibling selectors</a> to run down the HTML to find and style our elements accordingly.</p>
 <p><strong>Example:</strong><br>
 This is one of the selectors I'm using to switch out the dark mode icon when enabled.</p>
 <pre class="language-css"><code class="language-css"><span class="token selector">#dark-mode:checked ~ .wrapper .toggle .dark</span> <span class="token punctuation">{</span> ... <span class="token punctuation">}</span></code></pre>
@@ -131,7 +162,7 @@ It's beautiful and I find technically challenging builds like this fun, but it w
 <p>To be fair, I've gone all out to build a <em>beautiful</em> toggle. I mean, I even Skeumorphised this with shadows &amp; lighting. This could be simplified in so many ways to reduce the number of elements that are being adapted for each colour scheme. <br>
 Just look at my toggle examples in the 'Basics' section. They're super basic and with the right colour palette, you can easily show the different states of the toggle, without going over the top like I did.</p>
 <p>I know I didn't go into too much detail on adapting the styling to suit the final result but I wanted to keep this tutorial at a reasonable length. Plus, this is mostly basic CSS styling. The intricacies are in the selection of each item and linking them with the :checked state on the radio inputs.</p>
-<p><a href="/code/colour-scheme-switcher" target="_blank">View the final experiment</a> and comb through the source code to really see how each state change on the radio inputs is affecting ALL of the other elements. It's all yours to play with, adapt and use as you wish.</p>
+<p><a href="/code/colour-scheme-switcher" target="_blank">View the final experiment</a> and comb through the source code to really see how each state change on the radio inputs is affecting ALL of the other elements. It's all yours to play with, adapt and use as you wish.</p>
 <div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 <h3>🤔 Final thoughts</h3>
 <p>I do want to make it clear that I am a big proponent of pushing email to it's limit, especially when it comes to mimicking web functionality in email and I am a firm believer that innovation is the avoidance of stagnation. <br>
@@ -150,37 +181,24 @@ Niven</p>
 
 <section class="newsletter scroll-transition" id="newsletter">
     <div class="card">
-    <div class="logo">
-        <h4 class="scroll-transition">Join</h4>
-        <img class="scroll-transition" src="/images/bare-bones-club.svg" alt="Bare Bones Club" loading="lazy" decoding="async" />
-    </div>
-
-    <div class="subscribe">
-        <div class="newsletter-desc">
-        <p class="scroll-transition">Stay up to date with my code, ramblings and rare moments of intelligence.</p>
+        <div class="logo">
+            <h4 class="scroll-transition">Join</h4>
+            <img class="scroll-transition" src="/images/bare-bones-club.svg" alt="Bare Bones Club" loading="lazy" decoding="async" />
         </div>
 
-        <div id="revue-embed" class="revue-embed">
-        <form action="https://www.getrevue.co/profile/Barebonesclub/add_subscriber" method="post" id="revue-form" class="revue-form" name="revue-form"  target="_blank">
-            <div class="row">
-            <div class="revue-form-group">
-                <label class="sr-only" for="member_email">Email address</label>
-                <input class="revue-form-field scroll-transition" placeholder="Your email address..." type="email" name="member[email]" id="member_email">
+        <div class="subscribe">
+            <div class="newsletter-desc">
+            <p class="scroll-transition">Stay up to date with my code, ramblings and rare moments of intelligence.</p>
             </div>
-            <div class="revue-form-actions">
-                <input type="submit" value="Subscribe" name="member[subscribe]" id="member_submit" class="scroll-transition">
+
+            <div id="revue-embed" class="revue-embed">
+                <iframe class="scroll-transition" src="https://embeds.beehiiv.com/a91fa3ea-209e-4600-ac9f-92ae676d0f88?slim=true" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="margin: 0; border-radius: 0px !important; background-color: transparent; width:100%; max-width:600px; height:60px;"></iframe>
             </div>
-            </div>
-            
-            <div class="revue-form-footer">
-            <p class="scroll-transition">By subscribing, you agree with Revue's <a class="underline no-wrap" target="_blank" href="https://www.getrevue.co/terms">Terms of Service</a> and <a class="underline no-wrap" target="_blank" href="https://www.getrevue.co/privacy">Privacy Policy</a>.</p>
-            
-            <p class="scroll-transition"><a class="arrow-link" href="https://www.getrevue.co/profile/Barebonesclub#archive" target="_blank">See previous editions <i class="fa-solid fa-arrow-right-long"></i></a></p>
+                
+            <div class="revue-form-footer">                
+                <p class="scroll-transition"><a class="arrow-link" href="https://bare-bones-club.beehiiv.com/?_gl=1*3908f5*_ga*MTk3NDI5NzQyMy4xNjY2NzM0NjA2*_ga_E6Y4WLQ2EC*MTY3NDA4MTA4OC4xNC4xLjE2NzQwODEyNTIuNjAuMC4w" target="_blank">See previous editions <i class="fa-solid fa-arrow-right-long"></i></a></p>
             </div>
         </div>
-        </form>
-
-    </div>
     </div>
 </section>
 
@@ -222,6 +240,7 @@ Niven</p>
 
       <div class="icons">
         <a class="scroll-transition" href="https://twitter.com/NivenRanchhod" target="_blank"><i class="fa-brands fa-twitter" title="Twitter"></i><span class="sr-only">Twitter</span></a>
+        <a class="scroll-transition" href="https://mstdn.social/@NivenRanchhod" target="_blank"><i class="fa-brands fa-mastodon" title="Mastodon"></i><span class="sr-only">Mastodon</span></a>
         <a class="scroll-transition" href="https://codepen.io/NivenRanchhod" target="_blank"><i class="fa-brands fa-codepen" title="Codepen"></i><span class="sr-only">Codepen</span></a>
         <a class="scroll-transition" href="https://medium.com/@nivenranchhod" target="_blank"><i class="fa-brands fa-medium" title="Medium"></i><span class="sr-only">Medium</span></a>
         <a class="scroll-transition" href="https://dev.to/nivenranchhod" target="_blank"><i class="fa-brands fa-dev" title="Dev.to"></i><span class="sr-only">Dev.to</span></a>
@@ -265,26 +284,6 @@ Niven</p>
           y:-5,
           stagger:.1,
           duration:.3
-      });
-      
-      gsap.from('.wave', {
-        scrollTrigger: {
-          start: 'top bottom',
-          end: 'bottom top',
-          toggleClass: 'waving'
-        }
-      });
-
-      const wave = gsap.utils.toArray('.wave');
-      wave.forEach((btn) => {
-        gsap.from(btn, {
-          scrollTrigger: {
-            start: 'top bottom',
-            end: 'bottom top',
-            trigger: btn,
-            toggleClass: 'waving'
-          }
-        });
       });
   </script>
 

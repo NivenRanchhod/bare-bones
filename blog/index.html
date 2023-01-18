@@ -146,37 +146,24 @@
 
     <section class="newsletter scroll-transition" id="newsletter">
     <div class="card">
-    <div class="logo">
-        <h4 class="scroll-transition">Join</h4>
-        <img class="scroll-transition" src="/images/bare-bones-club.svg" alt="Bare Bones Club" loading="lazy" decoding="async" />
-    </div>
-
-    <div class="subscribe">
-        <div class="newsletter-desc">
-        <p class="scroll-transition">Stay up to date with my code, ramblings and rare moments of intelligence.</p>
+        <div class="logo">
+            <h4 class="scroll-transition">Join</h4>
+            <img class="scroll-transition" src="/images/bare-bones-club.svg" alt="Bare Bones Club" loading="lazy" decoding="async" />
         </div>
 
-        <div id="revue-embed" class="revue-embed">
-        <form action="https://www.getrevue.co/profile/Barebonesclub/add_subscriber" method="post" id="revue-form" class="revue-form" name="revue-form"  target="_blank">
-            <div class="row">
-            <div class="revue-form-group">
-                <label class="sr-only" for="member_email">Email address</label>
-                <input class="revue-form-field scroll-transition" placeholder="Your email address..." type="email" name="member[email]" id="member_email">
+        <div class="subscribe">
+            <div class="newsletter-desc">
+            <p class="scroll-transition">Stay up to date with my code, ramblings and rare moments of intelligence.</p>
             </div>
-            <div class="revue-form-actions">
-                <input type="submit" value="Subscribe" name="member[subscribe]" id="member_submit" class="scroll-transition">
+
+            <div id="revue-embed" class="revue-embed">
+                <iframe class="scroll-transition" src="https://embeds.beehiiv.com/a91fa3ea-209e-4600-ac9f-92ae676d0f88?slim=true" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="margin: 0; border-radius: 0px !important; background-color: transparent; width:100%; max-width:600px; height:60px;"></iframe>
             </div>
-            </div>
-            
-            <div class="revue-form-footer">
-            <p class="scroll-transition">By subscribing, you agree with Revue's <a class="underline no-wrap" target="_blank" href="https://www.getrevue.co/terms">Terms of Service</a> and <a class="underline no-wrap" target="_blank" href="https://www.getrevue.co/privacy">Privacy Policy</a>.</p>
-            
-            <p class="scroll-transition"><a class="arrow-link" href="https://www.getrevue.co/profile/Barebonesclub#archive" target="_blank">See previous editions <i class="fa-solid fa-arrow-right-long"></i></a></p>
+                
+            <div class="revue-form-footer">                
+                <p class="scroll-transition"><a class="arrow-link" href="https://bare-bones-club.beehiiv.com/?_gl=1*3908f5*_ga*MTk3NDI5NzQyMy4xNjY2NzM0NjA2*_ga_E6Y4WLQ2EC*MTY3NDA4MTA4OC4xNC4xLjE2NzQwODEyNTIuNjAuMC4w" target="_blank">See previous editions <i class="fa-solid fa-arrow-right-long"></i></a></p>
             </div>
         </div>
-        </form>
-
-    </div>
     </div>
 </section>
 </div>
@@ -191,6 +178,7 @@
 
       <div class="icons">
         <a class="scroll-transition" href="https://twitter.com/NivenRanchhod" target="_blank"><i class="fa-brands fa-twitter" title="Twitter"></i><span class="sr-only">Twitter</span></a>
+        <a class="scroll-transition" href="https://mstdn.social/@NivenRanchhod" target="_blank"><i class="fa-brands fa-mastodon" title="Mastodon"></i><span class="sr-only">Mastodon</span></a>
         <a class="scroll-transition" href="https://codepen.io/NivenRanchhod" target="_blank"><i class="fa-brands fa-codepen" title="Codepen"></i><span class="sr-only">Codepen</span></a>
         <a class="scroll-transition" href="https://medium.com/@nivenranchhod" target="_blank"><i class="fa-brands fa-medium" title="Medium"></i><span class="sr-only">Medium</span></a>
         <a class="scroll-transition" href="https://dev.to/nivenranchhod" target="_blank"><i class="fa-brands fa-dev" title="Dev.to"></i><span class="sr-only">Dev.to</span></a>
@@ -234,26 +222,6 @@
           y:-5,
           stagger:.1,
           duration:.3
-      });
-      
-      gsap.from('.wave', {
-        scrollTrigger: {
-          start: 'top bottom',
-          end: 'bottom top',
-          toggleClass: 'waving'
-        }
-      });
-
-      const wave = gsap.utils.toArray('.wave');
-      wave.forEach((btn) => {
-        gsap.from(btn, {
-          scrollTrigger: {
-            start: 'top bottom',
-            end: 'bottom top',
-            trigger: btn,
-            toggleClass: 'waving'
-          }
-        });
       });
   </script>
 

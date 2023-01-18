@@ -1171,7 +1171,7 @@ main .main-article {
   line-height: 1.7;
 }
 main .main-article h1, main .main-article h2, main .main-article h3, main .main-article h4, main .main-article h5, main .main-article h6 {
-  margin: 2rem 0 0;
+  margin: 4rem 0 0;
 }
 main .main-article h1 {
   font-size: 3.5rem;
@@ -1223,37 +1223,26 @@ main .main-article img {
 main .main-article img + em {
   font-size: 1.5rem;
 }
+main .main-article h1 + p, main .main-article h2 + p, main .main-article h3 + p, main .main-article h4 + p, main .main-article h5 + p, main .main-article h6 + p {
+  margin: 2rem 0 0;
+}
 main .main-article p {
-  margin: 2rem 0;
+  margin: 4rem 0 0;
 }
 main .main-article a {
   position: relative;
   color: #fff;
   text-decoration: none;
-  white-space: nowrap;
-}
-main .main-article a:after {
-  width: 100%;
-  border-width: 2px 0 0 0;
-  top: 2rem;
-  border-color: #fff;
-  height: 7px;
-  border-style: solid;
-  position: absolute;
-  content: "";
-  border-radius: 40% 60% 0% 0%;
-  left: 0px;
-  transition: all 0.25s linear;
+  box-shadow: inset 0 -2px 0 0 #b688ff;
 }
 main .main-article a:hover {
-  color: #8F48FF;
+  box-shadow: inset 0 -2.5rem 0 0 #8F48FF;
 }
 main .main-article a:hover:after {
   border-color: #8F48FF;
 }
 main .main-article ul, main .main-article ol {
   margin-left: 4rem;
-  margin-bottom: 5rem;
 }
 @media only screen and (max-width: 500px) {
   main .main-article ul, main .main-article ol {
@@ -1275,65 +1264,73 @@ main .main-article ol p {
 }
 main .main-article code {
   background: rgba(157, 139, 202, 0.1254901961);
+  padding: 0.25rem 0.8rem;
+  display: inline;
+  border-radius: 4px;
+  color: #b688ff;
+}
+main .main-article pre code {
+  background: rgba(157, 139, 202, 0.1254901961);
   padding: 2rem;
   display: block;
   border-radius: 10px;
   box-shadow: 8px -8px 0 #8F48FF;
   font-size: 1.5rem;
   white-space: pre-wrap;
+  margin-top: 2rem;
 }
-main .main-article code.language-html .tag + br,
-main .main-article code.language-html .attr-value + br,
-main .main-article code.language-html .special-attr + br {
+main .main-article pre code.language-html .tag + br,
+main .main-article pre code.language-html .attr-value + br,
+main .main-article pre code.language-html .special-attr + br {
   display: none;
 }
-main .main-article code.language-html > .token.tag + br {
+main .main-article pre code.language-html > .token.tag + br {
   display: block;
 }
-main .main-article code.language-html .token.comment {
+main .main-article pre code.language-html .token.comment {
   color: #848bbd;
 }
-main .main-article code.language-html .token.tag {
+main .main-article pre code.language-html .token.tag {
   color: #72f1b8;
 }
-main .main-article code.language-html .token.tag > .punctuation {
+main .main-article pre code.language-html .token.tag > .punctuation {
   color: #36f9f6;
 }
-main .main-article code.language-html .token.attr-name {
+main .main-article pre code.language-html .token.attr-name {
   color: #fede5d;
 }
-main .main-article code.language-html .token.attr-value,
-main .main-article code.language-html .token.property {
+main .main-article pre code.language-html .token.attr-value,
+main .main-article pre code.language-html .token.property {
   color: #ff8b39;
 }
-main .main-article code.language-html .token.attr-equals {
+main .main-article pre code.language-html .token.attr-equals {
   color: #b6b1b1;
 }
-main .main-article code.language-css {
+main .main-article pre code.language-css {
   color: #ff8b39;
 }
-main .main-article code.language-css .token.atrule {
+main .main-article pre code.language-css .token.atrule {
   color: #f97e72;
 }
-main .main-article code.language-css .token.atrule .rule, main .main-article code.language-css .token.atrule .keyword, main .main-article code.language-css .token.atrule .punctuation {
+main .main-article pre code.language-css .token.atrule .rule, main .main-article pre code.language-css .token.atrule .keyword, main .main-article pre code.language-css .token.atrule .punctuation {
   color: #fede5d;
 }
-main .main-article code.language-css .token.atrule .token.function {
+main .main-article pre code.language-css .token.atrule .token.function {
   color: #f97e72;
 }
-main .main-article code.language-css .token.atrule .token.property {
+main .main-article pre code.language-css .token.atrule .token.property {
   color: #ff7edb;
 }
-main .main-article code.language-css .token.property {
+main .main-article pre code.language-css .token.property {
   color: #72f1b8;
 }
-main .main-article code.language-css .token.selector {
+main .main-article pre code.language-css .token.selector {
   color: #fede5d;
 }
-main .main-article code.language-css .token.punctuation {
+main .main-article pre code.language-css .token.punctuation {
   color: #fede5d;
 }
-main .main-article code.language-css .token.important {
+main .main-article pre code.language-css .token.important {
   color: #fede5d;
 }
 main .main-article .divider {
@@ -1403,6 +1400,44 @@ main .main-article .button:hover {
 }
 main .main-article .button:after {
   display: none;
+}
+main .main-article .parcel-wrapper {
+  background-color: #8F48FF;
+  border-radius: 4px;
+  position: relative;
+}
+main .main-article .parcel-wrapper:before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  border: 6px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 5px solid #fff;
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 0.9s linear infinite;
+  animation: spin 0.9s linear infinite;
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+main .main-article .parcel-wrapper iframe {
+  position: relative;
+  z-index: 2;
 }
 main .not-found {
   max-width: 900px;
