@@ -152,7 +152,7 @@ Boom! Winner winner chicken dinner!
 
 I now needed to ensure my parallax property overrides are enabled in Apple Mail and leave the faux absolute base in place by default.
 
-The always reliable [howtotarget.com](http://howtotarget.com) gave me this selector to target all Apple Mail from version 10 and up:
+The always reliable [howtotarget.email](http://howtotarget.email) gave me this selector to target all Apple Mail from version 10 and up:
 
 ```css
 .Singleton .your-class-name {
