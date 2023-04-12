@@ -503,7 +503,11 @@ main .intro .revue-embed .row .revue-form-group .revue-form-field {
   left: 0;
   box-shadow: 4px -4px #8F48FF;
   text-decoration: none;
+  text-align: center;
   background: #2B2B2B;
+}
+main .intro .revue-embed .row .revue-form-group .revue-form-field .button-icon path {
+  transition: all 0.25s ease-out;
 }
 main .intro .revue-embed .row .revue-form-group .revue-form-field:hover {
   cursor: pointer;
@@ -511,6 +515,9 @@ main .intro .revue-embed .row .revue-form-group .revue-form-field:hover {
   left: 4px;
   color: #b688ff;
   box-shadow: 0 0 #8F48FF;
+}
+main .intro .revue-embed .row .revue-form-group .revue-form-field:hover .button-icon path {
+  fill: #b688ff !important;
 }
 main .intro .revue-embed .row .revue-form-group .revue-form-field:hover {
   top: 4px;
@@ -538,7 +545,11 @@ main .intro .revue-embed .revue-form-actions input {
   left: 0;
   box-shadow: 4px -4px #8F48FF;
   text-decoration: none;
+  text-align: center;
   background: #2B2B2B;
+}
+main .intro .revue-embed .revue-form-actions input .button-icon path {
+  transition: all 0.25s ease-out;
 }
 main .intro .revue-embed .revue-form-actions input:hover {
   cursor: pointer;
@@ -546,6 +557,9 @@ main .intro .revue-embed .revue-form-actions input:hover {
   left: 4px;
   color: #b688ff;
   box-shadow: 0 0 #8F48FF;
+}
+main .intro .revue-embed .revue-form-actions input:hover .button-icon path {
+  fill: #b688ff !important;
 }
 @media only screen and (max-width: 550px) {
   main .intro .revue-embed .revue-form-actions {
@@ -873,6 +887,10 @@ main .contribute .contact .button {
   left: 0;
   box-shadow: 4px -4px #8F48FF;
   text-decoration: none;
+  text-align: center;
+}
+main .contribute .contact .button .button-icon path {
+  transition: all 0.25s ease-out;
 }
 main .contribute .contact .button:hover {
   cursor: pointer;
@@ -880,6 +898,9 @@ main .contribute .contact .button:hover {
   left: 4px;
   color: #b688ff;
   box-shadow: 0 0 #8F48FF;
+}
+main .contribute .contact .button:hover .button-icon path {
+  fill: #b688ff !important;
 }
 main .contribute .icons {
   margin: 2.5rem 0 2rem 0;
@@ -1091,7 +1112,11 @@ main .newsletter .card .subscribe .revue-embed .revue-form .row .revue-form-grou
   left: 0;
   box-shadow: 4px -4px #8F48FF;
   text-decoration: none;
+  text-align: center;
   background: #2B2B2B;
+}
+main .newsletter .card .subscribe .revue-embed .revue-form .row .revue-form-group .revue-form-field .button-icon path {
+  transition: all 0.25s ease-out;
 }
 main .newsletter .card .subscribe .revue-embed .revue-form .row .revue-form-group .revue-form-field:hover {
   cursor: pointer;
@@ -1099,6 +1124,9 @@ main .newsletter .card .subscribe .revue-embed .revue-form .row .revue-form-grou
   left: 4px;
   color: #b688ff;
   box-shadow: 0 0 #8F48FF;
+}
+main .newsletter .card .subscribe .revue-embed .revue-form .row .revue-form-group .revue-form-field:hover .button-icon path {
+  fill: #b688ff !important;
 }
 main .newsletter .card .subscribe .revue-embed .revue-form .row .revue-form-group .revue-form-field:hover {
   top: 4px;
@@ -1126,7 +1154,11 @@ main .newsletter .card .subscribe .revue-embed .revue-form .row .revue-form-acti
   left: 0;
   box-shadow: 4px -4px #8F48FF;
   text-decoration: none;
+  text-align: center;
   background: #2B2B2B;
+}
+main .newsletter .card .subscribe .revue-embed .revue-form .row .revue-form-actions input .button-icon path {
+  transition: all 0.25s ease-out;
 }
 main .newsletter .card .subscribe .revue-embed .revue-form .row .revue-form-actions input:hover {
   cursor: pointer;
@@ -1134,6 +1166,9 @@ main .newsletter .card .subscribe .revue-embed .revue-form .row .revue-form-acti
   left: 4px;
   color: #b688ff;
   box-shadow: 0 0 #8F48FF;
+}
+main .newsletter .card .subscribe .revue-embed .revue-form .row .revue-form-actions input:hover .button-icon path {
+  fill: #b688ff !important;
 }
 @media only screen and (max-width: 550px) {
   main .newsletter .card .subscribe .revue-embed .revue-form .row .revue-form-actions {
@@ -1387,9 +1422,13 @@ main .main-article .button {
   left: 0;
   box-shadow: 4px -4px #8F48FF;
   text-decoration: none;
+  text-align: center;
   margin: 0 auto;
   display: table;
   padding: 1.5rem 4rem;
+}
+main .main-article .button .button-icon path {
+  transition: all 0.25s ease-out;
 }
 main .main-article .button:hover {
   cursor: pointer;
@@ -1397,6 +1436,9 @@ main .main-article .button:hover {
   left: 4px;
   color: #b688ff;
   box-shadow: 0 0 #8F48FF;
+}
+main .main-article .button:hover .button-icon path {
+  fill: #b688ff !important;
 }
 main .main-article .button:after {
   display: none;

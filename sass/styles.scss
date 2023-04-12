@@ -198,6 +198,11 @@ input {
   left:0;
   box-shadow:4px -4px $primary;
   text-decoration:none;
+  text-align: center;
+    
+  .button-icon path {
+    transition: all 0.25s ease-out;
+  }
 
   &:hover {
     cursor:pointer;
@@ -205,7 +210,14 @@ input {
     left:4px;
     color:$btn-hover;
     box-shadow:0 0 $primary;
+    
+    .button-icon path {
+      fill:$btn-hover!important;
+    }
   }
+
+  
+
 }
 
 .alert {

@@ -1,6 +1,6 @@
 ---
 layout: post-layout.njk
-title: Tesla Configurator & Battery Range Calculator — Interactive HTML Email Experiment
+title: Tesla Car Configurator - Interactive HTML Email Experiment
 description: My personal challenge to build a complex & real world interactive email.
 date: 2021-05-13
 tags: ["post"]
