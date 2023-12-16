@@ -1,6 +1,6 @@
 ---
 layout: post-layout.njk
-title: Faux Absolute Positioning + Parallax - Email Experiment
+title: Parallax in Email with fallback - Email Experiment
 description: An experiment with faux absolute + parallax as a progressive enhancement.
 date: 2023-04-10
 tags: ["post"]
