@@ -57,9 +57,9 @@ But first, some reflection.
 
 ## 🫗 One for the homies
 
-In the past, the community has come up with a great alternative to parallax, in fixed/absolute positioning. A great example of this is the infamous [Taco&nbsp;Bell](http://tacobell.mkt7706.com/breakfastjourneyA) email by [Heidi Olsen](https://twitter.com/SwissWebMiss?t=Obxgbym7lDJYk-nzoVeXiw&s=09). Heidi was kind enough to share a little background and the actual code to this email. <br>
+In the past, the community has come up with a great alternative to parallax, in fixed/absolute positioning. A great example of this is the infamous [Taco&nbsp;Bell](https://parcel.io/e/666b2172-828c-40cf-9fd0-f84e8deec8a7) email by [Heidi Olsen](https://twitter.com/SwissWebMiss?t=Obxgbym7lDJYk-nzoVeXiw&s=09). Heidi was kind enough to share a little background and the actual code to this email. <br>
 Well worth a look if you haven't seen it before:
-- [Heidi's fixed position email](http://tacobell.mkt7706.com/breakfastjourneyA)
+- [Heidi's fixed position email](https://parcel.io/e/666b2172-828c-40cf-9fd0-f84e8deec8a7)
 - [Heidi's write-up on the Litmus forum](https://litmus.com/community/discussions/5118-using-z-index-and-fixed-positioning-to-create-a-scrolling-experience)
 - [Heidi's original source code](https://litmus.com/builder/dbcd85f)
 
