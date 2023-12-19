@@ -61,7 +61,6 @@ In the past, the community has come up with a great alternative to parallax, in 
 Well worth a look if you haven't seen it before:
 - [Heidi's fixed position email](https://parcel.io/e/666b2172-828c-40cf-9fd0-f84e8deec8a7)
 - [Heidi's write-up on the Litmus forum](https://litmus.com/community/discussions/5118-using-z-index-and-fixed-positioning-to-create-a-scrolling-experience)
-- [Heidi's original source code](https://litmus.com/builder/dbcd85f)
 
 Email on Acid then built their own version a year or so later, improving on Heidi's idea, with better email client support, utilising… faux absolute positioning! That technique just gives and gives and gives. 
 
