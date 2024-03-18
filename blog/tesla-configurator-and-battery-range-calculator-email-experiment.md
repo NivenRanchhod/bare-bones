@@ -240,14 +240,6 @@ An upside of this method of setup is the flexibility to amend those figures goin
 
 This specific execution doesn't have amazing support, as noted earlier on. It pretty much only works in Apple Mail (desktop & mobile) & Outlook Office 365 (MacOS). But it still shows what is possible.
 
-![](/images/blog-images/tesla-calculator-fallback.png)
-
-The fall back I have in place is literally just for fun. If this were a commissioned project, then I would have looked into a static alternative which pointed the user to use the website configurator.
-
-Or I could have looked into splitting the build out and looked into how the tabbed slideshow could work in Yahoo webmail.
-
-There are definitely other avenues I could have taken but ultimately the challenge was to build a complex interactive email and I did it!
-
 <div class="divider"><img src="/images/crossbones.svg" alt="" loading="lazy" decoding="async" /></div>
 
 ## 😭 Conclusion
