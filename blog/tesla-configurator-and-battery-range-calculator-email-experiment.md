@@ -4,7 +4,6 @@ title: Tesla Car Configurator - Interactive HTML Email Experiment
 description: My personal challenge to build a complex & real world interactive email.
 date: 2021-05-13
 tags: ["post"]
-# source: medium
 ---
 
 My personal challenge to build a complex & real world interactive email.
